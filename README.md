@@ -1,4 +1,5 @@
 # マナウィズ
+![logo](https://user-images.githubusercontent.com/106213752/211083446-d8daf085-07e0-453b-b4c0-4c5fda6fa9c1.png)
 
 ## サイト概要
 ### サイトテーマ
