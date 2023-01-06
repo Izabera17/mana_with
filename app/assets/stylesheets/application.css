@@ -13,3 +13,57 @@
  *= require_tree .
  *= require_self
  */
+ 
+@charset "UTF-8";
+
+a {
+  text-decoration: none;
+}
+
+.body {
+  margin: 0px;
+}
+
+#header {
+  display: flex;
+  justify-content: space-between;
+}
+
+#header .logo a img {
+  width: 200px;
+  max-width: 100%;
+}
+
+
+#header .main-nav {
+  display: flex;
+  font-size: 1.25rem;
+  margin-top: 20px;
+}
+
+#header .main-nav .nav-header-menu {
+  list-style: none;
+  margin-left: 36px;
+}
+
+#header .main-nav .nav-header-menu a {
+  color: rgba(255,255,255,0.8);
+  font-family:"凸版文久ゴシック";
+}
+
+.wrapper {
+  max-width: 100%;
+  margin: 0px auto;
+  padding: 0 4%;
+}
+
+.big-bg {
+  background-size: cover;
+  background-position: center top;
+}
+
+#home {
+  background-image: url(../assets/background-image1.png);
+  min-height: 80vh;
+  margin: 0px;
+}

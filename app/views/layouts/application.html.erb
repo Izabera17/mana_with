@@ -10,7 +10,11 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="body">
+    <div id="home" class="big-bg">
+      <%= render 'shared/header' %>
+      <%= yield %>  
+    </div>
+    <%= render 'shared/footer' %>
   </body>
 </html>
