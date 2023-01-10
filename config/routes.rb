@@ -25,9 +25,7 @@ Rails.application.routes.draw do
   resources :tags, only: [:index]
   resources :users, only: [:index]
   
-  resources :genres, only: [:edit]
-  
-  get 'genres/index' => "genres#index"
+  resources :genres
   
   get "users/mypage" => "users#show"
 end
