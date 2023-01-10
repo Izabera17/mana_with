@@ -1,2 +1,43 @@
-<h1>PostLearnings#edit</h1>
-<p>Find me in app/views/post_learnings/edit.html.erb</p>
+<div class="main">
+   <%= render 'shared/header' %>
+    <div class="top-contents">
+      <aside>
+      <%= render 'shared/sidebar' %> 
+      </aside>
+      <article>
+        <h1>編集画面</h1>
+        <%= form_with model: @post_learning, local:true do |f| %>
+          <div>
+            <%= f.label :post_image, "商品画像" %>
+            <%= f.file_field :post_image, accept: "image/*"  %>
+          <div></div>
+          </div>
+          <div>
+            <%= f.label :learning_name, "学習名" %>
+            <%= f.text_field :learning_name, placeholder: "例）HTMLコーディング"  %>
+            <div></div>
+          </div>
+          <div>
+            <%= f.label :learning_content, "頑張ったこと" %>
+            <%= f.text_area :learning_content, placeholder: "例）Flexboxの理解と実装。marginの余白調整" %>
+            <div></div>
+          </div>
+          <div>
+            <%= f.label :learning_real, "学びの本音" %>
+            <%= f.text_area :learning_real, placeholder: "例）Flexboxを実装できたけど、やっぱり難しい。もっと良い方法を学びたい。デザインは自身ある！" %>
+            <div></div>
+          </div>
+          <div>
+            <%= f.label :genre_id, "ジャンル" %>
+            <%= f.collection_select :genre_id, Genre.all, :id, :name, { prompt: '選択してください' }  %>
+            <div></div>
+          </div>
+          <div>
+            <%= f.submit '変更を保存' %>
+          </div>
+        <% end %> 
+      </article>
+    </div>
+</div>
+
+

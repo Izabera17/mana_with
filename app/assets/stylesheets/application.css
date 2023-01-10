@@ -55,13 +55,14 @@ body {
    color: #900630;
 }
 
-.sidebar {
-  border: 1px solid #000;
+.sidebar-full {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 20px;
 }
 
-.sidebar p {
-  border: 1px solid #000;
-  text-align: center;
+.sidebar {
+  margin-right: 30px;
 }
 
 .sidebar-contents {
@@ -156,3 +157,31 @@ body {
 .search-form input[type="submit"] {
   height: 33px;
 }
+
+article {
+  width: 78%;
+}
+
+aside {
+  width: 22%;
+}
+
+.top-contents {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 30px 50px;
+}
+
+/* Home画面 */
+
+.header-home {
+  display: flex;
+  justify-content: space-between;
+  background-color: #DDA456;
+}
+
+.header-home .logo a img {
+  width: 180px;
+  margin: 5px 0px 0px 5px;
+}
+

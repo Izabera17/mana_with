@@ -1,113 +1,49 @@
 <div class="main">
-    <div class="header-home">
-        <div class="logo">
-          <a href="/">
-            <img src="/assets/logo.png" alt="ロゴ画像">
-          </a>
-        </div>
-        <div class="nav-haeder">
-          <div class="menu-li">
-              <ul class="main-nav">
-                <% if user_signed_in? %>
-                  <li class="nav-header-menu">
-                    <%= link_to "Home", home_path %>
-                  </li>
-                  <li class="nav-header-menu">
-                    <%= link_to "MyPage",  users_mypage_path  %>
-                  </li>
-                  <li class="nav-header-menu">
-                    <%= link_to "Users", users_path %>
-                  </li>
-                  <li class="nav-header-menu">
-                    <%= link_to "学習投稿一覧", post_learnings_path %>
-                  </li>
-                   <li class="nav-header-menu">
-                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-                  </li>
-                <% else %>
-                  <li class="nav-header-menu">
-                    <%= link_to "Top", root_path %>
-                  </li>
-                  <li class="nav-header-menu">
-                    <%= link_to "ログイン", new_user_session_path %>
-                  </li>
-                  <li class="nav-header-menu">
-                    <%= link_to "新期登録", new_user_registration_path %>
-                  </li>
-                <% end %>
-              </ul>
-          </div>
-
-        </div>
-    </div>
-
+   <%= render 'shared/header' %>
     <div class="top-contents">
       <aside>
-        <div class="sidebar">
-          <div class="sidebar_button">
-            <p class="button_name">投稿する</p>
-          </div>
-        </div>
-        <div class="sidebar-contents">
-          <div class="sidebar-menu">
-            <p>　メニュー</p>
-            <div class="sidebar-list">
-              <ul>
-                <li>
-                  <%= link_to home_path, class: "home-link" do %>
-                    <%= image_tag '/assets/home_icon.png', class:'icon' %>
-                    <span>Home</span>
-                  <% end %>
-                </li>
-                 <li>
-                  <%= link_to users_path, class: "icon-link" do %>
-                    <%= image_tag '/assets/users_icon.jpeg', class:'icon' %>
-                    <span>Users</span>
-                  <% end %>
-                </li>
-                 <li>
-                  <%= link_to post_learnings_path, class: "icon-link" do %>
-                    <%= image_tag '/assets/article_icon.png', class:'icon' %>
-                    <span>学習投稿一覧</span>
-                  <% end %>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="sidebar-btn">
-          <%= link_to "投稿する", new_post_learning_path, class: "sidebar-btn-link" %>
-        </div>
-
-        <div class="sidebar-contents">
-          <div class="sidebar-serch">
-            <p class="search-key">　キーワードで探す</p>
-            <div class="sidebar-list">
-              <%= form_tag(search_post_learnings_path,:method => 'get') do %>
-               <div class="search-form">
-                  <%= text_field_tag :search %>
-                  <%= submit_tag '検索', :name => nil %>
-               </div>
-              <% end %>
-              <p class="search-genre">　ジャンルで探す</p>
-              <% @genres.each do |genre| %>
-                <ul>
-                  <li>
-                    <%= link_to genre.name, search_post_learnings_path(genre.id), method: :get %>
-                  </li>
-                  </ul>
-              <% end %>
-            </div>
-          </div>
-        </div>
-
-
-
+      <%= render 'shared/sidebar' %> 
       </aside>
       <article>
-        メインエリア部分
         <%= link_to "ジャンル追加画面へ", genres_path %>
+        <div>
+          <% if request.path.match(/\/search(\/)?/) %>
+            <h2>
+  	         <strong>ジャンル検索結果：<%= @genre.name %></strong></span>
+            </h2>
+  	      <% else %>
+            <h2>
+              <strong>New!</strong>
+            </h2>
+          <% end %>
+
+          <% @post_learnings.each do |post_learnings| %>
+            <p>
+              <%= link_to post_learning_path(post_learnings.id) do %>
+                <%= post_learnings.learning_name %>
+              <% end %>
+            </p>
+            <p><%= time_ago_in_words(post_learnings.created_at) %>前</p>
+            <div>
+              <p>頑張ったこと</p>
+              <%= post_learnings.learning_content %>
+              <%= image_tag post_learnings.post_image.variant(resize_to_limit: [300,200]) if post_learnings.post_image.attached? %>
+            </div>
+            <div>
+              <p>学びの本音</p>
+              <%= post_learnings.learning_content %>
+            </div>
+            <div>
+              <p>学びの本音</p>
+              <%= post_learnings.learning_content %>
+            </div>
+            <div>
+               <p>コメント <%= post_learnings.post_comments.count %>件</p>
+              <p>いいね <%= post_learnings.favorites.count %>件</p>
+            </div>
+            <div>ジャンル名：<%= post_learnings.genre.name %></div>
+          <% end %>
+        </div>
       </article>
     </div>
     <div>

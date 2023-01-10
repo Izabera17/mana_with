@@ -1,2 +1,46 @@
-<h1>PostLearnings#show</h1>
-<p>Find me in app/views/post_learnings/show.html.erb</p>
+<div class="main">
+  <%= render 'shared/header' %>
+  <div>
+    <p><%= time_ago_in_words(@post_learning.created_at) %>前</p>
+    <p>ユーザ名：<%= @post_learning.user.name %></p>
+    <p><%= image_tag @post_learning.post_image.variant(resize_to_limit: [300,200]) if @post_learning.post_image.attached? %></p>
+    <p>学習名：<%= @post_learning.learning_name %></p>
+    <p>頑張ったこと：<%= @post_learning.learning_content %></p>
+    <p>学びの本音：<%= @post_learning.learning_real %></p>
+    <p>ジャンル：<%= @post_learning.genre.name %></p>
+    <% if @post_learning.user == current_user %>
+      <%= link_to "編集", edit_post_learning_path(@post_learning) %>
+    <% end %>
+
+    <% if @post_learning.favorited_by?(current_user) %>
+      <p>
+        <%= link_to post_learning_favorites_path(@post_learning), method: :delete do %>
+          ♥<%= @post_learning.favorites.count %> いいね
+        <% end %>
+      </p>
+    <% else %>
+      <p>
+        <%= link_to post_learning_favorites_path(@post_learning), method: :post do %>
+          ♡<%= @post_learning.favorites.count %> いいね
+        <% end %>
+      </p>
+    <% end %>
+  </div>
+  <div>
+    <p>コメント件数： <%=@post_learning.post_comments.count %></p>
+    <% @post_learning.post_comments.each do |post_comment| %>
+      <p><%= post_comment.user.name %></p>
+      <p><%= post_comment.comment %></p>
+      <p><%= image_tag post_comment.user.get_profile_image(100,100) %></p>
+      <% if post_comment.user == current_user %>
+        <%= link_to "削除", post_learning_post_comment_path(post_comment.post_learning, post_comment), method: :delete %>
+      <% end %>
+    <% end %>
+  </div>
+  <div>
+    <%= form_with model: [@post_learning, @post_comment] do |f| %>
+      <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
+      <%= f.submit "送信する" %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="header-home">
+  <div class="logo">
+    <a href="/">
+      <img src="/assets/logo.png" alt="ロゴ画像">
+    </a>
+  </div>
+  <div class="nav-haeder">
+    <div class="menu-li">
+      <ul class="main-nav">
+        <% if user_signed_in? %>
+          <li class="nav-header-menu">
+            <%= link_to "Home", home_path %>
+          </li>
+          <li class="nav-header-menu">
+            <%= link_to "MyPage",  users_mypage_path  %>
+          </li>
+          <li class="nav-header-menu">
+            <%= link_to "Users", users_path %>
+          </li>
+          <li class="nav-header-menu">
+            <%= link_to "学習投稿一覧", post_learnings_path %>
+          </li>
+          <li class="nav-header-menu">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          </li>
+        <% else %>
+          <li class="nav-header-menu">
+            <%= link_to "Top", root_path %>
+          </li>
+          <li class="nav-header-menu">
+            <%= link_to "ログイン", new_user_session_path %>
+          </li>
+          <li class="nav-header-menu">
+            <%= link_to "新期登録", new_user_registration_path %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

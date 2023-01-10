@@ -6,8 +6,12 @@ Rails.application.routes.draw do
 
   
   resources :post_learnings do
+    resources :post_comments, only: [:create, :destroy]
+    resource :favorites, only: [:create, :destroy]
     get :search, on: :collection
   end
+  
+  post "post_learnings/new" => "post_learnings#new"
   
   
   devise_for :users, controllers: {
@@ -20,8 +24,6 @@ Rails.application.routes.draw do
     get "users/guest_sign_in", to: "users/sessions#guest_sign_in"
   end
   
-  resources :post_comments, only: [:create, :destroy]
-  resources :favorites, only: [:create, :destroy]
   resources :tags, only: [:index]
   resources :users, only: [:index]
   

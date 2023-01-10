@@ -1,25 +1,45 @@
-<h1>投稿フォーム</h1>
-<%= form_with model: @post_learnings, local:true do |f| %>
+<div class="main">
+ <%= render 'shared/header' %>
  <div>
-  <%= f.label :image, "商品画像" %>
-  <%= f.file_field :image, accept: "image/*"  %>
-  <div></div>
+  <% if @post_learning.errors.any? %>
+   <%= @post_learning.errors.count %>件のエラーが発生しました
+   <ul>
+     <% @post_learning.errors.full_messages.each do |message| %>
+       <li><%= message %></li>
+     <% end %>
+   </ul>
+  <% end %>
+
+  <h1>投稿フォーム</h1>
+   <%= form_with model: @post_learning, local:true do |f| %>
+    <div>
+     <%= f.label :post_image, "商品画像" %>
+     <%= f.file_field :post_image, accept: "image/*"  %>
+    <div></div>
+    </div>
+    <div>
+     <%= f.label :learning_name, "学習名" %>
+     <%= f.text_field :learning_name, placeholder: "例）HTMLコーディング"  %>
+     <div></div>
+    </div>
+    <div>
+     <%= f.label :learning_content, "頑張ったこと" %>
+     <%= f.text_area :learning_content, placeholder: "例）Flexboxの理解と実装。marginの余白調整" %>
+     <div></div>
+    </div>
+    <div>
+     <%= f.label :learning_real, "学びの本音" %>
+     <%= f.text_area :learning_real, placeholder: "例）Flexboxを実装できたけど、やっぱり難しい。もっと良い方法を学びたい。デザインは自身ある！" %>
+     <div></div>
+    </div>
+    <div>
+     <%= f.label :genre_id, "ジャンル" %>
+     <%= f.collection_select :genre_id, Genre.all, :id, :name, { prompt: '選択してください' }  %>
+     <div></div>
+     <div>
+      <%= f.submit '新規登録' %>
+     </div>
+    </div>
+   <% end %> 
  </div>
- <div>
-  <%= f.label :learning_name, "学習名" %>
-  <%= f.text_field :learning_name, placeholder: "学習名"  %>
-  <div></div>
- </div>
- <div>
-  <%= f.label :learning_content, "頑張ったこと" %>
-  <%= f.text_area :learning_content, placeholder: "ここに説明文を記述します" %>
-  <div></div>
- </div>
- <div>
-  <%= f.label :genre_id, "ジャンル" %>
-  <%= f.collection_select :genre_id, Genre.all, :id, :name, { prompt: '選択してください' }, class: 'col-md-4' %>
- <div></div>
- <div>
-  <%= f.submit '新規登録' %>
- </div>
-<% end %>
+</div>
