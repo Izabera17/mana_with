@@ -10,9 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_06_155716) do
+ActiveRecord::Schema.define(version: 2023_01_10_075852) do
 
   create_table "favorites", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -32,8 +38,14 @@ ActiveRecord::Schema.define(version: 2023_01_06_155716) do
   end
 
   create_table "post_learnings", force: :cascade do |t|
+    t.integer "genre_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.string "learning_name"
+    t.string "learning_content"
+    t.text "learning_real"
+    t.index ["user_id"], name: "index_post_learnings_on_user_id"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -59,4 +71,5 @@ ActiveRecord::Schema.define(version: 2023_01_06_155716) do
 
   add_foreign_key "post_learning_tags", "post_learnings"
   add_foreign_key "post_learning_tags", "tags"
+  add_foreign_key "post_learnings", "users"
 end

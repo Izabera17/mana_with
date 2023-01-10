@@ -1,2 +1,25 @@
-<h1>PostLearnings#new</h1>
-<p>Find me in app/views/post_learnings/new.html.erb</p>
+<h1>投稿フォーム</h1>
+<%= form_with model: @post_learnings, local:true do |f| %>
+ <div>
+  <%= f.label :image, "商品画像" %>
+  <%= f.file_field :image, accept: "image/*"  %>
+  <div></div>
+ </div>
+ <div>
+  <%= f.label :learning_name, "学習名" %>
+  <%= f.text_field :learning_name, placeholder: "学習名"  %>
+  <div></div>
+ </div>
+ <div>
+  <%= f.label :learning_content, "頑張ったこと" %>
+  <%= f.text_area :learning_content, placeholder: "ここに説明文を記述します" %>
+  <div></div>
+ </div>
+ <div>
+  <%= f.label :genre_id, "ジャンル" %>
+  <%= f.collection_select :genre_id, Genre.all, :id, :name, { prompt: '選択してください' }, class: 'col-md-4' %>
+ <div></div>
+ <div>
+  <%= f.submit '新規登録' %>
+ </div>
+<% end %>

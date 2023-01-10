@@ -1,26 +1,65 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<div class="body">
+  <div class="header">
+    <div class="logo">
+      <a href="/">
+        <img src="/assets/logo.png" alt="ロゴ画像">
+      </a>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
+    <div class="nav-haeder">
+      <ul class="main-nav">
+        <% if user_signed_in? %>
+          <li class="nav-header-menu">
+            <%= link_to "Home", home_path %>
+          </li>
+          <li class="nav-header-menu">
+            <%= link_to "MyPage",  users_mypage_path  %>
+          </li>
+          <li class="nav-header-menu">
+            <%= link_to "Users", users_path %>
+          </li>
+          <li class="nav-header-menu">
+            <%= link_to "学習投稿一覧", post_learnings_path %>
+          </li>
+           <li class="nav-header-menu">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          </li>
+        <% else %>
+          <li class="nav-header-menu">
+            <%= link_to "Top", root_path %>
+          </li>
+          <li class="nav-header-menu">
+            <%= link_to "ログイン", new_user_session_path %>
+          </li>
+          <li class="nav-header-menu">
+            <%= link_to "新期登録", new_user_registration_path %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+  <div class="box">
+    
+    <div class="box-inner">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <h1>ログイン</h1>  
+        <table cellspacing="30" class="box-table">
+          <tr class="box-email">
+            <td class=label><%= f.label :email, "メールアドレス" %>  </td>
+            <td class="table-inner"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+          </tr>
+          <tr class="box-password">
+            <td class="label"><%= f.label :password, "パスワード" %></td>
+            <td class="table-inner"><%= f.password_field :password, autocomplete: "current-password" %></td>
+          </tr>
+        </table>
+        <div class="box-login">
+          <%= f.submit "ログイン" %>  
+        </div>
+        <div class="box-guest-login">
+          <%= link_to "ゲストログイン", users_guest_sign_in_path, data: { turbo_method: :post }, class: "guest-login"%>
+        </div>
+      <% end %>
+    </div>  
+  </div>
+</div>
+   

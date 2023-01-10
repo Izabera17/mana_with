@@ -8,13 +8,11 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  
   </head>
 
-  <body class="body">
-    <div id="home" class="big-bg">
-      <%= render 'shared/header' %>
-      <%= yield %>  
-    </div>
+  <body>
+    <%= yield %>  
     <%= render 'shared/footer' %>
   </body>
 </html>

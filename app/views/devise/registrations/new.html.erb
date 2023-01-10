@@ -1,34 +1,69 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<div class="body">
+  <div class="header">
+    <div class="logo">
+      <a href="/">
+        <img src="/assets/logo.png" alt="ロゴ画像">
+      </a>
+    </div>
+    <div class="nav-haeder">
+      <ul class="main-nav">
+        <% if user_signed_in? %>
+          <li class="nav-header-menu">
+            <%= link_to "Home", home_path %>
+          </li>
+          <li class="nav-header-menu">
+            <%= link_to "MyPage",  users_mypage_path  %>
+          </li>
+          <li class="nav-header-menu">
+            <%= link_to "Users", users_path %>
+          </li>
+          <li class="nav-header-menu">
+            <%= link_to "学習投稿一覧", post_learnings_path %>
+          </li>
+           <li class="nav-header-menu">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          </li>
+        <% else %>
+          <li class="nav-header-menu">
+            <%= link_to "Top", root_path %>
+          </li>
+          <li class="nav-header-menu">
+            <%= link_to "ログイン", new_user_session_path %>
+          </li>
+          <li class="nav-header-menu">
+            <%= link_to "新期登録", new_user_registration_path %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
   <%= render "devise/shared/error_messages", resource: resource %>
-  
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="box_signin">
+    <div class="box-inner">
+     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <h1>新期登録</h1>  
+        <table cellspacing="30" class="box-table">
+          <tr class="box-name">
+            <td><%= f.label :name, "ユーザー名" %></td> 
+            <td><%= f.text_field :name %></td>
+          </tr>
+          <tr class="box-email">
+            <td class=label><%= f.label :email, "メールアドレス" %>  </td>
+            <td class="table-inner"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+          </tr>
+          <tr class="box-password">
+            <td><%= f.label :password, "パスワード" %></td>
+            <td><%= f.password_field :password, autocomplete: "new-password" %></td>
+          </tr>
+           <tr class="box-password">
+            <td><%= f.label :password_confirmation, "パスワード（再確認）" %></td>
+            <td> <%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
+          </tr>
+        </table>
+        <div class="box-signin">
+          <%= f.submit "新期登録" %>  
+        </div>
+      <% end %>
+    </div>  
   </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

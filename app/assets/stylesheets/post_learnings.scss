@@ -1,3 +1,39 @@
 // Place all the styles related to the post_learnings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.body {
+  background-color: #FFEBCB; 
+  height: calc(100vh - 76px);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #DDA456;
+}
+
+.header .logo a img {
+  width: 180px;
+  margin: 5px 0px 0px 5px;
+}
+
+.header .main-nav {
+  display: flex;
+  font-size: 1.25rem;
+  margin-top: 22px;
+}
+
+.header .main-nav .nav-header-menu {
+  list-style: none;
+  margin: 0px 15px;
+}
+
+
+.header .main-nav .nav-header-menu:last-child {
+  margin-right: 55px;
+}
+
+.header .main-nav .nav-header-menu a {
+  color: #460A0A;
+  font-family:"凸版文久ゴシック";
+}

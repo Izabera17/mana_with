@@ -13,42 +13,13 @@
  *= require_tree .
  *= require_self
  */
- 
-@charset "UTF-8";
 
 a {
   text-decoration: none;
 }
 
-.body {
+body {
   margin: 0px;
-}
-
-#header {
-  display: flex;
-  justify-content: space-between;
-}
-
-#header .logo a img {
-  width: 200px;
-  max-width: 100%;
-}
-
-
-#header .main-nav {
-  display: flex;
-  font-size: 1.25rem;
-  margin-top: 20px;
-}
-
-#header .main-nav .nav-header-menu {
-  list-style: none;
-  margin-left: 36px;
-}
-
-#header .main-nav .nav-header-menu a {
-  color: rgba(255,255,255,0.8);
-  font-family:"凸版文久ゴシック";
 }
 
 .wrapper {
@@ -57,13 +28,131 @@ a {
   padding: 0 4%;
 }
 
-.big-bg {
-  background-size: cover;
-  background-position: center top;
+
+#footer {
+  display: flex;
+  background-color: #DDA456;
+  justify-content: space-between;
+  padding: 10px 0px;
 }
 
-#home {
-  background-image: url(../assets/background-image1.png);
-  min-height: 80vh;
-  margin: 0px;
+.footer-copy p {
+  color: #fff;
+  margin-left: 20px
+}
+
+.footer-list li {
+  list-style: none;
+  display: inline-block;
+  margin: 0px 20px;
+}
+
+.footer-list:last-child {
+  margin-right: 50px
+}
+
+.footer-text {
+   color: #900630;
+}
+
+.sidebar {
+  border: 1px solid #000;
+}
+
+.sidebar p {
+  border: 1px solid #000;
+  text-align: center;
+}
+
+.sidebar-contents {
+    border: 1px solid #000;
+}
+
+.sidebar-menu p {
+  border-left: 5px solid #0CCC31;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.sidebar-list li {
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.home-link span {
+  font-size: 24px;
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 10px;
+  font-family: "筑紫A丸ゴシック";
+  font-weight: bold;
+  color: #000
+}
+
+.home-link span:hover,
+.icon-link span:hover {
+  opacity: 0.5;
+}
+
+.icon-link span {
+  font-size: 24px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+  font-family: "筑紫A丸ゴシック";
+  font-weight: bold;
+  color: #000
+}
+
+.sidebar-btn {
+  text-align: center;
+  margin: 20px 0px;
+}
+
+.sidebar-btn-link {
+  display: inline-block;
+  padding: 0.8em 3em;
+  background-color: #3C4BFF;
+  box-shadow: 0 5px 0 #0014FF;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.sidebar-btn-link:active {
+  font-color: #fff;
+  box-shadow: none;
+  transform: translateY(5px);
+}
+
+.search-key {
+  border-left: 5px solid #2076EB;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.search-genre {
+  border-left: 5px solid #EB5720;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.search-form input[type="text"] {
+  width: 65%;
+  height: 31px;
+  border: 1px solid #a6a6a6;
+  border-radius: 3px;
+  margin-left: 25px;
+}
+
+.search-form input[type="submit"] {
+  height: 33px;
 }
