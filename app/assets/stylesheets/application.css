@@ -55,7 +55,8 @@ body {
    color: #900630;
 }
 
-.sidebar-full {
+.sidebar-full,
+.sidebar-contents {
   position: -webkit-sticky;
   position: sticky;
   top: 20px;
@@ -65,13 +66,20 @@ body {
   margin-right: 30px;
 }
 
+.sidebar-content {
+  margin-left: 30px;
+}
+
+.sidebar-content, 
 .sidebar-contents {
-    border: 1px solid #000;
+  background-color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
 }
 
 .sidebar-menu p {
   border-left: 5px solid #0CCC31;
-  font-size: 25px;
+  font-size: 19px;
   font-weight: bold;
 }
 
@@ -80,15 +88,28 @@ body {
   margin-bottom: 10px;
 }
 
+.sidebar-left-btn {
+  background-color: #fff;
+  padding: 8px 0px;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+.sidebar-left-btn p {
+  text-align: center;
+  font-family: "凸版文久明朝";
+  font-size: 20px;
+}
+
 .icon {
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   display: inline-block;
   vertical-align: middle;
 }
 
 .home-link span {
-  font-size: 24px;
+  font-size: 20px;
   display: inline-block;
   vertical-align: top;
   margin-left: 10px;
@@ -103,7 +124,7 @@ body {
 }
 
 .icon-link span {
-  font-size: 24px;
+  font-size: 18px;
   display: inline-block;
   vertical-align: middle;
   margin-left: 10px;
@@ -114,18 +135,19 @@ body {
 
 .sidebar-btn {
   text-align: center;
-  margin: 20px 0px;
+  margin: 15px 0px;
 }
 
 .sidebar-btn-link {
   display: inline-block;
-  padding: 0.8em 3em;
-  background-color: #3C4BFF;
-  box-shadow: 0 5px 0 #0014FF;
+  padding: 0.8em 6em;
+  background-color: #ED8900;
+  box-shadow: 0 5px 0 #C47405;
   border-radius: 5px;
   color: #fff;
   cursor: pointer;
   text-decoration: none;
+  font-size: 18px;
 }
 
 .sidebar-btn-link:active {
@@ -136,13 +158,13 @@ body {
 
 .search-key {
   border-left: 5px solid #2076EB;
-  font-size: 25px;
+  font-size: 19px;
   font-weight: bold;
 }
 
 .search-genre {
   border-left: 5px solid #EB5720;
-  font-size: 25px;
+  font-size: 19px;
   font-weight: bold;
 }
 
@@ -159,25 +181,26 @@ body {
 }
 
 article {
-  width: 78%;
+  width: 70%;
 }
 
-aside {
-  width: 22%;
+aside .sidebar_left {
+  width: 20%;
+}
+
+aside .sidebar_right {
+  width: 10px;
 }
 
 .top-contents {
   display: flex;
   justify-content: space-between;
-  margin: 20px 30px 50px;
+  margin: 0px 30px;
 }
-
-/* Home画面 */
 
 .header-home {
   display: flex;
   justify-content: space-between;
-  background-color: #DDA456;
 }
 
 .header-home .logo a img {
@@ -185,3 +208,33 @@ aside {
   margin: 5px 0px 0px 5px;
 }
 
+
+.search-genre-li {
+  color: #000;
+  font-size: 18px;
+  font-family: "筑紫A丸ゴシック";
+  font-weight: bold;
+}
+
+.first-home-view {
+  position: relative;
+  width: 100vw;
+  margin: 0px;
+  background-size: cover;
+  background-position: center top;
+  background-repeat:  no-repeat;
+  background-attachment: fixed;
+  background-image: url(../assets/background-image3.jpeg);
+}
+
+.article-inner {
+  background-color: #fff;
+  border-radius: 5px;
+  margin: 20px 0px; 
+  padding: 0px 10px; 
+}
+
+.article-inner:first-child ,
+.article-inner p:first-child {
+  margin-top: 0px;
+}

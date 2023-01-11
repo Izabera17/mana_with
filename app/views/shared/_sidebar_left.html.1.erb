@@ -43,8 +43,8 @@
           <p class="search-genre">　ジャンルで探す</p>
           <% @genres.each do |genre| %>
             <ul>
-              <li>
-                <%= link_to genre.name, search_post_learnings_path(genre.id), method: :get %>
+              <li class="search-list">
+                <%= link_to genre.name, search_post_learnings_path(genre.id), method: :get, class: "search-genre-li" %>
               </li>
             </ul>
           <% end %>

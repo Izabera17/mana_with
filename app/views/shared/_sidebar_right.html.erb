@@ -1,0 +1,33 @@
+<div class="sidebar-content">
+      <div class="sidebar-menu">
+        <p>　メニュー</p>
+        <div class="sidebar-list">
+          <ul>
+            <li>
+              <%= link_to home_path, class: "home-link" do %>
+                <%= image_tag '/assets/home_icon.png', class:'icon' %>
+                <span>Home</span>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to users_mypage_path, class: "icon-link" do %>
+                <%= image_tag '/assets/mypage_icon.png', class:'icon' %>
+                <span>Mypage</span>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to users_path, class: "icon-link" do %>
+                <%= image_tag '/assets/users_icon.jpeg', class:'icon' %>
+                <span>Users</span>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to post_learnings_path, class: "icon-link" do %>
+                <%= image_tag '/assets/article_icon.png', class:'icon' %>
+                <span>学習投稿一覧</span>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>

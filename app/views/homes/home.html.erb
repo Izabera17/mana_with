@@ -1,23 +1,27 @@
-<div class="main">
-   <%= render 'shared/header' %>
-    <div class="top-contents">
-      <aside>
-      <%= render 'shared/sidebar' %> 
-      </aside>
-      <article>
-        <%= link_to "ジャンル追加画面へ", genres_path %>
-        <div>
-          <% if request.path.match(/\/search(\/)?/) %>
-            <h2>
+<div class="first-home-view">
+  <%= render 'shared/header' %>
+  <div class="content-title">
+    <%= link_to "ジャンル追加画面へ", genres_path %>
+      <div>
+        <% if request.path.match(/\/search(\/)?/) %>
+          <h2>
   	         <strong>ジャンル検索結果：<%= @genre.name %></strong></span>
-            </h2>
-  	      <% else %>
-            <h2>
-              <strong>New!</strong>
-            </h2>
-          <% end %>
-
-          <% @post_learnings.each do |post_learnings| %>
+          </h2>
+  	    <% else %>
+          <h2>
+            <strong>New!</strong>
+          </h2>
+      </div>
+    <% end %>
+  </div>
+  <div class="top-contents">
+    <aside class="sidebarleft">
+      <%= render 'shared/sidebar_left' %> 
+    </aside>
+    <article class="home-article">
+      <div class="article-contents">
+        <% @post_learnings.each do |post_learnings| %>
+          <div class="article-inner">
             <p>
               <%= link_to post_learning_path(post_learnings.id) do %>
                 <%= post_learnings.learning_name %>
@@ -34,19 +38,17 @@
               <%= post_learnings.learning_content %>
             </div>
             <div>
-              <p>学びの本音</p>
-              <%= post_learnings.learning_content %>
-            </div>
-            <div>
-               <p>コメント <%= post_learnings.post_comments.count %>件</p>
+              <p>コメント <%= post_learnings.post_comments.count %>件</p>
               <p>いいね <%= post_learnings.favorites.count %>件</p>
             </div>
             <div>ジャンル名：<%= post_learnings.genre.name %></div>
-          <% end %>
-        </div>
-      </article>
-    </div>
-    <div>
-
-    </div>
+          </div>
+        <% end %>
+      </div>
+    </article>
+    <aside class="sidebar_right">
+      <%= render 'shared/sidebar_right' %> 
+    </aside>
+  </div>
+</div>
 
