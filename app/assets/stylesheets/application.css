@@ -56,7 +56,7 @@ body {
 }
 
 .sidebar-full,
-.sidebar-contents {
+.sidebar-content {
   position: -webkit-sticky;
   position: sticky;
   top: 20px;
@@ -147,7 +147,6 @@ body {
   color: #fff;
   cursor: pointer;
   text-decoration: none;
-  font-size: 18px;
 }
 
 .sidebar-btn-link:active {
@@ -231,10 +230,128 @@ aside .sidebar_right {
   background-color: #fff;
   border-radius: 5px;
   margin: 20px 0px; 
-  padding: 0px 10px; 
+  padding: 0px 30px; 
 }
 
 .article-inner:first-child ,
 .article-inner p:first-child {
   margin-top: 0px;
+}
+
+.article-upper-half {
+  display: flex;
+  justify-content: space-between;
+}
+
+.article-lower-half {
+  display: flex;
+}
+
+.article-title {
+  margin-top: 3px;
+  padding-top: 5px;
+}
+
+.article-time {
+  margin-left: 25px;
+  padding-top: 18px;
+  color: rgba( 0, 0, 0, 0.4);
+  font-size: 12px;
+}
+
+.article-title a {
+  font-size: 25px;
+  font-family: "游ゴシック体";
+  font-weight: bold;
+  background: linear-gradient(transparent 80%, #00FFC4 75%);
+  color: #000;
+}
+
+.article-user-name {
+  color: rgba( 0, 0, 0, 0.4);
+  font-size: 14px;
+  padding-top: 18px;
+  margin: 0px 10px 0px 10px;
+}
+
+.article-user-image img {
+  border-radius: 50%;
+  border: 1px solid #EAEAEA;
+  width: 55px;
+  height: 55px;
+}
+
+.upper-left,
+.upper-right {
+  display: flex;
+  margin-top: 6px;
+}
+
+.article-effort {
+  width: 40%;
+}
+
+.article-eval {
+  width: 60%;
+}
+
+.article-effort p {
+  background-color: #FF0058;
+  text-align: center;
+  color: #fff;
+  width: 48%;
+  border-radius: 30px;
+  font-size: 18px;
+  margin: 0px;
+}
+
+.article-effort-content {
+    font-size: 16px;
+    margin: 10px 0px 10px 10px;
+}
+
+.article-real p {
+  background-color: #FF8900;
+  text-align: center;
+  color: #fff;
+  width: 25%;
+  border-radius: 30px;
+  font-size: 18px;
+  margin: 0px;
+}
+
+.article-real-contents {
+  margin: 10px 0px;
+}
+
+.eval-lower {
+  display: flex;
+  justify-content: space-between;
+}
+
+.article-comments-favorites {
+  display: flex;
+}
+
+.article-genre {
+  display: flex;
+}
+
+.article-favorites,
+.article-comments {
+  margin: 5px 10px 0px 0px;
+}
+
+.article-favorites:first-child {
+  margin-left: 10px;
+}
+
+.article-genre-title {
+  margin-right: 10px;
+}
+
+.article-genre-title p {
+  background-color: #14B100;
+  color: #fff;
+  padding: 0px 8px;
 }
