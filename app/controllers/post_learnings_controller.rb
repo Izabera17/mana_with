@@ -2,6 +2,7 @@ class PostLearningsController < ApplicationController
   
   def new
     @post_learning = PostLearning.new
+    @genres = Genre.all
   end
   
   def create
@@ -24,6 +25,7 @@ class PostLearningsController < ApplicationController
   def show
     @post_learning = PostLearning.find(params[:id])
     @post_comment = PostComment.new
+    @genres = Genre.all
   end
 
   def edit

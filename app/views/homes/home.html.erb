@@ -1,21 +1,22 @@
 <div class="first-home-view">
   <%= render 'shared/header' %>
-  <div class="content-title">
-    <%= link_to "ジャンル追加画面へ", genres_path %>
-      <div>
-        <% if request.path.match(/\/search(\/)?/) %>
-          <h2>
-  	         <strong>ジャンル検索結果：<%= @genre.name %></strong></span>
-          </h2>
-  	    <% else %>
-          <h2>
-            <strong>New!</strong>
-          </h2>
+  <div>
+      <% if request.path.match(/\/search(\/)?/) %>
+      <div class="result-genre">
+        <h2>
+          <span>ジャンル検索結果</span><%= @genre.name %>
+        </h2>
       </div>
-    <% end %>
-  </div>
+      <% else %>
+      <div class="result">
+        <h2>
+          <strong>New!</strong>
+        </h2>
+      </div>
+      <% end %>
+    </div>
   <div class="top-contents">
-    <aside class="sidebarleft">
+    <aside class="sidebar_left">
       <%= render 'shared/sidebar_left' %>
     </aside>
     <article class="home-article">
@@ -23,7 +24,7 @@
         <% @post_learnings.each do |post_learnings| %>
           <div class="article-inner">
             <div class="article-upper-half">
-              
+
               <div class="upper-left">
                 <div class="article-title">
                   <%= link_to post_learning_path(post_learnings.id) do %>
@@ -34,34 +35,34 @@
                   <%= time_ago_in_words(post_learnings.created_at) %>前
                 </div>
               </div>
-              
+
               <div class="upper-right">
                 <div class="article-user-image">
                   <%= image_tag post_learnings.user.get_profile_image(100,100) %>
                 </div>
                 <div class="article-user-name">
                   <%= post_learnings.user.name %>さんが投稿しました
-                </div>  
+                </div>
               </div>
-              
+
             </div>
             <div class="article-lower-half">
               <div class="article-effort">
                 <div>
-                  <p>頑張ったこと</p>  
+                  <p>頑張ったこと</p>
                 </div>
                 <div class="article-effort-content">
                   <%= post_learnings.learning_content %>
                 </div>
                 <div class="article-effort-image">
-                  <%= image_tag post_learnings.post_image.variant(resize_to_limit: [300,190]) if post_learnings.post_image.attached? %>  
+                  <%= image_tag post_learnings.post_image.variant(resize_to_limit: [300,190]) if post_learnings.post_image.attached? %>
                 </div>
               </div>
               <div class="article-eval">
                 <div class="article-real">
                   <p>学びの本音</p>
                   <div class="article-real-contents">
-                    <%= post_learnings.learning_content %>  
+                    <%= post_learnings.learning_content %>
                   </div>
                 </div>
               </div>
@@ -77,7 +78,7 @@
               </div>
               <div class="article-genre">
                 <div class="article-genre-title">
-                  <p>ジャンル</p>  
+                  <p>ジャンル</p>
                 </div>
                 <div class="article-genre-name">
                   <p><%= post_learnings.genre.name %></p>

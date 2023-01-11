@@ -22,44 +22,80 @@ body {
   margin: 0px;
 }
 
+.header-home {
+  justify-content: space-between;
+  background-color: transparent;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  height: 80px;
+}
+
+.header-home .logo a img {
+  width: 200px;
+  margin: 20px 0px 0px 30px;
+}
+
+.logo-comment p {
+  width: 100%;
+  margin: 28px 0px 0px 0px;
+  font-size:40px;
+  margin-right: 50%;
+  font-weight: bold;
+  z-index: 2;
+  letter-spacing: 0.2em;
+  	color: transparent;
+	background : rgba(0,0,0,1);
+	text-shadow : 
+		0 0 0.1em rgba(255,255,255,0.05),
+		0.01em 0.04em 0.03em rgba(255,255,255,0.4);
+	-webkit-background-clip : text;
+}
+
+.logo-comment p {
+
+}
+
+.home-article {
+  z-index: 2;
+}
+
+.main-nav {
+  display: flex;
+  font-size: 1.25rem;
+  margin-top: 20px;
+}
+
+.main-nav .nav-header-menu {
+  list-style: none;
+  margin-top: 10px;
+  margin-right: 30px;
+  padding: 10px 30px;
+  border-radius: 30px;
+  background-color: rgba( 70, 10, 10, 0.9);
+}
+
+.main-nav .nav-header-menu a {
+  color: #fff;
+  font-size: 20px;
+  font-family:"凸版文久ゴシック";
+}
+
+.main-nav .nav-header-menu:hover {
+  opacity: 0.8;
+}
+
 .wrapper {
   max-width: 100%;
   margin: 0px auto;
   padding: 0 4%;
 }
 
-
-#footer {
-  display: flex;
-  background-color: #DDA456;
-  justify-content: space-between;
-  padding: 10px 0px;
-}
-
-.footer-copy p {
-  color: #fff;
-  margin-left: 20px
-}
-
-.footer-list li {
-  list-style: none;
-  display: inline-block;
-  margin: 0px 20px;
-}
-
-.footer-list:last-child {
-  margin-right: 50px
-}
-
-.footer-text {
-   color: #900630;
-}
-
 .sidebar-full,
 .sidebar-content {
   position: -webkit-sticky;
   position: sticky;
-  top: 20px;
+  top: 110px;
 }
 
 .sidebar {
@@ -70,7 +106,8 @@ body {
   margin-left: 30px;
 }
 
-.sidebar-content,
+.sidebar-menu,
+.sidebar-menu-admin,
 .sidebar-contents {
   background-color: #fff;
   padding: 10px 15px;
@@ -81,6 +118,7 @@ body {
   border-left: 5px solid #0CCC31;
   font-size: 19px;
   font-weight: bold;
+  margin-top: 10px;
 }
 
 .sidebar-list li {
@@ -101,6 +139,17 @@ body {
   font-size: 20px;
 }
 
+.sidebar-menu-admin {
+  margin: 10px 0px;
+}
+
+.sidebar-menu-admin p {
+  border-left: 5px solid #FFD033;
+  font-size: 19px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
 .icon {
   width: 24px;
   height: 24px;
@@ -119,7 +168,8 @@ body {
 }
 
 .home-link span:hover,
-.icon-link span:hover {
+.icon-link span:hover,
+.icon-link-admin span:hover {
   opacity: 0.5;
 }
 
@@ -128,6 +178,16 @@ body {
   display: inline-block;
   vertical-align: middle;
   margin-left: 10px;
+  font-family: "筑紫A丸ゴシック";
+  font-weight: bold;
+  color: #000
+}
+
+.icon-link-admin span {
+  font-size: 18px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 25px;
   font-family: "筑紫A丸ゴシック";
   font-weight: bold;
   color: #000
@@ -159,6 +219,7 @@ body {
   border-left: 5px solid #2076EB;
   font-size: 19px;
   font-weight: bold;
+  margin-top: 10px;
 }
 
 .search-genre {
@@ -197,25 +258,6 @@ aside .sidebar_right {
   margin: 0px 30px;
 }
 
-.header-home {
-  justify-content: space-between;
-  width: 100%;
-  height: 80px;
-  padding: 20px 50px; 
-  box-sizing: border-box; 
-  position: fixed; 
-  top: 0; 
-  left: 0; 
-  display: flex; 
-  align-items: center;
-}
-
-.header-home .logo a img {
-  width: 180px;
-  margin: 5px 0px 0px 5px;
-}
-
-
 .search-genre-li {
   color: #000;
   font-size: 18px;
@@ -223,22 +265,40 @@ aside .sidebar_right {
   font-weight: bold;
 }
 
-.first-home-view {
+.search-genre-li:hover {
+  opacity: 0.5;
+}
+
+.first-home-view,
+.first-form-view,
+.first-show-view {
   position: relative;
   width: 100vw;
+  min-height: calc(100vh - 76px);
   margin: 0px;
   background-size: cover;
   background-position: center top;
   background-repeat:  no-repeat;
   background-attachment: fixed;
+}
+
+.first-home-view {
   background-image: url(../assets/background-image3.jpeg);
+}
+
+.first-form-view {
+  background-image: url(../assets/background-image4.jpeg);
+}
+
+.first-show-view {
+  background-image: url(../assets/background-image5.jpeg);
 }
 
 .article-inner {
   background-color: #fff;
   border-radius: 5px;
   margin: 20px 0px;
-  padding: 0px 30px;
+  padding: 10px 30px 0px;
 }
 
 .article-inner:first-child ,
@@ -269,7 +329,7 @@ aside .sidebar_right {
 
 .article-title a {
   font-size: 25px;
-  font-family: "游ゴシック体";
+  font-family: "筑紫A丸ゴシック";
   font-weight: bold;
   background: linear-gradient(transparent 80%, #00FFC4 75%);
   color: #000;
@@ -362,4 +422,94 @@ aside .sidebar_right {
   background-color: #14B100;
   color: #fff;
   padding: 0px 8px;
+}
+
+.content-title h2 {
+  margin: 0px;
+}
+
+.genre-full-top {
+  display: flex;
+  width: 100%;
+}
+
+.result-genre-full {
+  margin-top: 20px;
+}
+
+.result-genre-top {
+  width: 20%;
+}
+
+.result-genre-middle {
+  width: 70%;
+  display: flex;
+}
+
+.result-genre-bottom {
+  width: 10%;
+}
+
+.result-genre {
+  display: flex;
+}
+
+.result-genre-search {
+   margin-right: 10px;
+   margin-left: 5px;
+   margin-bottom: 8px;
+   background-color: #14B100;
+   width: 22%;
+}
+
+.result-genre-name {
+   width: 14%;
+}
+
+.result-genre-search p, 
+.result-genre-name p {
+  color: #fff;
+  font-size: 23px;
+  margin: 0px;
+  text-align: center;
+}
+
+.result {
+  width: 15%;
+  text-align: center;
+  border-radius: 30px;
+  margin-left: 18%;
+}
+
+.result h2 {
+  color: #F8EE00;
+  font-size: 34px;
+  margin: 0px;
+}
+
+
+#footer {
+  display: flex;
+  background-color: #DDA456;
+  justify-content: space-between;
+  padding: 10px 0px;
+}
+
+.footer-copy p {
+  color: #fff;
+  margin-left: 20px
+}
+
+.footer-list li {
+  list-style: none;
+  display: inline-block;
+  margin: 0px 20px;
+}
+
+.footer-list:last-child {
+  margin-right: 50px
+}
+
+.footer-text {
+   color: #900630;
 }

@@ -1,26 +1,3 @@
-/*Top画面・Home画面共通*/
-
-.main-nav {
-  display: flex;
-  font-size: 1.25rem;
-  margin-top: 20px;
-}
-
-.main-nav .nav-header-menu {
-  list-style: none;
-  margin: 0px 15px;
-}
-
-
-.main-nav .nav-header-menu:last-child {
-  margin-right: 55px;
-}
-
-.main-nav .nav-header-menu a {
-  color: #460A0A;
-  font-family:"凸版文久ゴシック";
-}
-
 /* Top画面 */
 
 .header-top {
