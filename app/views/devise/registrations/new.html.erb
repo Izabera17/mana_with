@@ -31,7 +31,7 @@
             <%= link_to "ログイン", new_user_session_path %>
           </li>
           <li class="nav-header-menu">
-            <%= link_to "新期登録", new_user_registration_path %>
+            <%= link_to "新規登録", new_user_registration_path %>
           </li>
         <% end %>
       </ul>
@@ -41,7 +41,7 @@
   <div class="box_signin">
     <div class="box-inner">
      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <h1>新期登録</h1>  
+        <h1>新規登録</h1>  
         <table cellspacing="30" class="box-table">
           <tr class="box-name">
             <td><%= f.label :name, "ユーザー名" %></td> 
@@ -61,7 +61,7 @@
           </tr>
         </table>
         <div class="box-signin">
-          <%= f.submit "新期登録" %>  
+          <%= f.submit "新規登録" %>  
         </div>
       <% end %>
     </div>  
