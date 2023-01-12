@@ -1,43 +1,63 @@
-<div class="main">
-   <%= render 'shared/header' %>
-    <div class="top-contents">
-      <aside>
-      <%= render 'shared/sidebar' %> 
-      </aside>
-      <article>
-        <h1>編集画面</h1>
-        <%= form_with model: @post_learning, local:true do |f| %>
-          <div>
-            <%= f.label :post_image, "商品画像" %>
-            <%= f.file_field :post_image, accept: "image/*"  %>
-          <div></div>
-          </div>
-          <div>
-            <%= f.label :learning_name, "学習名" %>
-            <%= f.text_field :learning_name, placeholder: "例）HTMLコーディング"  %>
-            <div></div>
-          </div>
-          <div>
-            <%= f.label :learning_content, "頑張ったこと" %>
-            <%= f.text_area :learning_content, placeholder: "例）Flexboxの理解と実装。marginの余白調整" %>
-            <div></div>
-          </div>
-          <div>
-            <%= f.label :learning_real, "学びの本音" %>
-            <%= f.text_area :learning_real, placeholder: "例）Flexboxを実装できたけど、やっぱり難しい。もっと良い方法を学びたい。デザインは自身ある！" %>
-            <div></div>
-          </div>
-          <div>
-            <%= f.label :genre_id, "ジャンル" %>
-            <%= f.collection_select :genre_id, Genre.all, :id, :name, { prompt: '選択してください' }  %>
-            <div></div>
-          </div>
-          <div>
-            <%= f.submit '変更を保存' %>
-          </div>
-        <% end %> 
-      </article>
+<div class="first-form-view">
+  <%= render 'shared/header' %>
+  <div>
+    <div class="form-title">
+         <div class="error-message">
+        <% if @post_learning.errors.any? %>
+         <%= @post_learning.errors.count %>件のエラーが発生しました
+         <ul>
+           <% @post_learning.errors.full_messages.each do |message| %>
+           <li><%= message %></li>
+           <% end %>
+         </ul>
+        <% end %>
+      </div>
     </div>
+  </div>
+  <div class="top-contents">
+    <aside class="sidebar_left">
+      <%= render 'shared/sidebar_left' %>
+    </aside>
+    <article class="form-article">
+     <div class="form-view">
+      <h1>
+         <span>投稿編集</span>
+      </h1>
+      <%= form_with model: @post_learning, local:true do |f| %>
+        <table class="form-table">
+          <tr class="form-name">
+            <th class="form-th"><%= f.label :learning_name, "学習名" %></th>
+            <td class="form-td"><%= f.text_field :learning_name, placeholder: "例）HTMLコーディング", class: "name-area" %></th>
+          </tr>
+          <tr class="form-content">
+            <th class="form-th"><%= f.label :learning_content, "頑張ったこと" %></th>
+            <td class="form-td"><%= f.text_area :learning_content, placeholder: "例）Flexboxの理解と実装。marginの余白調整" , class: "text-area" %></th>
+          </tr>
+          <tr class="form-real">
+             <th class="form-th"><%= f.label :learning_real, "学びの本音" %></th>
+             <td class="form-td"><%= f.text_area :learning_real, placeholder: "例）Flexboxを実装できたけど、やっぱり難しい。もっと良い方法を学びたい。デザインは自身ある！" , class: "text-area"%></th>
+          </tr>
+          <tr class="form-genre">
+            <th class="form-th"><%= f.label :genre_id, "ジャンル" %></th>
+            <td class="form-td"><%= f.collection_select :genre_id, Genre.all, :id, :name, { prompt: '選択してください' }, class: "genre-area" %></th>
+          </tr>
+          <tr class="form-post-image">
+            <th class="form-th"><%= f.label :post_image, "商品画像" %></th>
+            <td class="form-td"><%= f.file_field :post_image, accept: "image/*" , class: "image-area" %></th>
+          </tr>
+        </table>
+        <div class="form-btn">
+           <%= f.submit '変更を保存' %>
+        </div>
+       <% end %>
+     </div>
+    </article>
+    <aside class="sidebar_right">
+      <%= render 'shared/sidebar_right' %>
+    </aside>
+  </div>
 </div>
+
+
 
 

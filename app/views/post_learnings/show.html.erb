@@ -1,5 +1,8 @@
 <div class="first-show-view">
   <%= render 'shared/header' %>
+  <div class="result-genre-name-show">
+    <p>投稿詳細</p>
+  </div>
   <div class="top-contents">
     <aside class="sidebar_left">
       <%= render 'shared/sidebar_left' %>
@@ -11,7 +14,7 @@
             <p><%= time_ago_in_words(@post_learning.created_at) %>前</p>
           </div>
           <div class="show-post-image">
-            <p><%= image_tag @post_learning.post_image.variant(resize_to_limit: [300,200]) if @post_learning.post_image.attached? %></p> 
+            <p><%= image_tag @post_learning.post_image.variant(resize_to_limit: [300,200]) if @post_learning.post_image.attached? %></p>
           </div>
           <div class="show-post-favorite">
             <% if @post_learning.favorited_by?(current_user) %>
@@ -28,8 +31,15 @@
               </p>
             <% end %>
           </div>
+          <div class="show-edit-destroy">
+            <% if @post_learning.user == current_user %>
+              <%= link_to "編集", edit_post_learning_path(@post_learning) %>
+            <% elsif current_user.admin? && !current_user?(user) %>
+              <%= link_to "削除", post_learning_path(@post_learning.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+            <% end %>
+          </div>
         </div>
-         
+
         <div class="show-main-right">
           <div class="show-post-name">
             <p>学習名：<%= @post_learning.learning_name %></p>
@@ -45,45 +55,55 @@
           </div>
         </div>
       </div>
-      
-      <div class="show-middle">
-         <% if @post_learning.user == current_user %>
-          <%= link_to "編集", edit_post_learning_path(@post_learning) %>
-        <% elsif current_user.admin? && !current_user?(user) %> 
-          <%= link_to "削除", post_learning_path(@post_learning.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
-        <% end %>
-      </div>
-      
-      <div class="show-post-comment">
+        <% if @error_comment.present? %>
+        <div class="error-message">
+          <% if @error_comment.errors.any? %>
+            <%= @error_comment.errors.count %>件のエラーが発生しました
+              <ul>
+                <% @error_comment.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+          <% end %>
+        </div>
+      <% end %>
         <%= form_with model: [@post_learning, @post_comment] do |f| %>
-          <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
-          <%= f.submit "コメント投稿" %>
-        <% end %>
-      </div>
-  
-      <div class="show-comment">
-        <% @post_learning.post_comments.each do |post_comment| %>
-          <div class="show-comment-left">
-            <div class="show-comment-user">
-              <p><%= post_comment.user.name %></p>
+          <div class="show-post-comment">
+            <div class="post-comment-inner">
+              <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" , class: "show-text-area" %>
             </div>
-            <div class="show-user-image">
-              <p><%= image_tag post_comment.user.get_profile_image(100,100) %></p>
+            <div class="show-form-btn">
+              <%= f.submit "コメント投稿"%>
+            </div>
+          </div>
+        <% end %>
+       <% @post_learning.post_comments.each do |post_comment| %>
+        <div class="show-comment-top">
+          <div class="show-comment">
+            <div class="article-time show-comment-time">
+              <%= time_ago_in_words(post_comment.created_at) %>前
+            </div>
+            <div class="show-comment-left">
+              <div class="show-comment-user">
+                <p><%= post_comment.user.name %></p>
+              </div>
+              <div class="show-user-image">
+                <p><%= image_tag post_comment.user.get_profile_image(100,100) %></p>
+              </div>
+            </div>
+            <div class="show-comment-inner">
+              <p><%= post_comment.comment %></p>
             </div>
             <div class="show-comment-destroy">
               <% if post_comment.user == current_user %>
-                <%= link_to "削除", post_learning_post_comment_path(post_comment.post_learning, post_comment), method: :delete %>
+                <%= link_to "削除", post_learning_post_comment_path(post_comment.post_learning, post_comment), method: :delete, class: "show-destroy" %>
               <% elsif current_user.admin? && !current_user?(user) %>
-                <%= link_to "削除", post_learning_post_comment_path(post_comment.post_learning, post_comment), method: :delete %>
+                <%= link_to "削除", post_learning_post_comment_path(post_comment.post_learning, post_comment), method: :delete, class: "show-destroy" %>
               <% end %>
             </div>
           </div>
-          <div class="show-comment-inner">
-            <p><%= post_comment.comment %></p>
-          </div>
-        <% end %>
-        
-      </div>
+        </div>
+      <% end %>
     </article>
     <aside class="sidebar_right">
       <%= render 'shared/sidebar_right' %>
