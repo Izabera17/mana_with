@@ -46,18 +46,18 @@ body {
   letter-spacing: 0.2em;
   	color: transparent;
 	background : rgba(0,0,0,1);
-	text-shadow : 
+	text-shadow :
 		0 0 0.1em rgba(255,255,255,0.05),
 		0.01em 0.04em 0.03em rgba(255,255,255,0.4);
 	-webkit-background-clip : text;
 }
 
-.logo-comment p {
-
-}
-
 .home-article {
   z-index: 2;
+}
+
+.form-article h1 {
+  margin: 15px 0px 20px 0px;
 }
 
 .main-nav {
@@ -466,7 +466,7 @@ aside .sidebar_right {
    width: 14%;
 }
 
-.result-genre-search p, 
+.result-genre-search p,
 .result-genre-name p {
   color: #fff;
   font-size: 23px;
@@ -485,6 +485,19 @@ aside .sidebar_right {
   color: #F8EE00;
   font-size: 34px;
   margin: 0px;
+}
+
+.form-title {
+  width: 100%;
+  text-align: center;
+  border-radius: 30px;
+  margin: 0px, auto;
+}
+
+.form-title h2 {
+  color: 000;
+  font-size: 34px;
+  margin: 30px 0px 0px;
 }
 
 
@@ -513,3 +526,52 @@ aside .sidebar_right {
 .footer-text {
    color: #900630;
 }
+
+/*投稿画面*/
+
+.form-view {
+  width: 80%;
+  background-color:#fff;
+  margin: 0px auto;
+   border-radius: 5px;
+}
+
+.form-table {
+  width: 80%;
+  margin: 0px auto;
+}
+
+
+.form-name label {
+  background-color: #FF0058;
+  text-align: center;
+  color: #fff;
+  width: 100%;
+  border-radius: 30px;
+  font-size: 22px;
+  margin: 0px auto;
+  padding: 5px 10px;
+}
+
+.form-th {
+  width: 30%;
+
+}
+
+.form-td {
+  width: 50%;
+  margin: 0px auto;
+
+}
+
+.form-name input[type="text"] {
+  border-style: none;
+  box-sizing: border-box;
+  width: 100%;
+  height: 35px;
+  border: 1px solid #a6a6a6;
+  box-shadow: 0 1px 0 rgba(0,0,0,.07) inset;
+  border-radius: 3px;
+  padding: 0 7px;
+}
+

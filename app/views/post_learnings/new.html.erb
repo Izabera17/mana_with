@@ -1,12 +1,15 @@
 <div class="first-form-view">
   <%= render 'shared/header' %>
+  <div>
+    <div class="form-title">
+     <h2></h2>
+    </div>
+  </div>
   <div class="top-contents">
     <aside class="sidebar_left">
       <%= render 'shared/sidebar_left' %>
-    </aside>
-    <article class="home-article">
       <div>
-      <% if @post_learning.errors.any? %>
+             <% if @post_learning.errors.any? %>
        <%= @post_learning.errors.count %>件のエラーが発生しました
        <ul>
          <% @post_learning.errors.full_messages.each do |message| %>
@@ -14,38 +17,40 @@
          <% end %>
        </ul>
       <% end %>
-    
-      <h1>投稿フォーム</h1>
-       <%= form_with model: @post_learning, local:true do |f| %>
+      </div>
+    </aside>
+    <article class="form-article">
+     <div class="form-view">
+      <h1>
+         <strong>投稿フォーム</strong>
+      </h1>
+      <%= form_with model: @post_learning, local:true do |f| %>
+        <table class="form-table">
+          <tr class="form-name">
+            <th class="form-th"><%= f.label :learning_name, "学習名" %></th>
+            <td class="form-td"><%= f.text_field :learning_name, placeholder: "例）HTMLコーディング"  %></th>
+          </tr>
+          <tr class="form-content">
+            <th><%= f.label :learning_content, "頑張ったこと" %></th>
+            <td><%= f.text_area :learning_content, placeholder: "例）Flexboxの理解と実装。marginの余白調整" %></th>
+          </tr>
+          <tr class="form-real">
+             <th><%= f.label :learning_real, "学びの本音" %></th>
+             <td><%= f.text_area :learning_real, placeholder: "例）Flexboxを実装できたけど、やっぱり難しい。もっと良い方法を学びたい。デザインは自身ある！" %></th>
+          </tr>
+          <tr class="form-genre">
+            <th><%= f.label :genre_id, "ジャンル" %></th>
+            <td><%= f.collection_select :genre_id, Genre.all, :id, :name, { prompt: '選択してください' }  %></th>
+          </tr>
+          <tr class="form-post-image">
+            <th><%= f.label :post_image, "商品画像" %></th>
+            <td><%= f.file_field :post_image, accept: "image/*"  %></th>
+          </tr>
+        </table>
         <div>
-         <%= f.label :post_image, "商品画像" %>
-         <%= f.file_field :post_image, accept: "image/*"  %>
-        <div></div>
+           <%= f.submit '新規登録' %>
         </div>
-        <div>
-         <%= f.label :learning_name, "学習名" %>
-         <%= f.text_field :learning_name, placeholder: "例）HTMLコーディング"  %>
-         <div></div>
-        </div>
-        <div>
-         <%= f.label :learning_content, "頑張ったこと" %>
-         <%= f.text_area :learning_content, placeholder: "例）Flexboxの理解と実装。marginの余白調整" %>
-         <div></div>
-        </div>
-        <div>
-         <%= f.label :learning_real, "学びの本音" %>
-         <%= f.text_area :learning_real, placeholder: "例）Flexboxを実装できたけど、やっぱり難しい。もっと良い方法を学びたい。デザインは自身ある！" %>
-         <div></div>
-        </div>
-        <div>
-         <%= f.label :genre_id, "ジャンル" %>
-         <%= f.collection_select :genre_id, Genre.all, :id, :name, { prompt: '選択してください' }  %>
-         <div></div>
-         <div>
-          <%= f.submit '新規登録' %>
-         </div>
-        </div>
-       <% end %> 
+       <% end %>
      </div>
     </article>
     <aside class="sidebar_right">
@@ -53,4 +58,5 @@
     </aside>
   </div>
 </div>
+
 
