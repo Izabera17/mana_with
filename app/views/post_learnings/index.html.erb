@@ -20,7 +20,7 @@
       <% end %>
   </div>
   <div class="top-contents">
-    
+
     <aside class="sidebar_left">
       <%= render 'shared/sidebar_left' %>
     </aside>
@@ -61,7 +61,7 @@
                 </div>
               </div>
               <div class="article-effort-image">
-                <%= image_tag post_learnings.post_image.variant(resize_to_limit: [300,190]) if post_learnings.post_image.attached? %>
+                <%= image_tag post_learnings.post_image.variant(resize_to_limit: [350,240]) if post_learnings.post_image.attached? %>
               </div>
               <div class="article-real">
                 <div class="article-real-title">
@@ -95,7 +95,7 @@
           <div>
             <% if current_user.admin? && !current_user?(user) %>
               <%= link_to "削除", post_learning_path(@post_learning), method: :delete %>
-            <% end %>  
+            <% end %>
           </div>
         <% end %>
       </div>
@@ -105,5 +105,3 @@
     </aside>
   </div>
 </div>
-
- 

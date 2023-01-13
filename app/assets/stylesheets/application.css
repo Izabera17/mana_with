@@ -245,11 +245,11 @@ article {
 }
 
 aside .sidebar_left {
-  width: 22%;
+  width: 20%;
 }
 
 aside .sidebar_right {
-  width: 12px;
+  width: 10px;
 }
 
 .top-contents {
@@ -385,7 +385,7 @@ aside .sidebar_right {
   background-color: #FF8900;
   text-align: center;
   color: #fff;
-  width: 22%;
+  width: 18%;
   border-radius: 30px;
   font-size: 18px;
   margin: 10px 20px 0px 20px;
@@ -716,11 +716,14 @@ aside .sidebar_right {
 }
 
 /*投稿詳細画面*/
+.show-article {
+  background-color: #fff;
+  border-radius: 15px
+}
+
 .show-top {
   display: flex;
-  background-color: #fff;
-  margin-bottom: 20px;
-  border-radius: 15px
+  justify-content: space-between;
 }
 
 .show-comment-top {
@@ -762,7 +765,7 @@ aside .sidebar_right {
 
 .show-comment-inner p {
   font-size: 16px;
-  margin-top: : 0px;
+  margin-top: 0px;
   padding-top: 50px;
 }
 
@@ -844,4 +847,84 @@ aside .sidebar_right {
   margin: 0px;
   text-align: center;
   z-index: 4;
+}
+
+.show-main-left {
+  width: 38%;
+  margin-left: 20px;
+}
+
+.show-main-right {
+  display: flex;
+  width: 60%;
+}
+
+.show-inner-middle {
+  width: 30%;
+}
+
+.show-inner-right {
+  width: 70%;
+  margin: 0px 20px;
+}
+
+
+.show-post-name {
+  background-color: #0093FF;
+  text-align: center;
+  color: #fff;
+  border-radius: 30px;
+  font-size: 18px;
+  margin :55px 30px 15px;
+}
+
+.show-post-content {
+  background-color: #FF0058;
+  text-align: center;
+  color: #fff;
+  border-radius: 30px;
+  font-size: 18px;
+  margin: 30px 8px;
+}
+
+.show-post-real {
+  background-color: #FF8900;
+  text-align: center;
+  color: #fff;
+  border-radius: 30px;
+  font-size: 18px;
+  margin: 30px 15px;
+}
+
+.show-post-genre {
+  background-color: #14B100;
+  text-align: center;
+  color: #fff;
+  border-radius: 30px;
+  font-size: 18px;
+  margin: 30px 15px;
+}
+
+.show-post-name-inner {
+  border-radius: 30px;
+  font-size: 18px;
+  margin :55px 0px 30px;
+}
+
+.show-post-content-inner,
+.show-post-real-inner,
+.show-post-genre-inner {
+  border-radius: 30px;
+  font-size: 18px;
+  margin: 30px 0px;
+}
+
+.show-favorite-edit {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px
+}
+.show-post-favorite p, 
+.show-edit-destroy a {
+  margin: 0px 20px;
 }

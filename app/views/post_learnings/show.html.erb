@@ -8,14 +8,51 @@
       <%= render 'shared/sidebar_left' %>
     </aside>
     <article class="home-article">
-      <div class="show-top">
-        <div class="show-main-left">
-          <div class="show-post-time">
-            <p><%= time_ago_in_words(@post_learning.created_at) %>前</p>
+      <div class="show-article">
+        <div class="show-top">
+          <div class="show-main-left">
+            <div class="article-time">
+              <%= time_ago_in_words(@post_learning.created_at) %>前
+            </div>
+            <div class="show-post-image">
+              <p><%= image_tag @post_learning.post_image.variant(resize_to_limit: [300,260]) if @post_learning.post_image.attached? %></p>
+            </div>
           </div>
-          <div class="show-post-image">
-            <p><%= image_tag @post_learning.post_image.variant(resize_to_limit: [300,200]) if @post_learning.post_image.attached? %></p>
+  
+          <div class="show-main-right">
+            
+            <div class="show-inner-middle">
+              <div class="show-post-name">
+                <p>学習名</p>
+              </div>
+              <div class="show-post-content">
+                <p>頑張ったこと</p>
+              </div>
+              <div class="show-post-real">
+                <p>学びの本音</p>
+              </div>
+              <div class="show-post-genre">
+                <p>ジャンル</p>
+              </div>
+            </div>
+           
+            <div class="show-inner-right">
+              <div class="show-post-name-inner">
+                <p><%= @post_learning.learning_name %></p>
+              </div>
+              <div class="show-post-content-inner">
+                <p><%= @post_learning.learning_content %></p>
+              </div>
+              <div class="show-post-real-inner">
+                <p><%= @post_learning.learning_real %></p>
+              </div>
+              <div class="show-post-genre-inner">
+                <p><%= @post_learning.genre.name %></p>
+              </div>
+            </div>
           </div>
+        </div>
+        <div class="show-favorite-edit">
           <div class="show-post-favorite">
             <% if @post_learning.favorited_by?(current_user) %>
               <p>
@@ -39,23 +76,8 @@
             <% end %>
           </div>
         </div>
-
-        <div class="show-main-right">
-          <div class="show-post-name">
-            <p>学習名：<%= @post_learning.learning_name %></p>
-          </div>
-          <div class="show-post-content">
-            <p>頑張ったこと：<%= @post_learning.learning_content %></p>
-          </div>
-          <div class="show-post-real">
-            <p>学びの本音：<%= @post_learning.learning_real %></p>
-          </div>
-          <div class="show-post-genre">
-            <p>ジャンル：<%= @post_learning.genre.name %></p>
-          </div>
-        </div>
       </div>
-        <% if @error_comment.present? %>
+      <% if @error_comment.present? %>
         <div class="error-message">
           <% if @error_comment.errors.any? %>
             <%= @error_comment.errors.count %>件のエラーが発生しました
@@ -110,3 +132,5 @@
     </aside>
   </div>
 </div>
+
+
