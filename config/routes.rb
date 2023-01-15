@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   end
   
   resources :tags, only: [:index]
-  resources :users, only: [:index, :show, :edit, :destroy]
+  resources :users, only: [:index, :show, :edit, :update, :destroy]
   
   resources :genres
   

@@ -1,34 +1,36 @@
 <div class="first-mypage-view">
   <%= render 'shared/header' %>
+   <div class="result-mypage-full">
+    <div class="result-mypage-edit-title mypage-common">
+        <p>MyPage（編集）</p>
+    </div>
+  </div>
   <div class="top-contents">
     <aside class="sidebar_left">
       <%= render 'shared/sidebar_left' %>
     </aside>
     <article class="mypage-article">
       <div class="form-view">
-        <h1>
-           <span>MyPage（編集）</span>
-        </h1>
         <%= form_with model: @user, local:true do |f| %>
-          <table class="form-table">
-            <tr class="form-name">
-              <th class="form-th"><%= f.label :name, "ユーザー名" %></th>
-              <td class="form-td"><%= f.text_field :name, placeholder: "例）HTMLコーディング", class: "name-area" %></th>
+          <table class="mypage-form-table">
+            <tr class="mypage-form-name">
+              <th class="mypage-form-th"><%= f.label :name, "ユーザー名" %></th>
+              <td class="mypage-form-td"><%= f.text_field :name, class: "name-area" %></th>
             </tr>
-            <tr class="form-content">
-              <th class="form-th"><%= f.label :email, "メールアドレス" %></th>
-              <td class="form-td"><%= f.text_field :email, placeholder: "例）Flexboxの理解と実装。marginの余白調整" , class: "text-area" %></th>
+            <tr class="mypage-form-content">
+              <th class="mypage-form-th"><%= f.label :email, "メールアドレス" %></th>
+              <td class="mypage-form-td"><%= f.text_field :email, class: "name-area" %></th>
             </tr>
-            <tr class="form-real">
-               <th class="form-th"><%= f.label :introduction, "自己紹介" %></th>
-               <td class="form-td"><%= f.text_field :introduction, placeholder: "例）Flexboxを実装できたけど、やっぱり難しい。もっと良い方法を学びたい。デザインは自身ある！" , class: "text-area"%></th>
+            <tr class="mypage-form-introduction">
+               <th class="mypage-form-th"><%= f.label :introduction, "自己紹介" %></th>
+               <td class="mypage-form-td"><%= f.text_area :introduction, class: "mypage-text-area"%></th>
             </tr>
-            <tr class="form-post-image">
-              <th class="form-th"><%= f.label :user_image, "プロフィール画像" %></th>
-              <td class="form-td"><%= f.file_field :user_image, accept: "image/*" , class: "image-area" %></th>
+            <tr class="mypage-form-post-image">
+              <th class="mypage-form-th"><%= f.label :user_image, "プロフィール画像" %></th>
+              <td class="mypage-form-td"><%= f.file_field :user_image, accept: "image/*" , class: "image-area" %></th>
             </tr>
           </table>
-          <div class="form-btn">
+          <div class="mypage-form-btn">
             <%= f.submit '変更を保存' %>
           </div>
         <% end %>
