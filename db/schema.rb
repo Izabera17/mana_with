@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_10_140035) do
+ActiveRecord::Schema.define(version: 2023_01_14_125023) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2023_01_10_140035) do
   end
 
   create_table "genres", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2023_01_10_140035) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
     t.integer "post_learning_id"
-    t.string "comment"
+    t.string "comment", null: false
     t.index ["post_learning_id"], name: "index_post_comments_on_post_learning_id"
     t.index ["user_id"], name: "index_post_comments_on_user_id"
   end
@@ -70,9 +70,9 @@ ActiveRecord::Schema.define(version: 2023_01_10_140035) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
-    t.string "learning_name"
-    t.string "learning_content"
-    t.text "learning_real"
+    t.string "learning_name", null: false
+    t.string "learning_content", null: false
+    t.text "learning_real", null: false
     t.index ["user_id"], name: "index_post_learnings_on_user_id"
   end
 
@@ -82,10 +82,11 @@ ActiveRecord::Schema.define(version: 2023_01_10_140035) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "admin", default: false
+    t.text "introduction"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

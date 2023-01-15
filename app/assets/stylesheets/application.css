@@ -36,22 +36,6 @@ body {
   margin: 20px 0px 0px 30px;
 }
 
-.logo-comment p {
-  width: 100%;
-  margin: 28px 0px 0px 0px;
-  font-size:40px;
-  margin-right: 50%;
-  font-weight: bold;
-  z-index: 2;
-  letter-spacing: 0.2em;
-  color: transparent;
-	background : rgba(0,0,0,1);
-	text-shadow :
-		0 0 0.1em rgba(255,255,255,0.05),
-		0.01em 0.04em 0.03em rgba(255,255,255,0.4);
-	-webkit-background-clip : text;
-}
-
 .home-article {
   z-index: 2;
 }
@@ -95,7 +79,7 @@ body {
 .sidebar-content {
   position: -webkit-sticky;
   position: sticky;
-  top: 110px;
+  top: 130px;
 }
 
 .sidebar {
@@ -271,7 +255,8 @@ aside .sidebar_right {
 
 .first-home-view,
 .first-form-view,
-.first-show-view {
+.first-show-view,
+.first-mypage-view{
   position: relative;
   width: 100vw;
   min-height: calc(100vh - 76px);
@@ -283,15 +268,19 @@ aside .sidebar_right {
 }
 
 .first-home-view {
-  background-image: url(../assets/background-image3.jpeg);
+  background-image: url(../assets/background-image2.jpg);
 }
 
 .first-form-view {
-  background-image: url(../assets/background-image4.jpeg);
+  background-image: url(../assets/background-image3.jpg);
 }
 
 .first-show-view {
-  background-image: url(../assets/background-image5.jpeg);
+  background-image: url(../assets/background-image4.jpg);
+}
+
+.first-mypage-view {
+  background-image: url(../assets/background-image5.jpg);
 }
 
 .article-inner {
@@ -447,7 +436,11 @@ aside .sidebar_right {
 }
 
 .result-genre-full {
-  margin-top: 20px;
+  margin-bottom: 25px;
+}
+
+.result-genre-full-home {
+  margin-bottom: 10px;
 }
 
 .result-genre-top {
@@ -489,11 +482,12 @@ aside .sidebar_right {
 
 
 .result-genre-name-index {
-   margin-right: 10px;
-   margin-left: 24%;
-   margin-bottom: 8px;
-   background-color: #3C4BFF;
-   width: 18%;
+  margin: 0px auto 8px;
+  text-align: center;
+  width: 18%;
+  background: linear-gradient(transparent 80%, #00FFC4 75%);
+  font-family: "筑紫A丸ゴシック";
+  font-weight: bold;
 }
 
 .result-genre-search p,
@@ -507,22 +501,21 @@ aside .sidebar_right {
 
 .result-genre-name-index p {
   color: #fff;
-  font-size: 30px;
+  font-size: 40px;
   font-weight: bold;
   margin: 0px;
-  text-align: center;
 }
 
 .result {
-  width: 24%;
+  width: 25%;
   text-align: center;
   border-radius: 30px;
   margin-left: 18%;
 }
 
-.result h2 {
+.result p {
   color: #F8EE00;
-  font-size: 34px;
+  font-size: 40px;
   margin: 0px;
 }
 
@@ -716,9 +709,11 @@ aside .sidebar_right {
 }
 
 /*投稿詳細画面*/
+
 .show-article {
   background-color: #fff;
-  border-radius: 15px
+  border-radius: 15px;
+  margin-bottom: 20px;
 }
 
 .show-top {
@@ -763,12 +758,6 @@ aside .sidebar_right {
   padding-top: 67px;
 }
 
-.show-comment-inner p {
-  font-size: 16px;
-  margin-top: 0px;
-  padding-top: 50px;
-}
-
 .show-user-image img {
   border-radius: 50%;
   border: 1px solid #EAEAEA;
@@ -789,8 +778,14 @@ aside .sidebar_right {
   width: 40%;
 }
 
+.show-comment-inner p {
+  font-size: 16px;
+  margin-top: 0px;
+  padding-top: 65px;
+}
+
 .show-form-btn {
-  width: 20%;
+  width: 18%;
 }
 
 .show-text-area {
@@ -808,7 +803,7 @@ aside .sidebar_right {
 
 .show-form-btn input[type="submit"] {
   display: inline-block;
-  font-size: 16px;
+  font-size: 18px;
   padding: 0.4em 2em;
   background-color: #069BEA;
   box-shadow: 100 5px 0 #007FC3;
@@ -924,7 +919,182 @@ aside .sidebar_right {
   justify-content: space-between;
   padding-bottom: 20px
 }
-.show-post-favorite p, 
+.show-post-favorite p,
 .show-edit-destroy a {
   margin: 0px 20px;
+}
+
+.mypage-main-inner {
+  display: flex;
+}
+
+
+/*MyPage*/
+
+.result-mypage-full {
+  margin-bottom: 20px;
+}
+
+.result-mypage-title {
+  margin: 0px auto;
+  text-align: center;
+  width: 18%;
+  background: linear-gradient(transparent 80%, #DDA456 75%);
+  font-family: "筑紫A丸ゴシック";
+  font-weight: bold;
+}
+
+.result-mypage-title p {
+  color: #900630;
+  font-size: 40px;
+  font-weight: bold;
+  margin: 0px;
+}
+
+
+.mypage-image {
+  width: 35%;
+  margin: 30px 10px 10px 70px;
+}
+
+.mypage-image img {
+  border: 2px solid #B2B0B1;
+  border-radius: 50%;
+}
+
+.show-mypage-right {
+  width: 65%;
+}
+
+.show-mypage-right p {
+  font-size: 22px;
+}
+
+.show-mypage-middle {
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.mypage-inner-top {
+  display: flex;
+}
+
+.mypage-main {
+  display: flex;
+  border-radius: 5px;
+  background-color: #fff;
+  padding-bottom: 20px;
+}
+
+.mypage-title {
+  width: 40%;
+}
+
+.mypage-title p {
+  font-family: "筑紫A丸ゴシック";
+  font-weight: bold;
+}
+
+.mypage-content {
+  width: 60%;
+}
+
+.mypage-content p {
+  font-family: "筑紫A丸ゴシック";
+}
+
+.mypage-margin p {
+  margin-top: 35px;
+}
+
+.mypage-table {
+  margin-top: 15px;
+  padding-bottom: 15px;
+}
+
+
+.mypage-favorites {
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
+.mypage-text {
+  text-align: center;
+   font-size: 18px;
+}
+
+.mypage-title-post-time,
+.mypage-content-post-time {
+  width: 20%;
+}
+
+.mypage-title-post-name,
+.mypage-content-post-name {
+  width: 40%;
+}
+
+.mypage-content-post-name a {
+  border-bottom-style: solid;
+}
+
+.mypage-content-post-name a:hover {
+  opacity: 0.5
+}
+
+.mypage-title-post-favorite,
+.mypage-content-post-favorite {
+  width: 20%;
+}
+
+.mypage-title-post-comment,
+.mypage-content-post-comment {
+  width: 20%;
+}
+
+.mypage-post-icon {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.mypage-inner-bottom {
+  text-align: right;
+  margin-right: 60px;
+}
+
+.mypage-edit-bottom {
+  font-size: 20px;
+}
+
+.mypage-edit-bottom:hover {
+  opacity: 0.5;
+}
+
+.mypage-middle-title {
+  padding: 6px 0px;
+  margin-top: 30px;
+}
+
+.mypage-middle-title h1,
+.mypage-favorites-title h1 {
+  text-align: center;
+  color: #E27900;
+  font-family: "筑紫A丸ゴシック";
+  font-weight: bold;
+	font-weight:bold;
+	color: transparent;
+	background : rgba(0,0,0,1);
+	text-shadow : 
+		0 0 0.1em rgba(255,255,255,0.05),
+		0.01em 0.04em 0.03em rgba(255,255,255,0.4);
+	-webkit-background-clip : text;
+	margin: 10px 0px;
+	border-bottom: 2px solid #000;
+}
+
+.mypage-favorites {
+  background-color: #fff;
+  border-radius: 3px;
+  margin-top: 40px;
 }

@@ -1,2 +1,142 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="first-mypage-view">
+  <%= render 'shared/header' %>
+  <div class="result-mypage-full">
+    <div class="result-mypage-title">
+      <% if current_user.id == @user.id %>
+        <p>MyPage</hp>
+      <% else %>
+        <p><%= @user.name %>さんのプロフィール</p>
+      <% end %>
+    </div>
+  </div>
+  <div class="top-contents">
+    <aside class="sidebar_left">
+      <%= render 'shared/sidebar_left' %>
+    </aside>
+    <article class="mypage-article">
+      <div class="mypage-top">
+        <div class="mypage-main">
+            <div class="mypage-image">
+              <%= image_tag @user.get_profile_image(200,200) %>
+            </div>
+            <div class="show-mypage-right">
+              <div class="mypage-inner-top">
+                <div class="mypage-title">
+                  <div class="mypage-title-user-name mypage-margin">
+                    <p>ユーザー名</p>
+                  </div>
+                  <div class="mypage-title-email mypage-margin">
+                    <p>メールアドレス</p>
+                  </div>
+                  <div class="mypage-title-introduction mypage-margin">
+                    <p>自己紹介</p>
+                  </div>
+                </div>
+                <div class="mypage-content">
+                  <div class="mypage-content-user-name mypage-margin">
+                    <p><%= @user.name %></p>
+                  </div>
+                  <div class="mypage-content-email mypage-margin">
+                    <p><%= @user.email %></p>
+                  </div>
+                  <div class="mypage-content-introduction mypage-margin">
+                    <p><%= @user.introduction %></p>
+                  </div>
+                </div>
+              </div>
+              <div class="mypage-inner-bottom">
+                <%= link_to "編集" , edit_user_path, class: "mypage-edit-bottom" %>
+              </div>
+            </div>
+          </div>
+
+          <div class="show-mypage-middle">
+              <div class="mypage-middle-title">
+               <h1>投稿した画像</h1>
+              </div>
+              <table class="mypage-table">
+                <thead class="mypage-table-head">
+                  <tr class="mypage-title">
+                    <th class="mypage-title-post-time mypage-text">
+                      学習日
+                    </th>
+                    <th class="mypage-title-post-name mypage-text">
+                      学習名
+                    </th>
+                    <th class="mypage-title-post-favorite mypage-text">
+                      いいね
+                    </th>
+                    <th class="mypage-title-post-comment mypage-text">
+                      コメント
+                    </th>
+                  </tr>
+                </thead>
+                <% @post_learnings.each do |post_learnings| %>
+                  <tbody class="mypage-body">
+                    <tr class="mypage-content">
+                      <td class="mypage-content-post-time mypage-text">
+                        <%= post_learnings.created_at.strftime('%Y-%m-%d') %>
+                      </td>
+                      <td class="mypage-content-post-name mypage-text">
+                        <%= link_to post_learning_path(post_learnings.id) do %>
+                          <%= post_learnings.learning_name %>
+                        <% end %>
+                      </td>
+                      <td class="mypage-content-post-favorite mypage-text">
+                         <p>♡いいね  <%= post_learnings.favorites.count %>件</p>
+                      </td>
+                      <td class="mypage-content-post-comment mypage-text">
+                        <%= image_tag '/assets/speech-bubble.png', class:'mypage-post-icon' %> <%= post_learnings.post_comments.count %>件
+                      </td>
+                    </tr>
+                  </tbody>
+                <% end %>
+              </table>
+        </div>
+       
+        <div class="mypage-favorites">
+            <% if @favorite_posts.present? %>
+              <div class="mypage-favorites-title">
+               <h1>いいねした投稿</h1>
+              </div>
+              <table class="mypage-favorites-table">
+                <thead class="mypage-table-favorites-head">
+                  <tr class="mypage-title-favorites">
+                    <th class="mypage-post-name-favorites ">
+                      学習名
+                    </th>
+                    <th class="mypage-post-content-favorite ">
+                      頑張ったこと
+                    </th>
+                  </tr>
+                </thead>
+                <% @favorite_posts.each do |favorites| %>
+                  <tbody class="mypage-body-favorites">
+                    <tr class="mypage-content-favorites">
+                      <td class="mypage-favorites-name">
+                        <%= link_to post_learning_path(favorites.id) do %>
+                          <%= favorites.learning_name %>
+                        <% end %>
+                      </td>
+                      <td class="mypage-post-content-favorites">
+                        <%= favorites.learning_content %>
+                      </td>
+                    </tr>
+                  </tbody>
+                <% end %>
+              </table>
+            <% end %>
+          
+        </div>
+       
+      </div>
+    </article>
+    <aside class="sidebar_right">
+      <%= render 'shared/sidebar_right' %>
+    </aside>
+  </div>
+</div>
+
+
+
+

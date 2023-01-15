@@ -1,6 +1,6 @@
 <div class="first-home-view">
   <%= render 'shared/header' %>
-  <div class="result-genre-full">
+  <div class="result-genre-full-home">
     <% if request.path.match(/\/search(\/)?/) %>
     <div class="genre-full-top">
     </div>
@@ -16,9 +16,9 @@
     <div class="result-genre-bottom"></div>
     <% else %>
       <div class="result">
-        <h2>
+        <p>
           <strong>New! (5件)</strong>
-        </h2>
+        </p>
       </div>
       <% end %>
   </div>
@@ -45,7 +45,9 @@
 
               <div class="upper-right">
                 <div class="article-user-image">
-                  <%= image_tag post_learnings.user.get_profile_image(100,100) %>
+                  <%= link_to user_path(post_learnings.user.id)  do %>
+                    <%= image_tag post_learnings.user.get_profile_image(100,100) %>
+                  <% end %>
                 </div>
                 <div class="article-user-name">
                   <%= post_learnings.user.name %>さんが投稿しました

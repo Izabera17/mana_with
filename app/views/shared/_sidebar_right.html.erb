@@ -10,7 +10,7 @@
           <% end %>
         </li>
         <li>
-          <%= link_to users_mypage_path, class: "icon-link" do %>
+          <%= link_to user_path(current_user.id), class: "icon-link" do %>
             <%= image_tag '/assets/mypage_icon.png', class:'icon' %>
             <span>Mypage</span>
           <% end %>
