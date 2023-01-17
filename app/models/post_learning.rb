@@ -12,11 +12,13 @@ class PostLearning < ApplicationRecord
   validates :learning_real, presence: true
   validates :genre_id, presence: true
 
-  def self.search(search)
-    if search
-      where(['name LIKE ?', "%#{search}%"])
+  def self.looks(search)
+    if search == "学習名"
+      @post_learning = PostLearning.where("learning_name LIKE?","%#{search}%")
+    elsif search == "頑張ったこと"
+      @post_learning = PostLearning.where("learning_content LIKE?","%#{search}%")
     else
-      all
+      @post_learning = PostLearning.all
     end
   end
 

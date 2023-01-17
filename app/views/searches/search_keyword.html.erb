@@ -11,13 +11,14 @@
       <%= render 'shared/sidebar_left' %>
     </aside>
     <article class="users-article">
-      <%= render 'shared/users' %>
+      <% if @range == "ユーザー" %>
+        <%= render 'shared/users' %>
+      <% else %>
+        <%= render 'shared/post_learnings' %>
+      <% end %>
     </article>
     <aside class="sidebar_right">
       <%= render 'shared/sidebar_right' %>
     </aside>
   </div>
 </div>
-
-
-

@@ -43,8 +43,7 @@ class PostLearningsController < ApplicationController
     redirect_to '/post_learnings'  
   end
 
-
-  def search
+  def search_genre
     @post_learnings = PostLearning.where(genre_id: params[:format]).page(params[:page]).per(5)
     @quantity = PostLearning.where(genre_id: params[:format]).count
     @genre = @genres.find(params[:format])

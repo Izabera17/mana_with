@@ -16,10 +16,19 @@ class User < ApplicationRecord
       user_image.attach(io: File.open(file_path), filename: 'user-image.jpg', content_type: 'image/jpeg')
     end
     user_image.variant(resize_to_limit: [width, height]).processed
-    end
   end
-  
+
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
   end
+  
+  def self.looks(search)
+    if search
+      @user = User.where("name LIKE?","%#{search}%")
+    else
+      @user = User.all
+    end
+  end
+
+end
 
