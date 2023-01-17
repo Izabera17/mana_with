@@ -6,9 +6,10 @@ class SearchesController < ApplicationController
     @range = params[:range]
     
     if @range == "ユーザー"
-      @users = User.looks(params[:search])
+      users = User.looks(params[:word])
+      @users = users.where.not(admin: 'true')
     else
-      @post_learnings = PostLearning.looks(params[:search])
+      @post_learnings = PostLearning.looks(@range, params[:word])
     end
   end
   

@@ -47,7 +47,7 @@
       <div class="eval-lower">
         <div class="article-comments-favorites">
           <div class="article-favorites">
-            <p>♥いいね <%= post_learnings.favorites.count %>件</p>
+            <p>♡ <%= post_learnings.favorites.count %> いいね</p>
           </div>
           <div class="article-comments">
             <p> コメント <%= post_learnings.post_comments.count %>件</p>
@@ -62,9 +62,9 @@
           </div>
         </div>
       </div>
-      <div>
+      <div class="post-learning-admin-delete">
         <% if current_user.admin? %>
-          <%= link_to "削除（管理者）", post_learning_path(post_learnings.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+          <%= link_to "削除", post_learning_path(post_learnings.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
         <% end %>
       </div>
     </div>

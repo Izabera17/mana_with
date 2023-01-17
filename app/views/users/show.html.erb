@@ -56,8 +56,9 @@
           </div>
 
           <div class="show-mypage-middle">
+            <% @post_learnings.each do |post_learnings| %>
               <div class="mypage-middle-title">
-               <h1>投稿した画像</h1>
+                <h1>投稿した学習</h1>
               </div>
               <table class="mypage-table">
                 <thead class="mypage-table-head">
@@ -76,30 +77,29 @@
                     </th>
                   </tr>
                 </thead>
-                <% @post_learnings.each do |post_learnings| %>
-                  <tbody class="mypage-body">
-                    <tr class="mypage-content">
-                      <td class="mypage-content-post-time mypage-text-inner">
-                        <%= post_learnings.created_at.strftime('%Y-%m-%d') %>
-                      </td>
-                      <td class="mypage-content-post-name mypage-text-inner">
-                        <%= link_to post_learning_path(post_learnings.id) do %>
-                          <%= post_learnings.learning_name %>
-                        <% end %>
-                      </td>
-                      <td class="mypage-content-post-favorite mypage-text-inner">
-                         <p>♥いいね  <%= post_learnings.favorites.count %>件</p>
-                      </td>
-                      <td class="mypage-content-post-comment mypage-text-inner">
-                        <%= image_tag '/assets/speech-bubble.png', class: 'mypage-post-icon' %> <%= post_learnings.post_comments.count %>件
-                      </td>
-                    </tr>
-                  </tbody>
-                <% end %>
+                <tbody class="mypage-body">
+                  <tr class="mypage-content">
+                    <td class="mypage-content-post-time mypage-text-inner">
+                      <%= post_learnings.created_at.strftime('%Y-%m-%d') %>
+                    </td>
+                    <td class="mypage-content-post-name mypage-text-inner">
+                      <%= link_to post_learning_path(post_learnings.id) do %>
+                        <%= post_learnings.learning_name %>
+                      <% end %>
+                    </td>
+                    <td class="mypage-content-post-favorite mypage-text-inner">
+                      <p>♥いいね  <%= post_learnings.favorites.count %>件</p>
+                    </td>
+                    <td class="mypage-content-post-comment mypage-text-inner">
+                      <%= image_tag '/assets/speech-bubble.png', class: 'mypage-post-icon' %> <%= post_learnings.post_comments.count %>件
+                    </td>
+                  </tr>
+                </tbody>
               </table>
-        </div>
+             <% end %>
+          </div>
 
-        <div class="mypage-favorites">
+          <div class="mypage-favorites">
             <% if @favorite_posts.present? %>
               <div class="mypage-favorites-title">
                <h1>いいねした投稿</h1>

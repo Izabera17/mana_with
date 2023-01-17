@@ -1,9 +1,34 @@
 <div class="first-home-view">
   <%= render 'shared/header' %>
+   <div>
+    <div class="form-title">
+      <div class="error-message">
+        <% if @word.errors.any? %>
+         <%= @word.errors.count %>件のエラーが発生しました
+         <ul>
+           <% @word.errors.full_messages.each do |message| %>
+           <li><%= message %></li>
+           <% end %>
+         </ul>
+        <% end %>
+      </div>
+    </div>
+  </div>
   <div class="result-genre-full">
     <div class="result-mypage-full">
-    <div class="result-users-name-title">
-        <p>Users</p>
+      <% if @range == "ユーザー" %>
+        <div class="result-users-search-name-title">
+          <p class="user-search-result">検索結果 [User]：<%= @word %></p>
+        </div>
+      <% elsif  @range == "学習名" %>
+        <div class="post_learning-search-result">
+          <p>検索結果 [学習名]：<%= @word %></p>
+        </div>
+      <% elsif  @range == "頑張ったこと" %>
+        <div class="post_learning-search-result">
+          <p>検索結果 [頑張ったこと]：<%= @word %></p> 
+        </div>
+      <% end %>
     </div>
   </div>
   <div class="top-contents">

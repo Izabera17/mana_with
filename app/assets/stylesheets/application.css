@@ -227,8 +227,39 @@ body {
   height: 33px;
 }
 
-.search-form-text input[type="text"] {
+.search-form-list {
+  text-align: start;
+  margin-left: 15px;
+  width: 90%;
+}
+
+.search-form-list input[type="text"] {
+  width: 95%;
+  height: 24px;
+}
+
+.search-form-text-bottun {
+  display: flex;
   width: 100%;
+}
+
+.search-form-text #range {
+  height: 21px;
+  font-size: 15px;
+  margin-bottom: 5px;
+  margin-left: 15px;
+}
+
+.search-form-submit input[type="submit"] {
+  height: 30px;
+  margin-right: 10px;
+  background-color: #000;
+  color: #fff;
+}
+
+.search-form-submit input[type="submit"]:hover {
+  opacity: 0.5;
+  cursor: pointer;
 }
 
 article {
@@ -307,17 +338,27 @@ aside .sidebar_right {
   justify-content: space-between;
 }
 
-
 .article-title {
   margin-top: 3px;
   padding-top: 5px;
 }
 
 .article-time {
-  margin-left: 25px;
   padding-top: 18px;
   color: rgba( 0, 0, 0, 0.4);
   font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.article-time span {
+  font-family: "筑紫A丸ゴシック";
+  color: #fff;
+  border-radius: 18px;
+  font-weight: bold;
+  font-size: 22px;
+  background-color: #FF00EB;
+  padding: 5px 10px;
+  margin-right: 20px;
 }
 
 .article-title a {
@@ -327,6 +368,11 @@ aside .sidebar_right {
   background: linear-gradient(transparent 80%, #00FFC4 75%);
   color: #000;
 }
+
+.article-title a:hover {
+  opacity: 0.5;
+}
+
 
 .article-user-name {
   color: rgba( 0, 0, 0, 0.4);
@@ -402,7 +448,7 @@ aside .sidebar_right {
   display: flex;
   justify-content: space-between;
   margin-left: 20px;
-  margin-top: 60px;
+  margin-top: 40px;
 }
 
 .article-comments-favorites {
@@ -419,7 +465,7 @@ aside .sidebar_right {
 }
 
 .article-favorites:first-child {
-  margin-left: 10px;
+  margin-right: 30px;
 }
 
 .article-genre-title {
@@ -487,6 +533,19 @@ aside .sidebar_right {
   background: linear-gradient(transparent 80%, #00FFC4 75%);
 }
 
+.post-learning-admin-delete {
+  text-align: end;
+  padding-bottom: 10px;
+}
+
+.result-home-name-index {
+  margin: 0px auto 25px;
+  text-align: center;
+  width: 18%;
+  background: linear-gradient(transparent 80%, #F8EE00 75%);
+  font-family: "筑紫A丸ゴシック";
+  font-weight: bold;
+}
 
 .result-genre-name-index {
   margin: 0px auto 8px;
@@ -506,23 +565,11 @@ aside .sidebar_right {
   text-align: center;
 }
 
-.result-genre-name-index p {
+.result-genre-name-index p, 
+.result-home-name-index p {
   color: #fff;
   font-size: 40px;
   font-weight: bold;
-  margin: 0px;
-}
-
-.result {
-  width: 25%;
-  text-align: center;
-  border-radius: 30px;
-  margin-left: 18%;
-}
-
-.result p {
-  color: #F8EE00;
-  font-size: 40px;
   margin: 0px;
 }
 
@@ -1338,5 +1385,29 @@ aside .sidebar_right {
 .result-users-name-title p {
   color: #fff;
   font-size: 43px;
+  margin: 0px;
+}
+
+.result-users-search-name-title {
+  background: linear-gradient(transparent 80%, #ED31ED 65%);
+} 
+
+.post_learning-search-result {
+  background: linear-gradient(transparent 80%, #00FFC4 65%);
+}
+
+.result-users-search-name-title, 
+.post_learning-search-result {
+  margin: 0px auto 8px;
+  text-align: center;
+  width: 40%;
+  font-family: "筑紫A丸ゴシック";
+  font-weight: bold;
+}
+
+.result-users-search-name-title p,
+.post_learning-search-result p {
+  color: #fff;
+  font-size: 38px;
   margin: 0px;
 }

@@ -15,12 +15,10 @@
       </div>
     <div class="result-genre-bottom"></div>
     <% else %>
-      <div class="result">
-        <p>
-          <strong>New! (5件)</strong>
-        </p>
+      <div class="result-home-name-index">
+        <p>新着投稿</p>
       </div>
-      <% end %>
+    <% end %>
   </div>
   <div class="top-contents">
     <aside class="sidebar_left">
@@ -34,7 +32,7 @@
 
               <div class="upper-left">
                 <div class="article-time">
-                  <%= time_ago_in_words(post_learnings.created_at) %>前
+                  　<span>New!</span> <%= time_ago_in_words(post_learnings.created_at) %>前
                 </div>
                 <div class="article-title">
                   <%= link_to post_learning_path(post_learnings.id) do %>
@@ -80,7 +78,7 @@
             <div class="eval-lower">
               <div class="article-comments-favorites">
                 <div class="article-favorites">
-                  <p>♡いいね <%= post_learnings.favorites.count %>件</p>
+                  <p>♡ <%= post_learnings.favorites.count %> いいね</p>
                 </div>
                 <div class="article-comments">
                   <p>コメント <%= post_learnings.post_comments.count %>件</p>

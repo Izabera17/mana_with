@@ -1,5 +1,5 @@
 class PostLearningsController < ApplicationController
-    before_action :genre_all, only: [:new, :create, :index, :show, :edit, :search]
+    before_action :genre_all, only: [:new, :create, :index, :show, :edit, :search_genre]
   
   
   def new
