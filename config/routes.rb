@@ -11,6 +11,11 @@ Rails.application.routes.draw do
     get :search, on: :collection
   end
   
+  resources :post_learnings 
+  namespace :admin do
+    resources :post_learnings, only: [:index, :new, :create, :show,  :edit, :destroy]
+  end
+  
   post "post_learnings/new" => "post_learnings#new"
   
   
@@ -30,3 +35,7 @@ Rails.application.routes.draw do
   resources :genres
   
 end
+
+
+
+

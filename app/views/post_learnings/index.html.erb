@@ -78,10 +78,10 @@
             <div class="eval-lower">
               <div class="article-comments-favorites">
                 <div class="article-favorites">
-                  <p>♡いいね <%= post_learnings.favorites.count %>件</p>
+                  <p>♥いいね <%= post_learnings.favorites.count %>件</p>
                 </div>
                 <div class="article-comments">
-                  <p>コメント <%= post_learnings.post_comments.count %>件</p>
+                  <p> コメント <%= post_learnings.post_comments.count %>件</p>
                 </div>
               </div>
               <div class="article-genre">
@@ -93,11 +93,11 @@
                 </div>
               </div>
             </div>
-          </div>
           <div>
-            <% if current_user.admin? && !current_user?(user) %>
-              <%= link_to "削除", post_learning_path(@post_learning), method: :delete %>
+            <% if current_user.admin? %>
+              <%= link_to "削除（管理者）", post_learning_path(post_learnings.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
             <% end %>
+          </div>
           </div>
         <% end %>
       </div>
@@ -106,6 +106,7 @@
       <%= render 'shared/sidebar_right' %>
     </aside>
   </div>
+</div>
 </div>
 
 

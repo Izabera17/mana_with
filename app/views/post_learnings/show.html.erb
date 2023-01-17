@@ -1,7 +1,7 @@
 <div class="first-show-view">
   <%= render 'shared/header' %>
   <div class="result-genre-name-show">
-    <p>投稿詳細</p>
+    <p>学習投稿詳細</p>
   </div>
   <div class="top-contents">
     <aside class="sidebar_left">
@@ -69,9 +69,10 @@
             <% end %>
           </div>
           <div class="show-edit-destroy">
-            <% if @post_learning.user == current_user %>
+            <% if user_signed_in? && current_user.id == @post_learning.user_id %>
               <%= link_to "編集", edit_post_learning_path(@post_learning) %>
-            <% elsif current_user.admin? && !current_user?(user) %>
+              <%= link_to "削除", post_learning_path(@post_learning.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+            <% elsif current_user.admin? %>
               <%= link_to "削除", post_learning_path(@post_learning.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
             <% end %>
           </div>
@@ -119,7 +120,7 @@
             <div class="show-comment-destroy">
               <% if post_comment.user == current_user %>
                 <%= link_to "削除", post_learning_post_comment_path(post_comment.post_learning, post_comment), method: :delete, class: "show-destroy" %>
-              <% elsif current_user.admin? && !current_user?(user) %>
+              <% elsif current_user.admin? %>
                 <%= link_to "削除", post_learning_post_comment_path(post_comment.post_learning, post_comment), method: :delete, class: "show-destroy" %>
               <% end %>
             </div>

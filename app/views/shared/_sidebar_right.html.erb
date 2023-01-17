@@ -30,14 +30,4 @@
       </ul>
     </div>
   </div>
-  <% if current_user.admin? %>
-    <div class="sidebar-menu-admin">
-      <p>　管理者</p>
-      <div class="sidebar-list">
-        <%= link_to genres_path, class: "icon-link-admin" do %>
-          <span>ジャンル追加</span>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
 </div>

@@ -8,7 +8,6 @@ class UsersController < ApplicationController
 
   def show
     @post_learnings = @user.post_learnings
-    @post_learning = PostLearning.find(params[:id])
     favorites = Favorite.where(user_id: @user.id).pluck(:post_learning_id)
     @favorite_posts = PostLearning.find(favorites)
   end

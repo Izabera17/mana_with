@@ -74,18 +74,18 @@
                 <% @post_learnings.each do |post_learnings| %>
                   <tbody class="mypage-body">
                     <tr class="mypage-content">
-                      <td class="mypage-content-post-time mypage-text">
+                      <td class="mypage-content-post-time mypage-text-inner">
                         <%= post_learnings.created_at.strftime('%Y-%m-%d') %>
                       </td>
-                      <td class="mypage-content-post-name mypage-text">
+                      <td class="mypage-content-post-name mypage-text-inner">
                         <%= link_to post_learning_path(post_learnings.id) do %>
                           <%= post_learnings.learning_name %>
                         <% end %>
                       </td>
-                      <td class="mypage-content-post-favorite mypage-text">
-                         <p>♡いいね  <%= post_learnings.favorites.count %>件</p>
+                      <td class="mypage-content-post-favorite mypage-text-inner">
+                         <p>♥いいね  <%= post_learnings.favorites.count %>件</p>
                       </td>
-                      <td class="mypage-content-post-comment mypage-text">
+                      <td class="mypage-content-post-comment mypage-text-inner">
                         <%= image_tag '/assets/speech-bubble.png', class: 'mypage-post-icon' %> <%= post_learnings.post_comments.count %>件
                       </td>
                     </tr>
@@ -102,6 +102,7 @@
               <table class="mypage-favorites-table">
                 <thead class="mypage-table-favorites-head">
                   <tr class="mypage-title-favorites">
+                    <th></th>
                     <th class="mypage-post-name-favorites">
                       <p>ユーザー名</p>
                     </th>
@@ -113,35 +114,16 @@
                 <% @favorite_posts.each do |favorites| %>
                   <tbody class="mypage-body-favorites">
                     <tr class="mypage-content-favorites">
-                      <td class="mypage-favorites-name">
-                        <div class="mypage-favorites-inner">
-                          <div class="show-post-favorite">
-                            <% if @post_learning.favorited_by?(favorites.user.id) %>
-                              <p>
-                                <%= link_to post_learning_favorites_path(@post_learning), method: :delete do %>
-                                  ♥<%= @favorite_posts.count %> いいね
-                                <% end %>
-                              </p>
-                            <% else %>
-                              <p>
-                                <%= link_to post_learning_favorites_path(@post_learning), method: :post do %>
-                                  ♡<%= @favorite_posts.count %> いいね
-                                <% end %>
-                              </p>
-                            <% end %>
-                          </div>
-                          <div class="mypage-user-image">
-                            <%= image_tag favorites.user.get_profile_image(100,100) %>
-                          </div> 
-                          <div class="mypage-user-name">
-                            <%= link_to user_path(favorites.user.id)  do %>
-                              <p><%= favorites.user.name %></p>
-                            <% end %>
-                          </div>
-                        </div>
+                      <td class="mypage-user-image " >
+                        <%= image_tag favorites.user.get_profile_image(100,100) %>
+                      </td>
+                      <td class="mypage-user-name">
+                         <%= link_to user_path(favorites.id), class: "mypage-text-inner"  do %>
+                            <p><%= favorites.user.name %></p>
+                          <% end %>
                       </td>
                       <td class="mypage-post-content-favorites">
-                        <%= link_to post_learning_path(favorites.user.id)  do %>
+                        <%= link_to post_learning_path(favorites.id), class: "mypage-text-inner"  do %>
                           <p><%= favorites.learning_content %></p>
                         <% end %>
                       </td>
