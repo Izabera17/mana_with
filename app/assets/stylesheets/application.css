@@ -352,11 +352,10 @@ aside .sidebar_right {
 
 .article-time span {
   font-family: "筑紫A丸ゴシック";
-  color: #fff;
+  color: #FFD00A;
   border-radius: 18px;
   font-weight: bold;
-  font-size: 22px;
-  background-color: #FF00EB;
+  font-size: 28px;
   padding: 5px 10px;
   margin-right: 20px;
 }
@@ -376,9 +375,13 @@ aside .sidebar_right {
 
 .article-user-name {
   color: rgba( 0, 0, 0, 0.4);
-  font-size: 12px;
-  padding-top: 16px;
+  font-size: 14px;
+  padding-top: 22px;
   margin: 0px 0px 0px 10px;
+}
+
+.article-user-image {
+  padding-top: 10px;
 }
 
 .article-user-image img {
@@ -542,7 +545,7 @@ aside .sidebar_right {
   margin: 0px auto 25px;
   text-align: center;
   width: 18%;
-  background: linear-gradient(transparent 80%, #F8EE00 75%);
+  background: linear-gradient(transparent 80%, #FFD00A 75%);
   font-family: "筑紫A丸ゴシック";
   font-weight: bold;
 }

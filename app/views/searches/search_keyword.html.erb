@@ -1,19 +1,5 @@
 <div class="first-home-view">
   <%= render 'shared/header' %>
-   <div>
-    <div class="form-title">
-      <div class="error-message">
-        <% if @word.errors.any? %>
-         <%= @word.errors.count %>件のエラーが発生しました
-         <ul>
-           <% @word.errors.full_messages.each do |message| %>
-           <li><%= message %></li>
-           <% end %>
-         </ul>
-        <% end %>
-      </div>
-    </div>
-  </div>
   <div class="result-genre-full">
     <div class="result-mypage-full">
       <% if @range == "ユーザー" %>
