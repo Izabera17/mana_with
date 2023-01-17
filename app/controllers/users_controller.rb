@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :favorites, :edit, :update]
-  before_action :genre_all, only: [:index, :show, :edit]
+  before_action :set_user, only: [:show, :favorites, :edit, :update, :destroy]
+  before_action :genre_all, only: [:index, :show, :edit, :destroy]
 
   def index
     @users = User.where.not(admin: 'true')
@@ -18,6 +18,11 @@ class UsersController < ApplicationController
   def update
     @user.update(user_params)
     redirect_to user_path(@user.id)  
+  end
+  
+  def destroy
+    @user.destroy
+    render 'index'  
   end
   
   private

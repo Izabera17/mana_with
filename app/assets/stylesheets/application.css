@@ -109,6 +109,10 @@ body {
   margin-bottom: 10px;
 }
 
+.search-form-text {
+  width: 100%;
+}
+
 .sidebar-left-btn {
   background-color: #fff;
   padding: 8px 0px;
@@ -221,6 +225,10 @@ body {
 
 .search-form input[type="submit"] {
   height: 33px;
+}
+
+.search-form-text input[type="text"] {
+  width: 100%;
 }
 
 article {
@@ -955,7 +963,7 @@ aside .sidebar_right {
   font-size: 40px;
   font-weight: bold;
   margin: 0px;
-  
+
 }
 
 .result-mypage-edit-title {

@@ -71,9 +71,9 @@
           <div class="show-edit-destroy">
             <% if user_signed_in? && current_user.id == @post_learning.user_id %>
               <%= link_to "編集", edit_post_learning_path(@post_learning) %>
-              <%= link_to "削除", post_learning_path(@post_learning.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+              <%= link_to "削除", post_learning_path(@post_learning), method: :delete, "data-confirm" => "本当に削除しますか？" %>
             <% elsif current_user.admin? %>
-              <%= link_to "削除", post_learning_path(@post_learning.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+              <%= link_to "削除", post_learning_path(@post_learning), method: :delete, "data-confirm" => "本当に削除しますか？" %>
             <% end %>
           </div>
         </div>

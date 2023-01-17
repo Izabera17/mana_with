@@ -40,7 +40,7 @@ class PostLearningsController < ApplicationController
   def destroy
     @post_learning = PostLearning.find(params[:id])  
     @post_learning.destroy
-    redirect_to '/post_learnings'  
+    render 'index'  
   end
 
   def search_genre

@@ -45,7 +45,12 @@
                 </div>
               </div>
               <div class="mypage-inner-bottom">
-                <%= link_to "編集" , edit_user_path, class: "mypage-edit-bottom" %>
+              <% if user_signed_in? && current_user.id == @user.id %>
+                <%= link_to "編集", edit_user_path(@user) %>
+                <%= link_to "削除", user_path(@user), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+              <% elsif current_user.admin? %>
+                <%= link_to "削除", user_path(@user), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+              <% end %>
               </div>
             </div>
           </div>
