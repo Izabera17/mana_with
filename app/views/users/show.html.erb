@@ -148,6 +148,15 @@
           <p>　フォロー ・ フォロワー</p>
           <div class="sidebar-list">
             <ul>
+              <li>
+                <%= link_to (notifications_path) do %>
+                  <% if unchecked_notifications.any?%>
+                    <p>通知（未読あり）</p>
+                  <% else %>
+                    <p>通知</p>
+                  <% end %>
+                <% end %>
+              </li>
               <% if current_user.id == @user.id%>
                 <li>
                   <%= link_to "フォロー ", {controller: :users,action: :follow_list,user_id: @user.id}, method: :get %>

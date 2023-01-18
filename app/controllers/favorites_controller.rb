@@ -1,6 +1,7 @@
 class FavoritesController < ApplicationController
   def create
     post_learning = PostLearning.find(params[:post_learning_id])
+    post_learning.create_notification_favorite!(current_user)
     favorite = current_user.favorites.new(post_learning_id: post_learning.id)
     favorite.save
     redirect_to post_learning_path(post_learning)

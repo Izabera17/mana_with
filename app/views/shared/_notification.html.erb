@@ -1,0 +1,40 @@
+<% visitor = notification.visitor %>
+
+<span>
+  <%= link_to user_path(visitor) do %>
+    <%= visitor.name %>
+  <% end %>
+  <span>さんが</span>
+  <br>
+
+  <div>
+    <div>
+      <% case notification.action %>
+      <% when 'follow' %>
+        <p>あなたをフォローしました</p>
+      <% when 'favorite' %>
+        <%= link_to 'あなたの投稿', notification.post_learning %>
+        <p>にいいねしました</p>
+      <% when 'post_comment' %>
+        <% if notification.post_learning.user_id == visited.id %>
+          <%= link_to "あなたの投稿", notification.post_learning %>
+        <% else %>
+          <div>
+            <%= link_to post_path(notification.post_learning) do %>
+              <%= notification.post_learning.user.name %>
+            <% end %> 
+            さんの投稿
+          </div>
+        <% end %>
+        <p>にコメントしました</p>
+        <%= PostComment.find_by(id: notification.post_comment_id)&.comment %>
+        <hr>
+      <% end %>
+    </div>
+    <div>
+      <%= time_ago_in_words(notification.created_at).upcase %>  
+    </div>
+  </div>
+</span>
+
+ 
