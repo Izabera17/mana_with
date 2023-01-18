@@ -12,21 +12,22 @@
     </aside>
     <article class="users-article">
       <h3 class="text-center">通知</h3>
-            <%= link_to destroy_all_notifications_path, method: :delete do %>
-                <h7 style="color: black;">全削除</h7>
-            <% end %>
-            <hr>
-          <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
-        <% if @notifications.exists? %>
-            <div class="users-index">
-                <%= render notifications %>
-            </div>
-        <% else %>
-            <p>通知はありません</p>
-        <% end %>
+          <%= link_to destroy_all_activities_path, method: :delete do %>
+              <h7>全削除</h7>
+          <% end %>
+          <hr>
+      <% if @activities.exists? %>
+          <% @activities.each do |activity| %>
+            <%= render 'activities/activity', activity: activity %>
+          <% end %>
+      <% else %>
+          <p>アクティビティはありません</p>
+      <% end %>
     </article>
     <aside class="sidebar_right">
       <%= render 'shared/sidebar_right' %>
     </aside>
   </div>
 </div>
+
+

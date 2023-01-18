@@ -170,6 +170,17 @@
               <li>
                 <%= render 'shared/follow' %>  
               </li>
+              <li>
+                <% if user_signed_in? && current_user.id == @user.id %>
+                  <%= link_to (activities_path) do %>
+                    <% if unchecked_notifications.any?%>
+                      <p>アクティビティ通知（未読あり）</p>
+                    <% else %>
+                      <p>アクティビティ通知</p>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              </li>
             </ul>
           </div>
         </div>

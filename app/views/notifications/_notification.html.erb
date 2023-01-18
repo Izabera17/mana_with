@@ -1,7 +1,9 @@
 <% visitor = notification.visitor %>
+<% visited = notification.visited %>
 
 <span>
-  <%= link_to user_path(visitor) do %>
+  <%= link_to user_path(notification.visitor) do %>
+    <%= image_tag visitor.get_profile_image(100,100) %>
     <%= visitor.name %>
   <% end %>
   <span>さんが</span>
@@ -21,7 +23,10 @@
         <% else %>
           <div>
             <%= link_to post_path(notification.post_learning) do %>
-              <%= notification.post_learning.user.name %>
+              <%= image_tag notification.post.user.get_profile_image(100,100) %>
+              <strong>
+                <%= notification.post_learning.user.name %>
+              </strong>
             <% end %> 
             さんの投稿
           </div>

@@ -1,0 +1,48 @@
+<% visitor = activity.visitor %>
+<% visited = activity.visited %>
+<div>
+  <% case activity.action %>
+    <% when 'follow' %>
+      <%= link_to user_path(visited) do %>
+        <%= image_tag visited.get_profile_image(100,100) %>
+        <strong>
+          <%= visited.name %>
+        </strong>
+        <p>
+          さんをフォローしました
+        </p>
+      <% end %>
+    <% when 'favorite' %>
+      <div>
+        <%= link_to post_learning_path(activity.post_learning) do %>
+          <%= image_tag activity.post_learning.user.get_profile_image(100,100) %>
+          <strong>
+            <%= activity.post_learning.user.name %> 
+          </strong>
+          <p>
+            さんの投稿にいいねしました
+          </p>
+        <% end %>
+      </div>
+    <% when 'post_comment' %>
+      <% if activity.post_learning.user_id == visitor.id %>
+        <%= link_to "あなたの投稿", activity.post_learning %>
+      <% else %>
+      <div>
+        <%= link_to post_learning_path(activity.post_learning) do %>
+          <%= image_tag activity.post_learning.user.get_profile_image(100,100) %> 
+          <strong>
+            <%= activity.post_learning.user.name %> 
+          </strong>
+          <p>
+            さんの投稿にコメントしました  
+          </p>
+        <% end %>
+      <% end %>  
+      <%= PostComment.find_by(id: activity.post_comment_id)&.comment %>
+      </div>
+    <% end %>
+    <div>
+      <%= time_ago_in_words(activity.created_at).upcase %>    
+    </div>
+</div>

@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     post "users/guest_sign_in", to: "users/sessions#guest_sign_in"
     get "users/guest_sign_in", to: "users/sessions#guest_sign_in"
   end
-  
+
   put 'users/follow/:user_id',to: 'users#follow'
   put 'users/unfollow/:user_id',to: 'users#unfollow'
   get 'users/follow_list/:user_id',to: 'users#follow_list'
@@ -39,14 +39,23 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :edit, :update, :destroy]
 
   resources :genres
-  
+
   resources :messages, only: [:create, :destroy]
   resources :rooms, only: [:create, :show]
+
+  resources :notifications, only: [:index]  do
+    collection do
+      delete 'destroy_all'
+    end
+  end
   
-  resources :notifications, only: :index
-
+  resources :activities, only: [:index] do 
+    collection do
+      delete 'destroy_all'
+    end
+  end
+  
 end
-
 
 
 

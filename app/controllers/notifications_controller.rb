@@ -1,9 +1,16 @@
 class NotificationsController < ApplicationController
   def index
-    @notifications = current_user.passive_notifications.page(params[:page]).per(20)
+    @genres = Genre.all
+    @notifications = current_user.passive_notifications.page(params[:page]).per(15)
+      #@notificationの中でまだ確認していない(indexに一度も遷移していない)通知のみ
     @notifications.where(checked: false).each do |notification|
-      notification.update_attributes(checked: true)
+      notification.update(checked: true)
     end
-    notifications = @notifications.where.not(visitor_id: current_user.id)
+  end
+  
+  def destroy_all
+    #通知を全削除
+    @notifications = current_user.passive_notifications.destroy_all
+  	redirect_to users_notifications_path
   end
 end
