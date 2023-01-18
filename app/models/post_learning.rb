@@ -11,8 +11,6 @@ class PostLearning < ApplicationRecord
   validates :learning_content, presence: true
   validates :learning_real, presence: true
   validates :genre_id, presence: true
-  validates :word, presence: true
-  
 
   def self.looks(range, word)
     if range == "学習名"

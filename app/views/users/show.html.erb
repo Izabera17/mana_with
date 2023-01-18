@@ -56,7 +56,6 @@
           </div>
 
           <div class="show-mypage-middle">
-            <% @post_learnings.each do |post_learnings| %>
               <div class="mypage-middle-title">
                 <h1>投稿した学習</h1>
               </div>
@@ -78,25 +77,26 @@
                   </tr>
                 </thead>
                 <tbody class="mypage-body">
-                  <tr class="mypage-content">
-                    <td class="mypage-content-post-time mypage-text-inner">
-                      <%= post_learnings.created_at.strftime('%Y-%m-%d') %>
-                    </td>
-                    <td class="mypage-content-post-name mypage-text-inner">
-                      <%= link_to post_learning_path(post_learnings.id) do %>
-                        <%= post_learnings.learning_name %>
-                      <% end %>
-                    </td>
-                    <td class="mypage-content-post-favorite mypage-text-inner">
-                      <p>♥いいね  <%= post_learnings.favorites.count %>件</p>
-                    </td>
-                    <td class="mypage-content-post-comment mypage-text-inner">
-                      <%= image_tag '/assets/speech-bubble.png', class: 'mypage-post-icon' %> <%= post_learnings.post_comments.count %>件
-                    </td>
-                  </tr>
+                  <% @post_learnings.each do |post_learnings| %>
+                    <tr class="mypage-content">
+                      <td class="mypage-content-post-time mypage-text-inner">
+                        <%= post_learnings.created_at.strftime('%Y-%m-%d') %>
+                      </td>
+                      <td class="mypage-content-post-name mypage-text-inner">
+                        <%= link_to post_learning_path(post_learnings.id) do %>
+                          <%= post_learnings.learning_name %>
+                        <% end %>
+                      </td>
+                      <td class="mypage-content-post-favorite mypage-text-inner">
+                        <p>♥いいね  <%= post_learnings.favorites.count %>件</p>
+                      </td>
+                      <td class="mypage-content-post-comment mypage-text-inner">
+                        <%= image_tag '/assets/speech-bubble.png', class: 'mypage-post-icon' %> <%= post_learnings.post_comments.count %>件
+                      </td>
+                    </tr>
+                  <% end %>
                 </tbody>
-              </table>
-             <% end %>
+            </table>
           </div>
 
           <div class="mypage-favorites">
@@ -137,17 +137,56 @@
                 <% end %>
               </table>
             <% end %>
-          
         </div>
-       
       </div>
     </article>
     <aside class="sidebar_right">
       <%= render 'shared/sidebar_right' %>
-    </aside>
+      
+      <div class="sidebar-content">
+        <div class="sidebar-menu">
+          <p>　フォロー ・ フォロワー</p>
+          <div class="sidebar-list">
+            <ul>
+              <% if current_user.id == @user.id%>
+                <li>
+                  <%= link_to "フォロー ", {controller: :users,action: :follow_list,user_id: @user.id}, method: :get %>
+                  <%= @user.follow_count %>人
+                </li>
+                <li>
+                  <%= link_to "フォロワー ", {controller: :users,action: :follower_list,user_id: @user.id}, method: :get%>
+                  <%= @user.followers_count %>人
+                </li>
+              <% end %>
+              <li>
+                <%= render 'shared/follow' %>  
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="sidebar-content">
+        <% unless current_user.id == @user.id %>
+        <% if (current_user.followed_by? @user) && (@user.followed_by? current_user) %>
+          <div class="sidebar-menu">
+            <p>　DM</p>
+            <div class="sidebar-list">
+              
+              <% if @isRoom == true %>
+                <p class="user-show-room"><a href="/rooms/<%= @roomId %>" class="btn btn-primary btn-lg">チャットへ</a>
+              <% else %>
+                <%= form_for @room do |f| %>
+                  <%= fields_for @entry do |e| %>
+                    <%= e.hidden_field :user_id, value: @user.id %>
+                  <% end %>
+                  <%= f.submit "チャットを始める", class:"btn btn-primary btn-lg user-show-chat"%>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
   </div>
-</div>
-
-
-
-

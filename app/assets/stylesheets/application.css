@@ -86,7 +86,8 @@ body {
   margin-right: 30px;
 }
 
-.sidebar-content {
+.sidebar-content,
+.sidebar-content-mypage {
   margin-left: 30px;
 }
 
@@ -104,9 +105,49 @@ body {
   margin-top: 10px;
 }
 
+.sidebar-content-mypage {
+  margin-bottom: 20px;
+}
+
+.sidebar-menu-mypage {
+  background-color: #fff;
+  padding: 5px 15px;
+  border-radius: 5px;
+  margin-: 20px;
+}
+
+.sidebar-menu-mypage p {
+  border-left: 5px solid #900630;
+  font-size: 19px;
+  font-weight: bold;
+  margin-bottm: 10px;
+}
+
 .sidebar-list li {
   list-style: none;
   margin-bottom: 10px;
+}
+
+.message-btn {
+  width: 80%;
+}
+
+.mypage-submit-btn {
+  display: inline-block;
+  font-size: 18px;
+  padding: 0.4em 1.8em;
+  background-color: #8000D0;
+  box-shadow: 0 5px 0 #4C007C;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.mypage-submit-btn:active {
+  font-color: #fff;
+  box-shadow: none;
+  transform: translateY(5px);
 }
 
 .search-form-text {
@@ -187,7 +228,8 @@ body {
 
 .sidebar-btn-link {
   display: inline-block;
-  padding: 0.8em 6em;
+  font-size: 20px;
+  padding: 0.6em 4.5em;
   background-color: #ED8900;
   box-shadow: 0 5px 0 #C47405;
   border-radius: 5px;
@@ -1359,6 +1401,14 @@ aside .sidebar_right {
   margin-top: 10px;
 }
 
+.article-users-name {
+  text-align: center;
+}
+
+.article-users-name:hover {
+  opacity: 0.5;
+}
+
 .users-title-name p,
 .users-title-introduction p {
   font-size: 19px;
@@ -1368,10 +1418,6 @@ aside .sidebar_right {
   border-bottom: 1px solid #000;
 }
 
-.article-users-name p {
-  text-align: center;
-}
-
 .article-users-introduction p {
   margin: 0px 20px;
 }
@@ -1379,7 +1425,7 @@ aside .sidebar_right {
 .result-users-name-title {
   margin: 0px auto 8px;
   text-align: center;
-  width: 10%;
+  width: 15%;
   background: linear-gradient(transparent 80%, #ED31ED 65%);
   font-family: "筑紫A丸ゴシック";
   font-weight: bold;

@@ -7,6 +7,11 @@ class User < ApplicationRecord
   has_many :post_learnings, dependent: :destroy
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :entries, dependent: :destroy
+  has_many :messages, dependent: :destroy
+  
+  acts_as_followable 
+  acts_as_follower
 
   has_one_attached :user_image
 
@@ -34,4 +39,3 @@ class User < ApplicationRecord
   end
 
 end
-

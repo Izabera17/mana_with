@@ -29,11 +29,19 @@ Rails.application.routes.draw do
     post "users/guest_sign_in", to: "users/sessions#guest_sign_in"
     get "users/guest_sign_in", to: "users/sessions#guest_sign_in"
   end
+  
+  put 'users/follow/:user_id',to: 'users#follow'
+  put 'users/unfollow/:user_id',to: 'users#unfollow'
+  get 'users/follow_list/:user_id',to: 'users#follow_list'
+  get 'users/follower_list/:user_id',to: 'users#follower_list'
 
   resources :tags, only: [:index]
   resources :users, only: [:index, :show, :edit, :update, :destroy]
 
   resources :genres
+  
+  resources :messages, only: [:create, :destroy]
+  resources :rooms, only: [:create, :show]
 
 end
 

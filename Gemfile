@@ -60,3 +60,5 @@ gem 'devise'
 gem 'ransack'
 
 gem 'kaminari','~> 1.2.1'
+
+gem "acts_as_follower", github: "tcocca/acts_as_follower"
