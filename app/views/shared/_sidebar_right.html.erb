@@ -1,3 +1,4 @@
+<div>
 <div class="sidebar-content">
   <div class="sidebar-menu">
     <p>　メニュー</p>
@@ -7,6 +8,23 @@
           <%= link_to home_path, class: "home-link" do %>
             <%= image_tag '/assets/home_icon.png', class:'icon' %>
             <span>Home</span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to notifications_path, class: "notification-link" do %>
+            <% if unchecked_notifications.any?%>
+              <span>
+                <div class="news">
+                  <%= image_tag '/assets/notification.png', class:'icon' %>
+                  通知（未読あり）  
+                </div>
+              </span>
+            <% else %>
+                <%= image_tag '/assets/notification.png', class:'icon' %>
+                <span class="notification-margin">
+                通知
+              </span>
+            <% end %>
           <% end %>
         </li>
         <li>
@@ -31,3 +49,28 @@
     </div>
   </div>
 </div>
+
+ <div class="sidebar-content">
+          <% unless current_user.id == user.id %>
+            <% if (current_user.followed_by? user) && (user.followed_by? current_user) %>
+              <div class="sidebar-menu">
+                <p>　DM</p>
+                <div class="sidebar-list">
+                  <% if @isRoom == true %>
+                    <p class="user-show-room"><a href="/rooms/<%= @roomId %>" class="btn btn-primary btn-lg">チャットへ</a>
+                  <% else %>
+                    <%= form_for @room do |f| %>
+                      <%= fields_for @entry do |e| %>
+                        <%= e.hidden_field :user_id, value: @user.id %>
+                      <% end %>
+                      <%= f.submit "チャットを始める", class:"btn btn-primary btn-lg user-show-chat"%>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+</div>
+</div>
+
+

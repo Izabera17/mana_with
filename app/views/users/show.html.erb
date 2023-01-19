@@ -18,6 +18,9 @@
         <div class="mypage-main">
             <div class="mypage-image">
               <%= image_tag @user.get_profile_image(250,250) %>
+              <div class="follow-bottun">
+                <%= render 'shared/follow', user: @user %>
+              </div>
             </div>
             <div class="show-mypage-right">
               <div class="mypage-inner-top">
@@ -46,8 +49,12 @@
               </div>
               <div class="mypage-inner-bottom">
               <% if user_signed_in? && current_user.id == @user.id %>
-                <%= link_to "編集", edit_user_path(@user) %>
-                <%= link_to "削除", user_path(@user), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+                <%= link_to edit_user_path(@user) do %>
+                  <%= image_tag '/assets/edit.png', class:'icon-mypage' %>
+                <% end %>
+                <%= link_to user_path(@user), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
+                   <%= image_tag '/assets/trushbox.png', class:'icon-mypage' %>
+                <% end %>
               <% elsif current_user.admin? %>
                 <%= link_to "削除", user_path(@user), method: :delete, "data-confirm" => "本当に削除しますか？" %>
               <% end %>
@@ -141,72 +148,7 @@
       </div>
     </article>
     <aside class="sidebar_right">
-      <%= render 'shared/sidebar_right' %>
-      
-      <div class="sidebar-content">
-        <div class="sidebar-menu">
-          <p>　フォロー ・ フォロワー</p>
-          <div class="sidebar-list">
-            <ul>
-              <li>
-                <%= link_to (notifications_path) do %>
-                  <% if unchecked_notifications.any?%>
-                    <p>通知（未読あり）</p>
-                  <% else %>
-                    <p>通知</p>
-                  <% end %>
-                <% end %>
-              </li>
-              <% if current_user.id == @user.id%>
-                <li>
-                  <%= link_to "フォロー ", {controller: :users,action: :follow_list,user_id: @user.id}, method: :get %>
-                  <%= @user.follow_count %>人
-                </li>
-                <li>
-                  <%= link_to "フォロワー ", {controller: :users,action: :follower_list,user_id: @user.id}, method: :get%>
-                  <%= @user.followers_count %>人
-                </li>
-              <% end %>
-              <li>
-                <%= render 'shared/follow' %>  
-              </li>
-              <li>
-                <% if user_signed_in? && current_user.id == @user.id %>
-                  <%= link_to (activities_path) do %>
-                    <% if unchecked_notifications.any?%>
-                      <p>アクティビティ通知（未読あり）</p>
-                    <% else %>
-                      <p>アクティビティ通知</p>
-                    <% end %>
-                  <% end %>
-                <% end %>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      
-      <div class="sidebar-content">
-        <% unless current_user.id == @user.id %>
-        <% if (current_user.followed_by? @user) && (@user.followed_by? current_user) %>
-          <div class="sidebar-menu">
-            <p>　DM</p>
-            <div class="sidebar-list">
-              
-              <% if @isRoom == true %>
-                <p class="user-show-room"><a href="/rooms/<%= @roomId %>" class="btn btn-primary btn-lg">チャットへ</a>
-              <% else %>
-                <%= form_for @room do |f| %>
-                  <%= fields_for @entry do |e| %>
-                    <%= e.hidden_field :user_id, value: @user.id %>
-                  <% end %>
-                  <%= f.submit "チャットを始める", class:"btn btn-primary btn-lg user-show-chat"%>
-                <% end %>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
-        <% end %>
-      </div>
-    </div>
+      <%= render 'shared/sidebar_right', user: @user %>
+    </aside>
   </div>
+</div>

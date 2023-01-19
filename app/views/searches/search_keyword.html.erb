@@ -4,15 +4,19 @@
     <div class="result-mypage-full">
       <% if @range == "ユーザー" %>
         <div class="result-users-search-name-title">
-          <p class="user-search-result">検索結果 [User]：<%= @word %></p>
+          <p class="user-search-result">検索結果 [User]：<%= params[:word] %></p>
         </div>
       <% elsif  @range == "学習名" %>
         <div class="post_learning-search-result">
-          <p>検索結果 [学習名]：<%= @word %></p>
+          <p>検索結果 [学習名]：<%= params[:word] %></p>
         </div>
       <% elsif  @range == "頑張ったこと" %>
         <div class="post_learning-search-result">
-          <p>検索結果 [頑張ったこと]：<%= @word %></p> 
+          <p>検索結果 [頑張ったこと]：<%= params[:word] %></p> 
+        </div>
+      <% else %>
+         <div class="post_learning-index-result">
+           <p>学習投稿一覧</p>
         </div>
       <% end %>
     </div>

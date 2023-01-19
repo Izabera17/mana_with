@@ -1,3 +1,31 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.news {
+  padding: 1px 3px;
+  border-radius: 5px;
+  position: relative; 
+}
+
+.news::after {
+  content: "！";       
+  position: absolute;   
+  top: 0px;         
+  left: 18px;       
+  color: #FFF;      
+  line-height: 20px;    
+  font-weight: bold;    
+  text-align: center;   
+  width: 20px;          
+  background: #F00;     
+  border-radius: 50%;   
+}
+
+.notification-margin {
+    margin-left: 10px;
+}
+
+.notification-link span:hover {
+    opacity: 0.5;
+}

@@ -31,13 +31,20 @@
             <div class="article-upper-half">
 
               <div class="upper-left">
+                <div class="title-full-inner">
+                      <div class="eval-lower">
+                        <div class="article-genre">
+                          <div class="article-genre-title">
+                            <p>ジャンル</p>
+                          </div>
+                          <div class="article-genre-name">
+                            <p><%= post_learnings.genre.name %></p>
+                          </div>
+                        </div>
+                      </div>
+                   </div>
                 <div class="article-time">
-                  　<span>New!</span> <%= time_ago_in_words(post_learnings.created_at) %>前
-                </div>
-                <div class="article-title">
-                  <%= link_to post_learning_path(post_learnings.id) do %>
-                    <%= post_learnings.learning_name %>
-                  <% end %>
+                  <%= time_ago_in_words(post_learnings.created_at) %>前
                 </div>
               </div>
 
@@ -54,43 +61,77 @@
 
             </div>
             <div class="article-lower-half">
-              <div class="article-effort">
-                <div class="article-effort-title">
-                  <p>頑張ったこと</p>
+              <div class="article-full-lower">
+                 <div class="article-title">
+                   <div class="title-new">
+                     <span>New!</span> 
+                   </div>
+                   <div class="title-name-inner">
+                    <%= link_to post_learning_path(post_learnings.id) do %>
+                      <%= post_learnings.learning_name %>
+                    <% end %>
+                   </div>
                 </div>
-                <div class="article-effort-contents">
-                  <p><%= post_learnings.learning_content %></p>
+                 <div class="article-effort">
+                  <div class="article-effort-title">
+                    <p>頑張ったこと</p>
+                  </div>
+                  <div class="article-effort-contents">
+                    <p><%= post_learnings.learning_content %></p>
+                  </div>
+                </div>
+                <div class="article-effort-image">
+                  <%= image_tag post_learnings.post_image.variant(resize_to_limit: [300,190]) if post_learnings.post_image.attached? %>
+                </div>
+                <div class="article-real">
+                  <div class="article-real-title">
+                    <p>学びの本音</p>
+                  </div>
+                  <div class="article-real-contents">
+                    <p><%= post_learnings.learning_real %></p>
+                  </div>
                 </div>
               </div>
-              <div class="article-effort-image">
-                <%= image_tag post_learnings.post_image.variant(resize_to_limit: [300,190]) if post_learnings.post_image.attached? %>
-              </div>
-              <div class="article-real">
-                <div class="article-real-title">
-                  <p>学びの本音</p>
+              <div class="article-lower-right">
+                 <div class="article-comments-favorites">
+                  <div class="article-favorites">
+                    <div class="show-post-favorite">
+                      <p>
+                        <span>♥</span>いいね <%= post_learnings.favorites.count %>件
+                      </p>
+                    </div>
+                  </div>
+                  <div class="article-comments">
+                    <p>コメント <%= post_learnings.post_comments.count %>件</p>
+                  </div>
                 </div>
-                <div class="article-real-contents">
-                  <p><%= post_learnings.learning_real %></p>
+                
+                <div class="home-comment-inner">
+                  <% post_learnings.post_comments.each do |post_comment| %>
+                    <div class="home-comment-top">
+                      <div class="home-article-time">
+                          <%= time_ago_in_words(post_comment.created_at) %>前
+                        </div>
+                      <div class="home-comment">
+                        <div class="home-img-comment">
+                          <div class="home-article-img">
+                            <div class="home-user-image">
+                              <p class="home-user-image-name"><%= post_comment.user.name %></p>
+                              <p class="home-user-image-content"><%= image_tag post_comment.user.get_profile_image(100,100) %></p>
+                            </div>
+                          </div>
+                          <div class="home-comment-right">
+                            <div class="home-comment-text-inner">
+                              <p><%= post_comment.comment %></p>
+                            </div>
+                          </div>
+                        </div>
+                       
+                      </div>
+                    </div>
+                  <% end %>
                 </div>
-              </div>
-
-            </div>
-            <div class="eval-lower">
-              <div class="article-comments-favorites">
-                <div class="article-favorites">
-                  <p>♡ <%= post_learnings.favorites.count %> いいね</p>
-                </div>
-                <div class="article-comments">
-                  <p>コメント <%= post_learnings.post_comments.count %>件</p>
-                </div>
-              </div>
-              <div class="article-genre">
-                <div class="article-genre-title">
-                  <p>ジャンル</p>
-                </div>
-                <div class="article-genre-name">
-                  <p><%= post_learnings.genre.name %></p>
-                </div>
+                
               </div>
             </div>
           </div>

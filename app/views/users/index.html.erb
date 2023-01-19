@@ -11,7 +11,39 @@
       <%= render 'shared/sidebar_left' %>
     </aside>
     <article class="users-article">
-      <%= render 'shared/users' %>
+      <% @users.each do |users| %>
+        <div class="users-full">
+          <div class="article-users-image">
+            
+            <%= image_tag users.get_profile_image(180,180) %>
+            
+          </div>
+          
+          <div class="users-middle">
+            <div class="users-title-name">
+              <p>ユーザー名</p>
+            </div>
+            <div class="article-users-name">
+              <%= link_to user_path(users.id)  do %>
+                <%= users.name %>
+              <% end %>
+            </div>
+          </div>
+                  
+          <div class="users-right">
+            <div class="users-title-introduction">
+              <p>自己紹介</p>
+            </div>
+            <div class="article-users-introduction">
+              <p><%= users.introduction %></p>
+            </div>
+          </div>
+          
+          <div class="users-follow-list">
+            <%= render 'shared/follow', user: users %>
+          </div>
+        </div>
+      <% end %>
     </article>
     <aside class="sidebar_right">
       <%= render 'shared/sidebar_right' %>
