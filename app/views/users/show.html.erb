@@ -69,7 +69,7 @@
                    <%= image_tag '/assets/trushbox.png', class:'icon-mypage' %>
                 <% end %>
               <% elsif current_user.admin? %>
-                <%= link_to "削除", user_path(@user), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
+                <%= link_to user_path(@user), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
                   <%= image_tag '/assets/trushbox.png', class:'icon-mypage' %>
                 <% end %>
               <% end %>
@@ -191,6 +191,31 @@
           </div>
         <% end %>
       <% end %>
+      <% if current_user.admin? %>
+        <div class="sidebar-dm">
+            <p>　DM</p>
+              <div class="sidebar-list">
+                <ul>
+                  <li>
+                    <% if @isRoom == true %>
+                      <a href="/rooms/<%= @roomId %>", class="home-link" >
+                        <%= image_tag '/assets/mail.png', class:'icon' %>
+                        <span>チャットへ</span>
+                      </a>
+                    <% else %>
+                      <%= form_with model: @room do |f| %>
+                        <%= fields_for @entry do |e| %>
+                          <%= e.hidden_field :user_id, value: @user.id %>
+                        <% end %>
+                        <%= f.submit "チャットを始める" %>
+                      <% end %>
+                    <% end %>  
+                  </li>
+                </ul>
+              </div>
+          </div>
+      <% end %>
     </aside>
   </div>
 </div>
+<%= render 'shared/footer' %>

@@ -660,7 +660,7 @@ aside .sidebar_right {
 .home-img-comment {
   background-color: #ACEAA0;
   margin-bottom: 10px;
-  border-radius: 50px;
+  border-radius: 20px;
   width: 100%;
 }
 
@@ -913,6 +913,7 @@ aside .sidebar_right {
 .form-btn input[type="submit"] {
   display: inline-block;
   font-size: 20px;
+  height: 50px;
   padding: 0.4em 3em;
   background-color: #8000D0;
   box-shadow: 0 5px 0 #4C007C;

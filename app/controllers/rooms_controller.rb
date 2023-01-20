@@ -15,8 +15,13 @@ class RoomsController < ApplicationController
       @messages = @room.messages
       @message = Message.new
       @entries = @room.entries
+    elsif current_user.admin?
+      @messages = @room.messages
+      @message = Message.new
+      @entries = @room.entries
     else
       redirect_back(fallback_location: root_path)
     end
   end
 end
+
