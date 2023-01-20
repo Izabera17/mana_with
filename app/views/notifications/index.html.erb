@@ -1,8 +1,8 @@
 <div class="first-home-view">
   <%= render 'shared/header' %>
-  <div class="result-genre-full">
-    <div class="result-users-name-title">
-      <p>Users</p>
+  <div class="result-notifications-main-full">
+    <div class="result-notifications-name-title">
+      <p>通知</p>
     </div>
   </div>
   <div class="top-contents">
@@ -11,12 +11,13 @@
       <%= render 'shared/sidebar_left' %>
     </aside>
     <article class="users-article">
-      <h3 class="text-center">通知</h3>
-            <%= link_to destroy_all_notifications_path, method: :delete do %>
-                <h7 style="color: black;">全削除</h7>
-            <% end %>
-            <hr>
-          <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
+      <div class="destroy_all_notifications">
+        <%= link_to destroy_all_notifications_path, method: :delete do %>
+          <h7>全削除</h7>
+        <% end %>
+      </div>
+      <hr>
+      <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
         <% if @notifications.exists? %>
             <div class="users-index">
                 <%= render notifications %>

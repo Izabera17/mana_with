@@ -1450,7 +1450,7 @@ aside .sidebar_right {
 }
 
 .follow-list-inner {
-  margin-left: 25px;
+  margin-left: 15px;
 }
 
 .follower-list-inner {
@@ -1461,6 +1461,16 @@ aside .sidebar_right {
 .follower-list-inner:hover {
   opacity: 0.5;
 } 
+
+.follow-list-inner a,
+.follower-list-inner a {
+  color: #000; 
+} 
+
+.follow-text-inner,
+.follower-text-inner {
+  font-weight: bold;
+}
 
 
 /*MyPage（編集）*/

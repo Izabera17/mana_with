@@ -1,3 +1,31 @@
-// Place all the styles related to the rooms controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.room-full {
+    background-color: #fff;
+}
+
+.posts {
+    position: fixed;
+    bottom: 90px;
+    left: 45%;
+    width: 100%;
+}
+ 
+.post-new {
+    position: fixed;
+    bottom: 0; 
+    right: 0; 
+    width: 100%; 
+}
+
+.form-text-field {
+ height: 30px;   
+}
+
+input[type="submit"] {
+    height: 35px;
+    color: #fff;
+    background-color: #F08B00;
+}
+
+input[type="submit"]:hover {
+    cursor: pointer;
+}

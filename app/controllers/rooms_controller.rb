@@ -9,6 +9,7 @@ class RoomsController < ApplicationController
   end
 
   def show
+    @genres = Genre.all
     @room = Room.find(params[:id])
     if Entry.where(user_id: current_user.id,room_id: @room.id).present?
       @messages = @room.messages

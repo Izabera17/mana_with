@@ -1,22 +1,27 @@
 <% visitor = notification.visitor %>
 <% visited = notification.visited %>
 
-<span>
-  <%= link_to user_path(notification.visitor) do %>
-    <%= image_tag visitor.get_profile_image(100,100) %>
-    <%= visitor.name %>
-  <% end %>
-  <span>さんが</span>
-  <br>
-
-  <div>
+  <div class="notification-content">
+    <div class="notification-text-time">
+      <%= time_ago_in_words(notification.created_at).upcase %>  
+    </div>
     <div>
+      <%= link_to user_path(notification.visitor), class: "article-notification-image" do %>
+        <%= image_tag visitor.get_profile_image(100,100) %>  
+      <% end %>
+    </div>
+    <div class="notification-text-name">
+      <%= link_to user_path(notification.visitor) do %>
+        <%= visitor.name %>
+      <% end %>
+      さんが
+    </div>
+    <div class="notification-text-content">
       <% case notification.action %>
       <% when 'follow' %>
-        <p>あなたをフォローしました</p>
+        あなたをフォローしました
       <% when 'favorite' %>
-        <%= link_to 'あなたの投稿', notification.post_learning %>
-        <p>にいいねしました</p>
+        <%= link_to 'あなたの投稿', notification.post_learning %>にいいねしました
       <% when 'post_comment' %>
         <% if notification.post_learning.user_id == visited.id %>
           <%= link_to "あなたの投稿", notification.post_learning %>
@@ -31,15 +36,9 @@
             さんの投稿
           </div>
         <% end %>
-        <p>にコメントしました</p>
-        <%= PostComment.find_by(id: notification.post_comment_id)&.comment %>
-        <hr>
+        にコメントしました
+        <p class="notification-comment"><%= PostComment.find_by(id: notification.post_comment_id)&.comment %></p>
       <% end %>
     </div>
-    <div>
-      <%= time_ago_in_words(notification.created_at).upcase %>  
-    </div>
   </div>
-</span>
-
- 
+  <hr>

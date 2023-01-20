@@ -1,3 +1,83 @@
 // Place all the styles related to the notifications controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.result-notifications-main-full {
+  margin-bottom: 0px;
+}
+
+.result-notifications-name-title {
+  margin: 0px auto 8px;
+  text-align: center;
+  width: 15%;
+  background: linear-gradient(transparent 80%, #08AF35 65%);
+  font-family: "筑紫A丸ゴシック";
+  font-weight: bold;
+}
+
+.result-notifications-name-title p {
+  color: #fff;
+  font-size: 43px;
+  margin: 0px;
+}
+
+.notification-top {
+    display: flex;
+}
+
+.notification-content {
+    display: flex;
+    background-color: #fff;
+}
+
+.article-notification-image {
+  padding-top: 10px;
+  width: 15%;
+}
+
+.article-notification-image img {
+  border-radius: 50%;
+  border: 1px solid #EAEAEA;
+  width: 80px;
+  height: 80px;
+  margin: 10px 5px 5px 5px;
+}
+
+.notification-text-time {
+    width: 8%;
+    margin: 20px 20px 30px 20px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.notification-text-name {
+    width: 25%;
+    margin: 35px 0px 30px 25px;
+    font-size: 18px;
+}
+
+.notification-text-content {
+    width: 67%;
+    margin: 35px 20px 0px 0px;
+    font-size: 18px;
+}
+
+.destroy_all_notifications {
+    background-color: red;
+    width: 10%;
+    text-align: center;
+    padding: 5px 8px;
+    margin-left: auto;
+    border-radius: 10px;
+}
+
+.destroy_all_notifications h7 {
+    font-size: 18px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.notification-comment {
+    font-size: 20px; 
+    color: rgba(0, 0, 0, 0.5);
+    margin-left: 30px;
+}

@@ -1,39 +1,40 @@
-<div class="left-button">
-  <%= link_to "ユーザー一覧に戻る", "/users/index",class:"edit-link" %>
-</div>
-<h4 class="rooms-title">気になる同士</h4>
-<% @entries.each do |e| %>
-  <div class="user-name">
-  <strong>
-    <!--<%= image_tag e.user.user_image, class:"user-image" %>-->
-      <a class="rooms-user-link" href="/users/<%= e.user.id %>">
-        <%= e.user.name %>さん
-      </a>
-  </strong>
-  </div>
-<% end %>
-<div class="chats">
-  <div class="chat">
-    <% if @messages.present? %>
-      <% @messages.each do |message| %>
-        <div>
-          <div class="chat-face">
-            <% if message.user == current_user %>
-              <%= link_to '削除', message, method: :delete, data: { confirm: '本当に削除してもよろしいですか？' } %>
-            <% end %>
-          </div>
-          <div class="chat-hukidashi"> <strong><%= message.body %></strong> <br>
-            <%= message.created_at.strftime("%Y-%m-%d %H:%M")%>
-          </div>
+<div class="room-full">
+    <h4 class="rooms-title">気になる同士</h4>
+    <% @entries.each do |e| %>
+      <div class="user-name">
+      <strong>
+        <div class="article-notification-image">
+          <%= image_tag e.user.get_profile_image(100,100) %>  
         </div>
-      <% end %>
+        <a class="rooms-user-link" href="/users/<%= e.user.id %>">
+          <%= e.user.name %>さん
+        </a>
+      </strong>
+      </div>
     <% end %>
-  </div>
-  <div class="posts">
-    <%= form_for @message do |f| %>
-      <%= f.text_field :body, placeholder: "メッセージを入力して下さい" , size: 70, class:"form-text-field" %>
-        <%= f.hidden_field :room_id, value: @room.id %>
-          <%= f.submit "投稿",class: 'form-submit'%>
-    <% end %>
-  </div>
+    <div class="chats">
+      <div class="chat">
+        <% if @messages.present? %>
+          <% @messages.reverse.each do |message| %>
+            <div>
+              <div class="chat-face">
+                <% if message.user == current_user %>
+                  <%= link_to '削除', message, method: :delete, data: { confirm: '本当に削除してもよろしいですか？' } %>
+                <% end %>
+              </div>
+              <div class="chat-hukidashi"> <strong><%= message.user.name %><%= message.body %></strong> <br>
+                <%= message.created_at.strftime("%Y-%m-%d %H:%M")%>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="posts">
+        <%= form_with model: @message do |f| %>
+          <%= f.text_field :body, placeholder: "メッセージを入力して下さい" , size: 70, class:"form-text-field" %>
+            <%= f.hidden_field :room_id, value: @room.id %>
+              <%= f.submit "投稿",class: 'form-submit'%>
+        <% end %>
+      </div>
+    </div>
 </div>

@@ -22,10 +22,10 @@
                 <% if user_signed_in? && current_user.id == @user.id %>
                   <div class="follow-list-full">
                     <span class="follow-list-inner">
-                      <%= @user.follow_count %><%= link_to "フォロー", {controller: :users, action: :follow_list, user_id: @user.id}, method: :get %>
+                      <span class="follow-text-inner"><%= @user.follow_count %> </span><%= link_to "フォロー", {controller: :users, action: :follow_list, user_id: @user.id}, method: :get %>
                     </span>
                     <span class="follower-list-inner">
-                      <%= @user.followers_count %><%= link_to "フォロワー", {controller: :users, action: :follower_list, user_id: @user.id}, method: :get %>
+                      <span class="follower-text-inner"><%= @user.followers_count %> </span><%= link_to "フォロワー", {controller: :users, action: :follower_list, user_id: @user.id}, method: :get %>
                     </span>
                   </div>
                 <% else %>
@@ -69,7 +69,9 @@
                    <%= image_tag '/assets/trushbox.png', class:'icon-mypage' %>
                 <% end %>
               <% elsif current_user.admin? %>
-                <%= link_to "削除", user_path(@user), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+                <%= link_to "削除", user_path(@user), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
+                  <%= image_tag '/assets/trushbox.png', class:'icon-mypage' %>
+                <% end %>
               <% end %>
               </div>
             </div>
