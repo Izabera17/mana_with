@@ -91,7 +91,8 @@ body {
   margin-left: 30px;
 }
 
-.sidebar-menu {
+.sidebar-menu,
+.sidebar-dm {
   background-color: #fff;
   padding: 10px 15px;
   border-radius: 5px;
@@ -107,6 +108,14 @@ body {
 
 .sidebar-menu p {
   border-left: 5px solid #0CCC31;
+}
+
+.sidebar-dm p {
+  border-left: 5px solid #FF9D00;
+}
+
+.sidebar-menu p,
+.sidebar-dm p {
   font-size: 19px;
   font-weight: bold;
   margin-top: 10px;
@@ -164,7 +173,7 @@ body {
 .sidebar-left-btn {
   background-color: #fff;
   padding: 8px 0px;
-  margin-top: 20px;
+  margin-top: 30px;
   border-radius: 5px;
 }
 
@@ -209,16 +218,6 @@ body {
   display: inline-block;
   vertical-align: top;
   margin-left: 10px;
-  font-family: "筑紫A丸ゴシック";
-  font-weight: bold;
-  color: #000
-}
-
-.notification-link span {
-  font-size: 20px;
-  display: inline-block;
-  vertical-align: top;
-  margin-right: 10px;
   font-family: "筑紫A丸ゴシック";
   font-weight: bold;
   color: #000
@@ -1446,6 +1445,23 @@ aside .sidebar_right {
   font-size: 18px;
 }
 
+.follow-full-top {
+  margin-top: 10px;
+}
+
+.follow-list-inner {
+  margin-left: 25px;
+}
+
+.follower-list-inner {
+  margin: 0px 10px;
+}
+
+.follow-list-inner:hover,
+.follower-list-inner:hover {
+  opacity: 0.5;
+} 
+
 
 /*MyPage（編集）*/
 
@@ -1643,5 +1659,3 @@ aside .sidebar_right {
   font-size: 38px;
   margin: 0px;
 }
-
-

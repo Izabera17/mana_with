@@ -3,7 +3,6 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .news {
-  padding: 1px 3px;
   border-radius: 5px;
   position: relative; 
 }
@@ -22,10 +21,20 @@
   border-radius: 50%;   
 }
 
-.notification-margin {
-    margin-left: 10px;
+.notification-link span {
+  font-size: 20px;
+  display: inline-block;
+  vertical-align: top;
+  font-family: "筑紫A丸ゴシック";
+  font-weight: bold;
+  color: #000
+}
+
+.notification-margin, 
+.news span {
+  margin-left: 10px;
 }
 
 .notification-link span:hover {
-    opacity: 0.5;
+  opacity: 0.5;
 }

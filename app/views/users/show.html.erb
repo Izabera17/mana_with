@@ -18,10 +18,22 @@
         <div class="mypage-main">
             <div class="mypage-image">
               <%= image_tag @user.get_profile_image(250,250) %>
-              <div class="follow-bottun">
-                <%= render 'shared/follow', user: @user %>
+              <div class="follow-full-top">
+                <% if user_signed_in? && current_user.id == @user.id %>
+                  <div class="follow-list-full">
+                    <span class="follow-list-inner">
+                      <%= @user.follow_count %><%= link_to "フォロー", {controller: :users, action: :follow_list, user_id: @user.id}, method: :get %>
+                    </span>
+                    <span class="follower-list-inner">
+                      <%= @user.followers_count %><%= link_to "フォロワー", {controller: :users, action: :follower_list, user_id: @user.id}, method: :get %>
+                    </span>
+                  </div>
+                <% else %>
+                  <div class="follow-bottun">
+                    <%= render 'shared/follow', user: @user %>
+                  </div>
+                <% end %>
               </div>
-
             </div>
             <div class="show-mypage-right">
               <div class="mypage-inner-top">
@@ -151,26 +163,32 @@
     <aside class="sidebar_right">
       <%= render 'shared/sidebar_right' %>
       <div class="sidebar-content">
-          <% unless current_user.id == @user.id %>
-            <% if (current_user.followed_by? @user) && (@user.followed_by? current_user) %>
-              <div class="sidebar-menu">
-                <p>　DM</p>
-                <div class="sidebar-list">
-                  <% if @isRoom == true %>
-                    <p class="user-show-room"><a href="/rooms/<%= @roomId %>" >チャットへ</a>
-                  <% else %>
-                    <%= form_for @room do |f| %>
-                      <%= fields_for @entry do |e| %>
-                        <%= e.hidden_field :user_id, value: @user.id %>
+      <% unless current_user.id == @user.id %>　
+        <% if (current_user.following? @user) && (@user.following? current_user) %>
+          <div class="sidebar-dm">
+            <p>　DM</p>
+              <div class="sidebar-list">
+                <ul>
+                  <li>
+                    <% if @isRoom == true %>
+                      <a href="/rooms/<%= @roomId %>", class="home-link" >
+                        <%= image_tag '/assets/mail.png', class:'icon' %>
+                        <span>チャットへ</span>
+                      </a>
+                    <% else %>
+                      <%= form_with model: @room do |f| %>
+                        <%= fields_for @entry do |e| %>
+                          <%= e.hidden_field :user_id, value: @user.id %>
+                        <% end %>
+                        <%= f.submit "チャットを始める" %>
                       <% end %>
-                      <%= f.submit "チャットを始める", class:"btn btn-primary btn-lg user-show-chat"%>
-                    <% end %>
-                  <% end %>
-                </div>
+                    <% end %>  
+                  </li>
+                </ul>
               </div>
-            <% end %>
-          <% end %>
-</div>
+          </div>
+        <% end %>
+      <% end %>
     </aside>
   </div>
 </div>

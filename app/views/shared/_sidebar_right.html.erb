@@ -1,4 +1,4 @@
-<div class="sidebar-content">
+ <div class="sidebar-content">
   <div class="sidebar-menu">
     <p>　メニュー</p>
     <div class="sidebar-list">
@@ -12,12 +12,10 @@
         <li>
           <%= link_to notifications_path, class: "notification-link" do %>
             <% if unchecked_notifications.any?%>
-              <span>
                 <div class="news">
                   <%= image_tag '/assets/notification.png', class:'icon' %>
-                  通知（未読あり）  
+                  <span class="news-span">通知（未読あり）</span> 
                 </div>
-              </span>
             <% else %>
                 <%= image_tag '/assets/notification.png', class:'icon' %>
                 <span class="notification-margin">
@@ -47,5 +45,4 @@
       </ul>
     </div>
   </div>
-</div>
 </div>
