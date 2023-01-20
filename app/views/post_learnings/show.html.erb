@@ -15,41 +15,45 @@
               <%= time_ago_in_words(@post_learning.created_at) %>前
             </div>
             <div class="show-post-image">
-              <p><%= image_tag @post_learning.post_image.variant(resize_to_limit: [300,260]) if @post_learning.post_image.attached? %></p>
+              <div class="show-inner-middle">
+                <div class="show-content-text-inner">
+                  <div class="show-post-name">
+                    <p>学習名</p>
+                  </div> 
+                  <div class="show-post-name-inner">
+                    <p><%= @post_learning.learning_name %></p>
+                  </div>
+                </div>
+                <div class="show-content-text-inner">
+                  <div class="show-post-content">
+                    <p>頑張ったこと</p>
+                  </div>
+                  <div class="show-post-content-inner">
+                    <p><%= @post_learning.learning_content %></p>
+                  </div>
+                </div>
+                <div class="show-content-text-inner">
+                  <div class="show-post-real">
+                    <p>学びの本音</p>
+                  </div>
+                  <div class="show-post-real-inner">
+                    <p><%= @post_learning.learning_real %></p>
+                  </div>
+                </div>
+                <div class="show-content-text-inner">
+                  <div class="show-post-genre">
+                    <p>ジャンル</p>
+                  </div>
+                  <div class="show-post-genre-inner">
+                    <p><%= @post_learning.genre.name %></p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
   
           <div class="show-main-right">
-            
-            <div class="show-inner-middle">
-              <div class="show-post-name">
-                <p>学習名</p>
-              </div>
-              <div class="show-post-content">
-                <p>頑張ったこと</p>
-              </div>
-              <div class="show-post-real">
-                <p>学びの本音</p>
-              </div>
-              <div class="show-post-genre">
-                <p>ジャンル</p>
-              </div>
-            </div>
-           
-            <div class="show-inner-right">
-              <div class="show-post-name-inner">
-                <p><%= @post_learning.learning_name %></p>
-              </div>
-              <div class="show-post-content-inner">
-                <p><%= @post_learning.learning_content %></p>
-              </div>
-              <div class="show-post-real-inner">
-                <p><%= @post_learning.learning_real %></p>
-              </div>
-              <div class="show-post-genre-inner">
-                <p><%= @post_learning.genre.name %></p>
-              </div>
-            </div>
+            <p><%= image_tag @post_learning.post_image.variant(resize_to_limit: [360,220]) if @post_learning.post_image.attached? %></p>
           </div>
         </div>
         <div class="show-favorite-edit">

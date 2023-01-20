@@ -1085,64 +1085,95 @@ aside .sidebar_right {
 }
 
 .show-main-left {
-  width: 38%;
+  width: 60%;
   margin-left: 20px;
 }
 
 .show-main-right {
-  display: flex;
-  width: 60%;
+  width: 40%;
 }
 
 .show-inner-middle {
-  width: 30%;
+  width: 100%;
 }
 
-.show-inner-right {
-  width: 70%;
-  margin: 0px 20px;
+.show-content-text-inner {
+  display: flex;
+  width: 100%;
+}
+
+.show-post-name,
+.show-post-content,
+.show-post-real,
+.show-post-genre {
+  width: 50%;
+  height: 20%;
+}
+
+.show-post-name p {
+ background-color: #0093FF;
+ padding: 5px;
+ border-radius: 30px;
+ margin: 0;
+}
+
+.show-post-content p {
+ background-color: #FF0058;
+ padding: 5px;
+ border-radius: 30px;
+ margin: 0;
+}
+
+.show-post-real p {
+ background-color: #FF8900;
+ padding: 5px;
+ border-radius: 30px;
+ margin: 0;
+}
+
+.show-post-genre p {
+ background-color: #14B100;
+ padding: 5px;
+ border-radius: 30px;
+ margin: 0;
 }
 
 .show-post-name {
-  background-color: #0093FF;
   text-align: center;
   color: #fff;
-  border-radius: 30px;
   font-size: 18px;
-  margin :55px 30px 15px;
+  margin :10px 30px 15px;
 }
 
 .show-post-content {
-  background-color: #FF0058;
   text-align: center;
   color: #fff;
   border-radius: 30px;
   font-size: 18px;
-  margin: 30px 8px;
+  margin: 10px 15px;
 }
 
 .show-post-real {
-  background-color: #FF8900;
   text-align: center;
   color: #fff;
   border-radius: 30px;
   font-size: 18px;
-  margin: 30px 15px;
+  margin: 10px 25px;
 }
 
 .show-post-genre {
-  background-color: #14B100;
   text-align: center;
   color: #fff;
   border-radius: 30px;
   font-size: 18px;
-  margin: 30px 15px;
+  margin: 10px 25px;
 }
 
 .show-post-name-inner {
   border-radius: 30px;
   font-size: 18px;
-  margin :55px 0px 30px;
+  margin :30px 0px 30px;
+  width: 50%;
 }
 
 .show-post-content-inner,
@@ -1150,7 +1181,8 @@ aside .sidebar_right {
 .show-post-genre-inner {
   border-radius: 30px;
   font-size: 18px;
-  margin: 30px 0px;
+  margin: 40px 0px;
+  width: 50%;
 }
 
 .show-favorite-edit {
@@ -1166,7 +1198,6 @@ aside .sidebar_right {
 .mypage-main-inner {
   display: flex;
 }
-
 
 /*MyPage*/
 

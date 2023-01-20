@@ -1,48 +1,71 @@
-<div class="main">
-   <%= render 'shared/header' %>
-  </div>
-  <div class="row mt-3">
-    <div class="col-md-5">
-      <h4 class="my-4 text-md-end text-left" >
-        <span class="text-white bg-secondary px-4">ジャンル一覧・追加</span>
-      </h4>
+<div class="first-form-view">
+  <%= render 'shared/header' %>
+  <div>
+    <div class="form-title">
+      <div class="error-message">
+        <% if @genre.errors.any? %>
+         <%= @genre.errors.count %>件のエラーが発生しました
+         <ul>
+           <% @genre.errors.full_messages.each do |message| %>
+           <li><%= message %></li>
+           <% end %>
+         </ul>
+        <% end %>
+      </div>
     </div>
   </div>
-  <div>
-    <%= form_for @genre do |f| %>
-      <div class="row ">
-        <div>
-          <strong>ジャンル名</strong>
-        </div>
-        <div>
-          <%= f.text_field :name, placeholder: "ジャンル名"%>
-        </div>
-        <div>
-          <%= f.submit "新規登録", class: "btn btn-success" %>
+  <div class="top-contents">
+    <aside class="sidebar_left">
+      <%= render 'shared/sidebar_left' %>
+    </aside>
+    <article class="form-article">
+     <div class="row mt-3">
+        <div class="col-md-5">
+          <h4 class="my-4 text-md-end text-left" >
+            <span class="text-white bg-secondary px-4">ジャンル一覧・追加</span>
+          </h4>
         </div>
       </div>
-    <% end %>
-  </div>
-  <div>
-    <div>
-      <table>
-        <thead>
-          <tr>
-            <th>ジャンル</th>
-            <th colspan="1"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @genres.each do |genre| %>
-          <tr>
-            <td><%= genre.name %></td>
-            <td><%= link_to "編集する", edit_genre_path(genre.id) %></td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-    <div></div>
+      <div>
+        <%= form_for @genre do |f| %>
+          <div class="row ">
+            <div>
+              <strong>ジャンル名</strong>
+            </div>
+            <div>
+              <%= f.text_field :name, placeholder: "ジャンル名"%>
+            </div>
+            <div>
+              <%= f.submit "新規登録", class: "btn btn-success" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div>
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th>ジャンル</th>
+                <th colspan="1"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @genres.each do |genre| %>
+              <tr>
+                <td><%= genre.name %></td>
+                <td><%= link_to "編集する", edit_genre_path(genre.id) %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+        <div></div>
+      </div>
+    </article>
+    <aside class="sidebar_right">
+      <%= render 'shared/sidebar_right' %>
+    </aside>
   </div>
 </div>
- <%= render 'shared/footer' %>
+<%= render 'shared/footer' %>
