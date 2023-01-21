@@ -411,7 +411,7 @@ aside .sidebar_right {
 .article-time {
   color: rgba( 0, 0, 0, 0.9);
   font-size: 16px;
-  margin: 8px 0px 0px 12px;
+  margin: 10px 0px 0px 12px;
 }
 
 .article-title {
@@ -983,6 +983,9 @@ aside .sidebar_right {
 
 .show-comment-time {
   width: 10%;
+  color: rgba( 0, 0, 0, 0.9);
+  font-size: 16px;
+  margin: 25px 0px 0px 18px;
 }
 
 .show-comment-user {
@@ -1043,6 +1046,7 @@ aside .sidebar_right {
 
 .show-form-btn input[type="submit"] {
   display: inline-block;
+  height: 46px;
   font-size: 18px;
   padding: 0.4em 2em;
   background-color: #069BEA;
@@ -1085,12 +1089,20 @@ aside .sidebar_right {
 }
 
 .show-main-left {
-  width: 60%;
+  width: 65%;
   margin-left: 20px;
 }
 
 .show-main-right {
-  width: 40%;
+  width: 31%;
+}
+
+.show-main-right-image  {
+  margin: 0px;
+}
+
+.show-main-right-image img {
+  margin: 60px 0px 0px 0px;
 }
 
 .show-inner-middle {
@@ -1102,12 +1114,18 @@ aside .sidebar_right {
   width: 100%;
 }
 
+.show-post-image {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
 .show-post-name,
 .show-post-content,
 .show-post-real,
 .show-post-genre {
-  width: 50%;
+  width: 40%;
   height: 20%;
+  justify-: center;
 }
 
 .show-post-name p {
@@ -1141,39 +1159,43 @@ aside .sidebar_right {
 .show-post-name {
   text-align: center;
   color: #fff;
-  font-size: 18px;
-  margin :10px 30px 15px;
+  font-size: 20px;
+  margin :10px 15px 30px;
+  font-weight: bold;
 }
 
 .show-post-content {
   text-align: center;
   color: #fff;
   border-radius: 30px;
-  font-size: 18px;
-  margin: 10px 15px;
+  font-size: 20px;
+  margin :10px 15px 30px;
+  font-weight: bold;
 }
 
 .show-post-real {
   text-align: center;
   color: #fff;
   border-radius: 30px;
-  font-size: 18px;
-  margin: 10px 25px;
+  font-size: 20px;
+  margin :10px 15px 30px;
+  font-weight: bold;
 }
 
 .show-post-genre {
   text-align: center;
   color: #fff;
   border-radius: 30px;
-  font-size: 18px;
-  margin: 10px 25px;
+  font-size: 20px;
+  margin :10px 15px 30px;
+  font-weight: bold;
 }
 
 .show-post-name-inner {
   border-radius: 30px;
   font-size: 18px;
-  margin :30px 0px 30px;
-  width: 50%;
+  width: 60%;
+  margin-left:30px;
 }
 
 .show-post-content-inner,
@@ -1181,8 +1203,9 @@ aside .sidebar_right {
 .show-post-genre-inner {
   border-radius: 30px;
   font-size: 18px;
-  margin: 40px 0px;
-  width: 50%;
+  width: 60%;
+  margin-left:30px;
+
 }
 
 .show-favorite-edit {
@@ -1195,11 +1218,11 @@ aside .sidebar_right {
   margin: 0px 20px;
 }
 
+/*MyPage*/
+
 .mypage-main-inner {
   display: flex;
 }
-
-/*MyPage*/
 
 .result-mypage-full {
   margin-bottom: 20px;

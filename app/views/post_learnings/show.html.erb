@@ -11,7 +11,7 @@
       <div class="show-article">
         <div class="show-top">
           <div class="show-main-left">
-            <div class="article-time">
+            <div class="show-comment-time">
               <%= time_ago_in_words(@post_learning.created_at) %>前
             </div>
             <div class="show-post-image">
@@ -53,7 +53,9 @@
           </div>
   
           <div class="show-main-right">
-            <p><%= image_tag @post_learning.post_image.variant(resize_to_limit: [360,220]) if @post_learning.post_image.attached? %></p>
+            <p class="show-main-right-image">
+              <%= image_tag @post_learning.post_image.variant(resize_to_limit: [260,150]) if @post_learning.post_image.attached? %>
+            </p>
           </div>
         </div>
         <div class="show-favorite-edit">
@@ -114,7 +116,7 @@
        <% @post_learning.post_comments.each do |post_comment| %>
         <div class="show-comment-top">
           <div class="show-comment">
-            <div class="article-time show-comment-time">
+            <div class="show-comment-time">
               <%= time_ago_in_words(post_comment.created_at) %>前
             </div>
             <div class="show-comment-left">
