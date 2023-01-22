@@ -1,1 +1,48 @@
-<p>ジャンル編集画面です！</p>
+<div class="first-form-view">
+  <%= render 'shared/header' %>
+  <div>
+    <div class="form-title">
+      <div class="error-message">
+        <% if @genre.errors.any? %>
+         <%= @genre.errors.count %>件のエラーが発生しました
+         <ul>
+           <% @genre.errors.full_messages.each do |message| %>
+           <li><%= message %></li>
+           <% end %>
+         </ul>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="top-contents">
+    <aside class="sidebar_left">
+      <%= render 'shared/sidebar_left' %>
+    </aside>
+    <article class="form-article">
+      <div>
+        <h4>
+          <span>ジャンル編集</span>
+        </h4>
+        </div>
+      <div>
+        <%= form_with model: @genre do |f| %>
+          <div class="row">
+            <div>
+              <strong>ジャンル名</strong>
+            </div>
+            <div>
+              <%= f.text_field :name %>
+            </div>
+            <div>
+              <%= f.submit "変更を保存する" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </article>
+    <aside class="sidebar_right">
+      <%= render 'shared/sidebar_right' %>
+    </aside>
+  </div>
+</div>
+<%= render 'shared/footer' %>

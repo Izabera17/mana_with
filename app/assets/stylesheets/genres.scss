@@ -1,6 +1,25 @@
 // Place all the styles related to the genres controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.result-genres-main-full {
+  margin-bottom: 0px;
+}
+
+.result-genres-name-title {
+  margin: 0px auto 8px;
+  text-align: center;
+  width: 28%;
+  background: linear-gradient(transparent 80%, #009106 65%);
+  font-family: "筑紫A丸ゴシック";
+  font-weight: bold;
+}
+
+.result-genres-name-title p {
+  color: #fff;
+  font-size: 43px;
+  margin: 0px;
+}
+
 .header-home {
   display: flex;
   justify-content: space-between;
@@ -24,4 +43,46 @@ aside {
   display: flex;
   justify-content: space-between;
   margin: 20px 30px 50px;
+}
+
+.genre-search-content-inner {
+  display: flex;
+  justify-content: center;
+}
+
+.genre-search-btn input[type="text"]  {
+  height: 35px;
+  width: 400px;
+  font-size: 15px;
+}
+
+.genre-search-btn-submit {
+  margin-left: 2px;
+}
+
+.genre-search-btn-submit input[type="submit"] {
+  height: 40px;
+  font-size: 16px;
+}
+
+.genre-table {
+  margin: 0px auto;
+  width: 60%;
+}
+
+.genre-table-td-name {
+  width: 30%;
+  text-align: center;
+  font-size: 22px;
+}
+
+.genre-table-td-edit {
+  width: 30%;
+  text-align: center;
+  font-size: 22px;
+}
+
+.genre-table-tr {
+  background-color: #fff;
+  border:none
 }

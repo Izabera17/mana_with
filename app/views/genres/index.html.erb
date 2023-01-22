@@ -1,7 +1,16 @@
 <div class="first-form-view">
   <%= render 'shared/header' %>
-  <div>
-    <div class="form-title">
+     <div class="result-genres-main-full">
+      <div class="result-genres-name-title">
+        <p>ジャンル一覧・追加</p>
+      </div>
+    </div>
+  <div class="top-contents">
+    <aside class="sidebar_left">
+      <%= render 'shared/sidebar_left' %>
+    </aside>
+    <article class="form-article">
+       <div class="form-title">
       <div class="error-message">
         <% if @genre.errors.any? %>
          <%= @genre.errors.count %>件のエラーが発生しました
@@ -13,48 +22,34 @@
         <% end %>
       </div>
     </div>
-  </div>
-  <div class="top-contents">
-    <aside class="sidebar_left">
-      <%= render 'shared/sidebar_left' %>
-    </aside>
-    <article class="form-article">
-     <div class="row mt-3">
-        <div class="col-md-5">
-          <h4 class="my-4 text-md-end text-left" >
-            <span class="text-white bg-secondary px-4">ジャンル一覧・追加</span>
-          </h4>
-        </div>
-      </div>
       <div>
-        <%= form_for @genre do |f| %>
-          <div class="row ">
-            <div>
-              <strong>ジャンル名</strong>
-            </div>
-            <div>
-              <%= f.text_field :name, placeholder: "ジャンル名"%>
-            </div>
-            <div>
-              <%= f.submit "新規登録", class: "btn btn-success" %>
+        <%= form_with model: @genre do |f| %>
+          <div>
+            <div></div>
+            <div class="genre-search-content-inner">
+              <div class="genre-search-btn">
+                <%= f.text_field :name, placeholder: "ジャンル名"%>
+              </div>
+              <div class="genre-search-btn-submit">
+                <%= f.submit "追加" %>
+              </div>  
             </div>
           </div>
         <% end %>
       </div>
       <div>
         <div>
-          <table>
-            <thead>
+          <table class="genre-table">
+            <thead class="genre-title">
               <tr>
-                <th>ジャンル</th>
-                <th colspan="1"></th>
+                <th>ジャンル名</th>
               </tr>
             </thead>
             <tbody>
               <% @genres.each do |genre| %>
-              <tr>
-                <td><%= genre.name %></td>
-                <td><%= link_to "編集する", edit_genre_path(genre.id) %></td>
+              <tr class="genre-table-tr">
+                <td class="genre-table-td-name"><%= genre.name %></td>
+                <td class="genre-table-td-edit"><%= link_to "編集する", edit_genre_path(genre.id) %></td>
               </tr>
               <% end %>
             </tbody>

@@ -3,7 +3,7 @@
 
   <div class="notification-content">
     <div class="notification-text-time">
-      <%= time_ago_in_words(notification.created_at).upcase %>  
+      <%= time_ago_in_words(notification.created_at).upcase %>前  
     </div>
     <div>
       <%= link_to user_path(notification.visitor), class: "article-notification-image" do %>

@@ -63,13 +63,13 @@
             <% if @post_learning.favorited_by?(current_user) %>
               <p>
                 <%= link_to post_learning_favorites_path(@post_learning), method: :delete do %>
-                  ♥<%= @post_learning.favorites.count %> いいね
+                  ♥ いいね
                 <% end %>
               </p>
             <% else %>
               <p>
                 <%= link_to post_learning_favorites_path(@post_learning), method: :post do %>
-                  ♡<%= @post_learning.favorites.count %> いいね
+                  ♡ いいね
                 <% end %>
               </p>
             <% end %>

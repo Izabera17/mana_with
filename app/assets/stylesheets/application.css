@@ -38,6 +38,7 @@ body {
 
 .home-article {
   z-index: 2;
+  margin-bottom: 30px;
 }
 
 .form-article h1 {
@@ -882,7 +883,7 @@ aside .sidebar_right {
 
 .text-area {
   border-style: none;
-  font-weight: normal;
+  font-family: arial;
   font-size: 18px;
   box-sizing: border-box;
   width: 100%;
@@ -1211,7 +1212,8 @@ aside .sidebar_right {
 .show-favorite-edit {
   display: flex;
   justify-content: space-between;
-  padding-bottom: 20px
+  padding-bottom: 20px;
+  margin-left: 20px;
 }
 .show-post-favorite p,
 .show-edit-destroy a {
@@ -1599,6 +1601,7 @@ aside .sidebar_right {
 
 .mypage-form-btn input[type="submit"] {
   display: inline-block;
+  height: 50px;
   font-size: 20px;
   padding: 0.4em 3em;
   background-color: #8000D0;
