@@ -1,7 +1,16 @@
 <div class="first-form-view">
   <%= render 'shared/header' %>
-  <div>
-    <div class="form-title">
+     <div class="result-genres-main-full">
+      <div class="result-genres-name-title">
+        <p>ジャンル編集</p>
+      </div>
+    </div>
+  <div class="top-contents">
+    <aside class="sidebar_left">
+      <%= render 'shared/sidebar_left' %>
+    </aside>
+    <article class="form-article">
+      <div class="form-title">
       <div class="error-message">
         <% if @genre.errors.any? %>
          <%= @genre.errors.count %>件のエラーが発生しました
@@ -13,31 +22,38 @@
         <% end %>
       </div>
     </div>
-  </div>
-  <div class="top-contents">
-    <aside class="sidebar_left">
-      <%= render 'shared/sidebar_left' %>
-    </aside>
-    <article class="form-article">
-      <div>
-        <h4>
-          <span>ジャンル編集</span>
-        </h4>
-        </div>
       <div>
         <%= form_with model: @genre do |f| %>
-          <div class="row">
-            <div>
-              <strong>ジャンル名</strong>
-            </div>
-            <div>
-              <%= f.text_field :name %>
-            </div>
-            <div>
-              <%= f.submit "変更を保存する" %>
+          <div>
+            <div></div>
+            <div class="genre-search-content-inner">
+              <div class="genre-search-btn">
+                <%= f.text_field :name, placeholder: "ジャンル名"%>
+              </div>
+              <div class="genre-search-btn-edit-submit">
+                <%= f.submit "変更を保存" %>
+              </div>  
             </div>
           </div>
         <% end %>
+      </div>
+      <div class="genre-content">
+         <hr>
+        <div class="result-genres-name-title-edit">
+          <p>ジャンル一覧</p>
+        </div>
+        <div class="genre-content-top">
+          <% @genres.each do |genre| %>
+            <div class="genre-content-inner">
+              <div class="genre-content-inner-name"><%= genre.name %></div>
+              <div class="genre-content-inner-edit">
+                <%= link_to edit_genre_path(genre.id) do %>
+                  <%= image_tag '/assets/edit.png', class: "genre-edit-link-icon" %>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
       </div>
     </article>
     <aside class="sidebar_right">

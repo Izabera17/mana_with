@@ -2,7 +2,7 @@
   <%= render 'shared/header' %>
      <div class="result-genres-main-full">
       <div class="result-genres-name-title">
-        <p>ジャンル一覧・追加</p>
+        <p>ジャンル追加・一覧</p>
       </div>
     </div>
   <div class="top-contents">
@@ -10,7 +10,7 @@
       <%= render 'shared/sidebar_left' %>
     </aside>
     <article class="form-article">
-       <div class="form-title">
+      <div class="form-title">
       <div class="error-message">
         <% if @genre.errors.any? %>
          <%= @genre.errors.count %>件のエラーが発生しました
@@ -37,25 +37,19 @@
           </div>
         <% end %>
       </div>
-      <div>
-        <div>
-          <table class="genre-table">
-            <thead class="genre-title">
-              <tr>
-                <th>ジャンル名</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @genres.each do |genre| %>
-              <tr class="genre-table-tr">
-                <td class="genre-table-td-name"><%= genre.name %></td>
-                <td class="genre-table-td-edit"><%= link_to "編集する", edit_genre_path(genre.id) %></td>
-              </tr>
-              <% end %>
-            </tbody>
-          </table>
+      <div class="genre-content">
+        <div class="genre-content-top">
+          <% @genres.each do |genre| %>
+            <div class="genre-content-inner">
+              <div class="genre-content-inner-name"><%= genre.name %></div>
+              <div class="genre-content-inner-edit">
+                <%= link_to edit_genre_path(genre.id) do %>
+                  <%= image_tag '/assets/edit.png', class: "genre-edit-link-icon" %>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
         </div>
-        <div></div>
       </div>
     </article>
     <aside class="sidebar_right">

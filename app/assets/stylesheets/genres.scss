@@ -1,20 +1,35 @@
 // Place all the styles related to the genres controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+hr {
+  border: 2px solid rgba(91, 91, 92, 0.8);
+  margin-top: 60px;
+  width: 80%;
+}
+
 .result-genres-main-full {
   margin-bottom: 0px;
 }
 
 .result-genres-name-title {
-  margin: 0px auto 8px;
-  text-align: center;
   width: 28%;
-  background: linear-gradient(transparent 80%, #009106 65%);
+  margin: 0px auto 8px;
+}
+
+.result-genres-name-title-edit {
+  width: 50%;
+  margin: 20px auto 0px;
+}
+
+.result-genres-name-title, 
+.result-genres-name-title-edit {
+  text-align: center;
   font-family: "筑紫A丸ゴシック";
   font-weight: bold;
 }
 
-.result-genres-name-title p {
+.result-genres-name-title p, 
+.result-genres-name-title-edit p {
   color: #fff;
   font-size: 43px;
   margin: 0px;
@@ -53,7 +68,8 @@ aside {
 .genre-search-btn input[type="text"]  {
   height: 35px;
   width: 400px;
-  font-size: 15px;
+  font-size: 18px;
+  padding-left: 15px;
 }
 
 .genre-search-btn-submit {
@@ -61,28 +77,62 @@ aside {
 }
 
 .genre-search-btn-submit input[type="submit"] {
-  height: 40px;
+  width: 70px;
+  background-color: #F08B00;
+}
+
+.genre-search-btn-edit-submit input[type="submit"] {
+  width: 98px;
+  background-color: #00B92B;
+}
+
+.genre-search-btn-submit input[type="submit"] ,
+.genre-search-btn-edit-submit input[type="submit"] {
+  height: 41px;
   font-size: 16px;
+} 
+
+.genre-content-top {
+  margin-top: 30px;
 }
 
-.genre-table {
-  margin: 0px auto;
-  width: 60%;
+.genre-content-inner {
+   display: flex;
+   justify-content: center;
+   width: 70%;
+   background-color: #fff;
+   margin: 0px auto 10px;
+   padding: 10px;
+   border-radius: 10px;
 }
 
-.genre-table-td-name {
+.genre-content-inner-name {
+  width: 50%;
+  margin-right: 30px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.genre-content-inner-edit {
   width: 30%;
   text-align: center;
-  font-size: 22px;
+  font-size: 20px
 }
 
-.genre-table-td-edit {
-  width: 30%;
-  text-align: center;
-  font-size: 22px;
+.genre-edit-link-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 20px
 }
 
-.genre-table-tr {
-  background-color: #fff;
-  border:none
+.genre-edit-link-icon:hover {
+  opacity: 0.5;
+}
+
+.title-name-inner-index {
+  margin-top: 3px;
+  margin-left: 25px;
+  width: 70%;
 }
