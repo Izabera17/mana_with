@@ -27,8 +27,8 @@
           <%= link_to "あなたの投稿", notification.post_learning %>
         <% else %>
           <div>
-            <%= link_to post_path(notification.post_learning) do %>
-              <%= image_tag notification.post.user.get_profile_image(100,100) %>
+            <%= link_to post_learning_path(notification.post_learning) do %>
+              <%= image_tag notification.post_learning.user.get_profile_image(100,100) %>
               <strong>
                 <%= notification.post_learning.user.name %>
               </strong>

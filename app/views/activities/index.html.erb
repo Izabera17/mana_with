@@ -1,27 +1,29 @@
 <div class="first-home-view">
   <%= render 'shared/header' %>
-  <div class="result-genre-full">
-    <div class="result-users-name-title">
-      <p>Users</p>
+  <div class="result-notifications-main-full">
+    <div class="result-notifications-name-title">
+      <p>通知</p>
     </div>
   </div>
   <div class="top-contents">
-
     <aside class="sidebar_left">
       <%= render 'shared/sidebar_left' %>
     </aside>
     <article class="users-article">
-      <h3 class="text-center">通知</h3>
-          <%= link_to destroy_all_activities_path, method: :delete do %>
-              <h7>全削除</h7>
-          <% end %>
-          <hr>
+      <div class="destroy_all_notifications">
+        <%= link_to destroy_all_activities_path, method: :delete do %>
+          <h7>全削除</h7>
+        <% end %>
+      </div>
       <% if @activities.exists? %>
           <% @activities.each do |activity| %>
+           <div class="users-index">
             <%= render 'activities/activity', activity: activity %>
+          </div>
           <% end %>
+        
       <% else %>
-          <p>アクティビティはありません</p>
+        <p class="no-notification">アクティビティはありません</p>
       <% end %>
     </article>
     <aside class="sidebar_right">
@@ -29,5 +31,5 @@
     </aside>
   </div>
 </div>
-
+<%= render 'shared/footer' %>
 
