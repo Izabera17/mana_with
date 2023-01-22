@@ -328,6 +328,17 @@
   font-weight: bold;
 }
 
+.show-post-favorite {
+  display: flex;
+}
+
+.post-user-favorite a {
+  font-weight: bold;
+}
+
+.post-user-favorite a:hover {
+  opacity: 0.5;
+}
 
 /*MyPage（編集）*/
 

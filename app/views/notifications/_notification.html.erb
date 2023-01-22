@@ -12,31 +12,50 @@
     </div>
     <div class="notification-text-name">
       <%= link_to user_path(notification.visitor) do %>
-        <%= visitor.name %>
+        <strong>
+          <%= visitor.name %>
+        </strong>
       <% end %>
       さんが
     </div>
     <div class="notification-text-content">
-      <% case notification.action %>
-      <% when 'follow' %>
-        あなたをフォローしました
+      <% case notification.action
+      when 'follow' %>
+        <div class="notification-favorite-content-inner">
+          あなたをフォローしました
+        </div>
       <% when 'favorite' %>
-        <%= link_to 'あなたの投稿', notification.post_learning %>にいいねしました
+        <div class="notification-favorite-content-inner">
+            <strong>
+              <%= link_to 'あなたの投稿', notification.post_learning %>
+            </strong>
+            にいいねしました
+        </div>
       <% when 'post_comment' %>
         <% if notification.post_learning.user_id == visited.id %>
-          <%= link_to "あなたの投稿", notification.post_learning %>
-        <% else %>
-          <div>
-            <%= link_to post_learning_path(notification.post_learning) do %>
-              <%= image_tag notification.post_learning.user.get_profile_image(100,100) %>
-              <strong>
-                <%= notification.post_learning.user.name %>
-              </strong>
-            <% end %> 
-            さんの投稿
+          <div class="notification-comment-my-content">
+          　<strong>
+          　    <%= link_to "あなたの投稿", notification.post_learning %>
+          　</strong>
+          　にコメントしました  
+          </div>
+        <% else %>  
+          <div class="notification-comment-user-content">
+            <div>
+              <%= link_to user_path(visited), class: "article-notification-image" do %>
+                <%= image_tag notification.post_learning.user.get_profile_image(100,100) %>
+              <% end %>
+            </div>
+            <div class=notification-comment-name-content>
+              <%= link_to post_learning_path(notification.post_learning), class: "article-notification-image" do %>
+                <strong>
+                  <%= notification.post_learning.user.name %>さんの投稿
+                </strong>
+              <% end %>
+              にコメントしました
+            </div>
           </div>
         <% end %>
-        にコメントしました
         <p class="notification-comment"><%= PostComment.find_by(id: notification.post_comment_id)&.comment %></p>
       <% end %>
     </div>

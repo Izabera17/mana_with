@@ -24,6 +24,7 @@ class PostLearningsController < ApplicationController
   def show
     @post_learning = PostLearning.find(params[:id])
     @post_comment = PostComment.new
+    @post_comments = @post_learning.post_comments.order(created_at: :desc) 
   end
 
   def edit
