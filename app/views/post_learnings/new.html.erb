@@ -40,8 +40,10 @@
           <tr class="form-genre">
             <th class="form-th"><%= f.label :genre_id, "ジャンル" %></th>
               <td class="form-td"><%= f.collection_select :genre_id, Genre.all, :id, :name, { prompt: '選択してください' }, class: "genre-area" %>
-                <%= link_to genres_path, class: "genre-new-icon" do %>
-                  <span>　ジャンル追加はこちらへ</span>
+                <% if current_user.admin? %>
+                  <%= link_to genres_path, class: "genre-new-icon" do %>
+                    <span>　ジャンル追加はこちらへ</span>
+                  <% end %>
                 <% end %>
               </td>
           </tr>
