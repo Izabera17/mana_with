@@ -99,19 +99,18 @@
           </div>
         </div>
       </div>
-      <% if @error_comment.present? %>
-        <div class="error-message">
-          <% if @error_comment.errors.any? %>
-            <%= @error_comment.errors.count %>件のエラーが発生しました
+      <div>
+        <%= form_with model: [@post_learning, @post_comment] do |f| %>
+         <% if @error_comment.present? %>
+            <div id="error_explanation">
+              <h2><%= @error_comment.errors.count %>件のエラーが発生しました。</h2>
               <ul>
                 <% @error_comment.errors.full_messages.each do |message| %>
-                  <li><%= message %></li>
+                <li><%= message %></li>
                 <% end %>
               </ul>
+            </div>
           <% end %>
-        </div>
-      <% end %>
-        <%= form_with model: [@post_learning, @post_comment] do |f| %>
           <div class="show-post-comment">
             <div class="post-comment-inner">
               <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" , class: "show-text-area" %>
@@ -121,39 +120,41 @@
             </div>
           </div>
         <% end %>
-       <% @post_comments.each do |post_comment| %>
-        <div class="show-comment-top">
-          <div class="show-comment">
-            <div class="show-comment-time">
-              <%= time_ago_in_words(post_comment.created_at) %>前
-            </div>
-            <div class="show-comment-left">
-              <div class="show-comment-user">
-                <p><%= post_comment.user.name %></p>
+         <% @post_comments.each do |post_comment| %>
+          <div class="show-comment-top">
+            <div class="show-comment">
+              <div class="show-comment-time">
+                <%= time_ago_in_words(post_comment.created_at) %>前
               </div>
-              <div class="show-user-image">
-                <%= link_to user_path(post_comment.user.id) do %>
-                  <%= image_tag post_comment.user.get_profile_image(100,100) %>
+              <div class="show-comment-left">
+                <div class="show-comment-user">
+                  <p><%= post_comment.user.name %></p>
+                </div>
+                <div class="show-user-image">
+                  <%= link_to user_path(post_comment.user.id) do %>
+                    <%= image_tag post_comment.user.get_profile_image(100,100) %>
+                  <% end %>
+                </div>
+              </div>
+              <div class="show-comment-inner">
+                <p><%= post_comment.comment %></p>
+              </div>
+              <div class="show-comment-destroy">
+                <% if post_comment.user == current_user %>
+                  <%= link_to post_learning_post_comment_path(post_comment.post_learning, post_comment), method: :delete, class: "show-destroy" do %>
+                    <%= image_tag '/assets/trushbox.png', class:'icon-mypage' %>
+                  <% end %>
+                <% elsif current_user.admin? %>
+                  <%= link_to post_learning_post_comment_path(post_comment.post_learning, post_comment), method: :delete, class: "show-destroy" do %>
+                    <%= image_tag '/assets/trushbox.png', class:'icon-mypage' %>
+                  <% end %>
                 <% end %>
               </div>
-            </div>
-            <div class="show-comment-inner">
-              <p><%= post_comment.comment %></p>
-            </div>
-            <div class="show-comment-destroy">
-              <% if post_comment.user == current_user %>
-                <%= link_to post_learning_post_comment_path(post_comment.post_learning, post_comment), method: :delete, class: "show-destroy" do %>
-                  <%= image_tag '/assets/trushbox.png', class:'icon-mypage' %>
-                <% end %>
-              <% elsif current_user.admin? %>
-                <%= link_to post_learning_post_comment_path(post_comment.post_learning, post_comment), method: :delete, class: "show-destroy" do %>
-                  <%= image_tag '/assets/trushbox.png', class:'icon-mypage' %>
-                <% end %>
-              <% end %>
             </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
+      
     </article>
     <aside class="sidebar_right">
       <%= render 'shared/sidebar_right' %>

@@ -1,0 +1,44 @@
+<div class="chat-btn-content-inner-link">
+    <% unless current_user.id == @user.id %>　
+        <% if (current_user.following? @user) && (@user.following? current_user) %>
+            <% if @isRoom == true %>
+                <div class="chat-start-link">
+                    <a href="/rooms/<%= @roomId %>", class="home-link" >
+                        <%= image_tag '/assets/mail.png', class:'icon' %>
+                        <span>チャットへ</span>
+                    </a>    
+                </div>
+            <% else %>
+                <div>
+                    <%= form_with model: @room do |f| %>
+                        <%= fields_for @entry do |e| %>
+                            <%= e.hidden_field :user_id, value: @user.id %>
+                        <% end %>
+                        <div class= "chat-btn-link" >
+                            <%= f.submit "チャットを始める" %>  
+                        </div>
+                    <% end %>
+                </div>
+            <% end %>
+        <% end %>
+    <% end %>
+    <% if current_user.admin? %>
+        <div>
+            <% if @isRoom == true %>
+                 <div class="chat-start-link">
+                    <a href="/rooms/<%= @roomId %>", class="home-link" >
+                        <%= image_tag '/assets/mail.png', class:'icon' %>
+                        <span>チャットへ</span>
+                    </a>    
+                </div>
+            <% else %>
+                <%= form_with model: @room do |f| %>
+                    <%= fields_for @entry do |e| %>
+                        <%= e.hidden_field :user_id, value: @user.id %>
+                    <% end %>
+                    <%= f.submit "チャットを始める" %>
+                <% end %>
+            <% end %>  
+        </div>
+    <% end %>
+</div> 

@@ -1,17 +1,15 @@
 <div class="first-form-view">
   <%= render 'shared/header' %>
-  <div>
-    <div class="form-title">
-      <div class="error-message">
-        <% if @post_learning.errors.any? %>
-         <%= @post_learning.errors.count %>件のエラーが発生しました
-         <ul>
-           <% @post_learning.errors.full_messages.each do |message| %>
-           <li><%= message %></li>
-           <% end %>
-         </ul>
-        <% end %>
-      </div>
+  <div class="form-title">
+    <div class="error-message">
+      <% if @post_learning.errors.any? %>
+       <%= @post_learning.errors.count %>件のエラーが発生しました
+       <ul>
+         <% @post_learning.errors.full_messages.each do |message| %>
+         <li><%= message %></li>
+         <% end %>
+       </ul>
+      <% end %>
     </div>
   </div>
   <div class="top-contents">

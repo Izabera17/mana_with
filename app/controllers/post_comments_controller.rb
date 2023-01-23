@@ -9,30 +9,21 @@ class PostCommentsController < ApplicationController
       post_learning.create_notification_post_comment!(current_user, comment.id)
       redirect_to post_learning_path(post_learning)
     else
-      @error_comment = comment
       @genres = Genre.all
       @post_learning = PostLearning.find(params[:post_learning_id])
+      @post_comments = @post_learning.post_comments.order(created_at: :desc) 
       @post_comment = PostComment.new
+      @error_comment = comment
+      flash[:alert] = "送信に失敗しました"
       render 'post_learnings/show'
     end
-    
-    # @post_learning = PostLearning.find(params[:post_learning_id])
-    # #投稿に紐づいたコメントを作成
-    # @post_comment = @post_learning.post_comments.new(post_comment_params)
-    # @post_comment.user_id = current_user.id
-    # @comment_post_learning = @post_comment.post_learning
-    # if @post_comment.save
-    #   #通知の作成
-    #   @comment_post_learning.create_notification_post_comment!(current_user, @post_comment.id)
-    #     render 'post_learnings/show'
-    # end
-    
-    
+
   end
   
   
   def destroy
     PostComment.find(params[:id]).destroy
+    flash[:notice] = "コメントを削除しました"
     redirect_to post_learning_path(params[:post_learning_id])
   end
   

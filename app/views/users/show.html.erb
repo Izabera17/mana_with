@@ -61,23 +61,22 @@
                 </div>
               </div>
               <div class="mypage-inner-bottom">
-              <% if user_signed_in? && current_user.id == @user.id %>
-                <%= link_to edit_user_path(@user) do %>
-                  <%= image_tag '/assets/edit.png', class:'icon-mypage' %>
-                <% end %>
-                <%= link_to user_path(@user), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
-                   <%= image_tag '/assets/trushbox.png', class:'icon-mypage' %>
-                <% end %>
-              <% elsif current_user.admin? %>
-                <%= link_to user_path(@user), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
-                  <%= image_tag '/assets/trushbox.png', class:'icon-mypage' %>
-                <% end %>
-              <% end %>
+                <%= render "shared/dm-btn" %>  
+                <div class="chat-edit-delete-btn">
+                  <% unless current_user.admin? && current_user.id == @user.id %>
+                    <%= link_to edit_user_path(@user) do %>
+                      <%= image_tag '/assets/edit.png', class:'icon-mypage' %>
+                    <% end %>
+                    <%= link_to user_path(@user), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
+                      <%= image_tag '/assets/trushbox.png', class:'icon-mypage' %>
+                    <% end %>
+                  <% end %>
+                </div>
               </div>
             </div>
           </div>
-      
           <div class="show-mypage-middle">
+            <% if @post_learnings.present? %>
               <div class="mypage-middle-title">
                 <h1>投稿した学習</h1>
               </div>
@@ -119,6 +118,7 @@
                   <% end %>
                 </tbody>
             </table>
+            <% end %>
           </div>
 
           <div class="mypage-favorites">
@@ -181,57 +181,6 @@
     </article>
     <aside class="sidebar_right">
       <%= render 'shared/sidebar_right' %>
-      <div class="sidebar-content">
-      <% unless current_user.id == @user.id %>　
-        <% if (current_user.following? @user) && (@user.following? current_user) %>
-          <div class="sidebar-dm">
-            <p>　DM</p>
-              <div class="sidebar-list">
-                <ul>
-                  <li>
-                    <% if @isRoom == true %>
-                      <a href="/rooms/<%= @roomId %>", class="home-link" >
-                        <%= image_tag '/assets/mail.png', class:'icon' %>
-                        <span>チャットへ</span>
-                      </a>
-                    <% else %>
-                      <%= form_with model: @room do |f| %>
-                        <%= fields_for @entry do |e| %>
-                          <%= e.hidden_field :user_id, value: @user.id %>
-                        <% end %>
-                        <%= f.submit "チャットを始める" %>
-                      <% end %>
-                    <% end %>  
-                  </li>
-                </ul>
-              </div>
-          </div>
-        <% end %>
-      <% end %>
-      <% if current_user.admin? %>
-        <div class="sidebar-dm">
-            <p>　DM</p>
-              <div class="sidebar-list">
-                <ul>
-                  <li>
-                    <% if @isRoom == true %>
-                      <a href="/rooms/<%= @roomId %>", class="home-link" >
-                        <%= image_tag '/assets/mail.png', class:'icon' %>
-                        <span>チャットへ</span>
-                      </a>
-                    <% else %>
-                      <%= form_with model: @room do |f| %>
-                        <%= fields_for @entry do |e| %>
-                          <%= e.hidden_field :user_id, value: @user.id %>
-                        <% end %>
-                        <%= f.submit "チャットを始める" %>
-                      <% end %>
-                    <% end %>  
-                  </li>
-                </ul>
-              </div>
-          </div>
-      <% end %>
     </aside>
   </div>
 </div>

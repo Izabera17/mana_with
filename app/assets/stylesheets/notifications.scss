@@ -6,16 +6,25 @@
   margin-bottom: 0px;
 }
 
+.result-activities-name-title {
+  width: 25%;
+}
+
 .result-notifications-name-title {
+  width: 15%;
+}
+
+.result-notifications-name-title,
+.result-activities-name-title {
   margin: 0px auto 8px;
   text-align: center;
-  width: 15%;
   background: linear-gradient(transparent 80%, #08AF35 65%);
   font-family: "筑紫A丸ゴシック";
   font-weight: bold;
 }
 
-.result-notifications-name-title p {
+.result-notifications-name-title p,
+.result-activities-name-title p {
   color: #fff;
   font-size: 43px;
   margin: 0px;

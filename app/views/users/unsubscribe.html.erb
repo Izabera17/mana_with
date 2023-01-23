@@ -1,0 +1,24 @@
+<div class="first-form-view">
+  <%= render 'shared/header' %>
+  <div class="top-contents">
+    <aside class="sidebar_left">
+      <%= render 'shared/sidebar_left' %>
+    </aside>
+    <article class="form-article">
+        <div>
+          <h2>本当に退会しますか？</h2>
+          <div>
+            <p>退会する場合は、『退会する』をクリックしてください。</p>
+          </div>
+          <div>
+            <%= link_to '退会しない', user_path(@user) %>
+            <%= link_to "退会する", withdraw_user_path(@user), method: :patch, "data-confirm" => "退会後は元に戻せませんが、それでも退会しますか？" %>
+          </div>
+        </div>
+    </article>
+    <aside class="sidebar_right">
+      <%= render 'shared/sidebar_right' %>
+    </aside>
+  </div>
+</div>
+<%= render 'shared/footer' %>

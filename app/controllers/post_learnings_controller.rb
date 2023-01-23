@@ -1,5 +1,5 @@
 class PostLearningsController < ApplicationController
-    before_action :genre_all, only: [:new, :create, :index, :show, :edit, :search_genre]
+    before_action :genre_all, only: [:new, :create, :index, :show, :edit, :search_genre, :destroy]
 
   def new
     @post_learning = PostLearning.new
@@ -23,8 +23,8 @@ class PostLearningsController < ApplicationController
 
   def show
     @post_learning = PostLearning.find(params[:id])
-    @post_comment = PostComment.new
     @post_comments = @post_learning.post_comments.order(created_at: :desc) 
+    @post_comment = PostComment.new
   end
 
   def edit

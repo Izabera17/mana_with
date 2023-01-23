@@ -22,6 +22,10 @@ body {
   margin: 0px;
 }
 
+#error_explanation {
+  color: red;
+}
+
 .header-home {
   justify-content: space-between;
   background-color: transparent;
@@ -34,6 +38,18 @@ body {
 .header-home .logo a img {
   width: 200px;
   margin: 20px 0px 0px 30px;
+}
+
+.flash-message :notice {
+  width:100px;
+  background-color: green;
+  color: #fff;
+}
+
+.flash-message :alert {
+  width:100px;
+  background-color: red;
+  color: #fff;
 }
 
 .home-article {
@@ -983,10 +999,10 @@ aside .sidebar_right {
 }
 
 .show-comment-time {
-  width: 10%;
+  width: 15%;
   color: rgba( 0, 0, 0, 0.9);
   font-size: 16px;
-  margin: 25px 0px 0px 18px;
+  margin: 25px 0px 0px 10px;
 }
 
 .show-comment-user {
@@ -1218,4 +1234,23 @@ aside .sidebar_right {
 .show-post-favorite p,
 .show-edit-destroy a {
   margin: 0px 20px;
+}
+
+.news {
+  border-radius: 5px;
+  position: relative; 
+}
+
+.news::after {
+  content: "！";       
+  position: absolute;   
+  top: 0px;         
+  left: 18px;       
+  color: #FFF;      
+  line-height: 20px;    
+  font-weight: bold;    
+  text-align: center;   
+  width: 20px;          
+  background: #F00;     
+  border-radius: 50%;   
 }

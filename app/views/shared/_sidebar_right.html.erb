@@ -14,7 +14,7 @@
             <% if unchecked_notifications.any?%>
               <div class="news">
                 <%= image_tag '/assets/notification.png', class:'icon' %>
-                <span class="news-span">通知（未読あり）</span> 
+                <span class="news-span">通知</span> 
               </div>
             <% else %>
               <%= image_tag '/assets/notification.png', class:'icon' %>
@@ -27,11 +27,24 @@
             <% if unchecked_notifications_activity.any?%>
               <div class="news">
                 <%= image_tag '/assets/activity.png', class:'icon' %>
-                <span class="news-span">アクティビティ（未読あり）</span>
+                <span class="news-span">アクティビティ</span>
               </div>
             <% else %>
               <%= image_tag '/assets/activity.png', class:'icon' %>
               <span class="notification-margin">アクティビティ</span>
+            <% end %>
+          <% end %>
+        </li>
+         <li>
+          <%= link_to notifications_dm_path, class: "notification-link" do %>
+            <% if unchecked_notifications_activity.any?%>
+              <div class="news">
+                <%= image_tag '/assets/activity.png', class:'icon' %>
+                <span class="news-span">コメント通知</span>
+              </div>
+            <% else %>
+              <%= image_tag '/assets/activity.png', class:'icon' %>
+              <span class="notification-margin">コメント通知</span>
             <% end %>
           <% end %>
         </li>

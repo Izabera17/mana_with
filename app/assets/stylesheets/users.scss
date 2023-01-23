@@ -142,9 +142,20 @@
   vertical-align: middle;
 }
 
+.chat-edit-delete-btn {
+  padding-top: 65px;
+  padding-left: 60px;
+}
+
 .mypage-inner-bottom {
+  display: flex;
+  justify-content: end;
   text-align: right;
   margin-right: 60px;
+}
+
+.chat-btn-content-inner-link {
+  padding-top: 15px;
 }
 
 .mypage-edit-bottom {
@@ -338,6 +349,32 @@
 
 .post-user-favorite a:hover {
   opacity: 0.5;
+}
+
+.chat-btn-link {
+  text-align: center;
+  margin-top: 17px;
+  padding-bottom: 30px;
+}
+
+.chat-btn-link input[type="submit"] {
+  display: inline-block;
+  font-size: 18px;
+  height: 50px;
+  padding: 0.4em 1.5em;
+  background-color: #FF8900;
+  box-shadow: 0 5px 0 #BC6C00;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+}
+
+.chat-btn-link input[type="submit"]:active {
+  font-color: #fff;
+  box-shadow: none;
+  transform: translateY(5px);
 }
 
 /*MyPage（編集）*/
@@ -536,25 +573,6 @@
   color: #fff;
   font-size: 38px;
   margin: 0px;
-}
-
-.news {
-  border-radius: 5px;
-  position: relative; 
-}
-
-.news::after {
-  content: "！";       
-  position: absolute;   
-  top: 0px;         
-  left: 18px;       
-  color: #FFF;      
-  line-height: 20px;    
-  font-weight: bold;    
-  text-align: center;   
-  width: 20px;          
-  background: #F00;     
-  border-radius: 50%;   
 }
 
 .notification-link span {

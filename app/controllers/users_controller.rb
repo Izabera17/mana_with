@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :favorites, :edit, :update, :destroy]
-  before_action :genre_all, only: [:index, :show, :edit, :destroy, :follow_list, :follower_list]
+  before_action :genre_all, only: [:index, :show, :edit, :destroy, :follow_list, :follower_list, :unsubscribe]
   before_action :room_entry, only: [:show]
 
   def index
@@ -36,11 +36,13 @@ class UsersController < ApplicationController
   
   def update
     @user.update(user_params)
+    flash[:notice] = "プロフィールを変更しました"
     redirect_to user_path(@user.id)  
   end
   
   def destroy
     @user.destroy
+    flash[:notice] = "退会しました"
     render 'index'  
   end
   

@@ -2,7 +2,7 @@
   <%= render 'shared/header' %>
   <div class="result-notifications-main-full">
     <div class="result-notifications-name-title">
-      <p>通知</p>
+      <p>コメント通知</p>
     </div>
   </div>
   <div class="top-contents">
@@ -11,7 +11,7 @@
     </aside>
     <article class="users-article">
       <div class="destroy_all_notifications">
-        <%= link_to destroy_all_notifications_path, method: :delete do %>
+        <%= link_to notifications_destroy_all_dm_path, method: :delete do %>
           <h7>全削除</h7>
         <% end %>
       </div>
@@ -19,10 +19,10 @@
       <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
         <% if @notifications.exists? %>
             <div class="users-index">
-                <%= render "notification", notifications %>
+                <%= render "notification_dm", notifications %>
             </div>
         <% else %>
-            <p class="no-notification">通知はありません</p>
+            <p class="no-notification">コメントはありません</p>
         <% end %>
     </article>
     <aside class="sidebar_right">

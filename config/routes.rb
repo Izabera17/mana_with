@@ -26,14 +26,14 @@ Rails.application.routes.draw do
   }
 
   devise_scope :user do
-    post "users/guest_sign_in", to: "users/sessions#guest_sign_in"
-    get "users/guest_sign_in", to: "users/sessions#guest_sign_in"
+    post "users/guest_sign_in" => "users/sessions#guest_sign_in"
+    get "users/guest_sign_in" => "users/sessions#guest_sign_in"
   end
 
-  put 'users/follow/:user_id',to: 'users#follow'
-  put 'users/unfollow/:user_id',to: 'users#unfollow'
-  get 'users/follow_list/:user_id',to: 'users#follow_list'
-  get 'users/follower_list/:user_id',to: 'users#follower_list'
+  put 'users/follow/:user_id' => 'users#follow'
+  put 'users/unfollow/:user_id' => 'users#unfollow'
+  get 'users/follow_list/:user_id' =>'users#follow_list'
+  get 'users/follower_list/:user_id' => 'users#follower_list'
 
   resources :tags, only: [:index]
   resources :users, only: [:index, :show, :edit, :update, :destroy]
@@ -48,6 +48,9 @@ Rails.application.routes.draw do
       delete 'destroy_all'
     end
   end
+  
+  get "notifications/dm" => "notifications#dm"
+  delete "notifications/destroy_all_dm" => "notifications#destroy_all_dm"
   
   resources :activities, only: [:index] do 
     collection do

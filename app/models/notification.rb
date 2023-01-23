@@ -3,14 +3,12 @@ class Notification < ApplicationRecord
   belongs_to :post_learning, optional: true
   belongs_to :comment, optional: true
 
+  belongs_to :room, optional: true
+  belongs_to :message, optional: true
   belongs_to :visitor, class_name: 'User', foreign_key: 'visitor_id', optional: true
   belongs_to :visited, class_name: 'User', foreign_key: 'visited_id', optional: true
   
 end
-
-
-
-
 
 def create_notification_comment!(current_user, comment_id)
   # 自分以外にコメントしている人をすべて取得し、全員に通知を送る
@@ -34,5 +32,18 @@ def save_notification_comment!(current_user, comment_id, visited_id)
     if notification.visiter_id == notification.visited_id
       notification.checked = true
     end
+    notification.save if notification.valid?
+  end
+  
+  def create_notification_dm(current_user, message_id)
+    @multiple_entry_records = Entry.where(room_id: id).where.not(user_id: current_user.id)
+    @single_entry_record = @multiple_entry_records.find_by(room_id: id)
+    notification = current_user.active_notifications.build(
+      room_id: id,
+      message_id: message_id,
+      visited_id: @single_entry_record.user_id,
+      action: 'dm'
+    )
+
     notification.save if notification.valid?
   end
