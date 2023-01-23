@@ -26,6 +26,55 @@ body {
   color: red;
 }
 
+.notice-flash {
+  width: 60%;
+  margin:5px 0px;
+  text-align: center;
+}
+
+.flash-message {
+  background-color: #159B10;
+  color: white;
+  margin-top: 20px;
+  padding: 6px;
+  font-size: 22px;
+}
+
+.flash-alert-message {
+  background-color:red;
+  color: white;
+  margin-top: 20px;
+  padding: 6px;
+  font-size: 22px;
+}
+
+.form-title {
+  width: 50%;
+}
+
+.error-message-new {
+  width: 100%;
+  padding-top: 5px;
+  margin: 0px 100px;
+  color: red;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: start
+}
+
+.error-message-comment {
+  width: 100%;
+  color: red;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: start
+}
+
+.error-message-new ul, 
+.error-message-comment ul {
+  list-style: none;
+}
+
 .header-home {
   justify-content: space-between;
   background-color: transparent;

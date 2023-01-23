@@ -1,17 +1,5 @@
 <div class="first-form-view">
   <%= render 'shared/header' %>
-  <div class="form-title">
-    <div class="error-message">
-      <% if @post_learning.errors.any? %>
-       <%= @post_learning.errors.count %>件のエラーが発生しました
-       <ul>
-         <% @post_learning.errors.full_messages.each do |message| %>
-         <li><%= message %></li>
-         <% end %>
-       </ul>
-      <% end %>
-    </div>
-  </div>
   <div class="top-contents">
     <aside class="sidebar_left">
       <%= render 'shared/sidebar_left' %>
@@ -21,6 +9,17 @@
       <h1>
          <span>投稿フォーム</span>
       </h1>
+      <div class="form-title">
+        <div class="error-message-new">
+          <% if @post_learning.errors.any? %>
+            <ul>
+              <% @post_learning.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          <% end %>
+        </div>
+      </div>
       <%= form_with model: @post_learning, local:true do |f| %>
         <table class="form-table">
           <tr class="form-name">

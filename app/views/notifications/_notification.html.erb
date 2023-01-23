@@ -59,9 +59,9 @@
         あなたにDMを送りました
       </div>
       <p class="notification-comment">
-        <%= truncate(notification.message.content, length: 20, omission: '... (一部表示)') %>
+        <%= truncate(notification.message.body, length: 20, omission: '... (一部表示)') %>
         <%= link_to room_path(notification.room) do %>
-          <h4>DMの送信画面に移動</h4>
+          <h4 class="dm-move">DMの送信画面に移動</h4>
         <% end %>
       </p>
     <% end %>

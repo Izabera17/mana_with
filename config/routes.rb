@@ -49,9 +49,6 @@ Rails.application.routes.draw do
     end
   end
   
-  get "notifications/dm" => "notifications#dm"
-  delete "notifications/destroy_all_dm" => "notifications#destroy_all_dm"
-  
   resources :activities, only: [:index] do 
     collection do
       delete 'destroy_all'

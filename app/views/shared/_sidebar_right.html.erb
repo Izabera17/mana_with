@@ -35,19 +35,7 @@
             <% end %>
           <% end %>
         </li>
-         <li>
-          <%= link_to notifications_dm_path, class: "notification-link" do %>
-            <% if unchecked_notifications_activity.any?%>
-              <div class="news">
-                <%= image_tag '/assets/activity.png', class:'icon' %>
-                <span class="news-span">コメント通知</span>
-              </div>
-            <% else %>
-              <%= image_tag '/assets/activity.png', class:'icon' %>
-              <span class="notification-margin">コメント通知</span>
-            <% end %>
-          <% end %>
-        </li>
+       
         <li>
           <%= link_to user_path(current_user.id), class: "icon-link" do %>
             <%= image_tag '/assets/mypage_icon.png', class:'icon' %>

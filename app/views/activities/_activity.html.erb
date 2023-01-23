@@ -62,6 +62,22 @@
           </div>
         <% end %>
         <p class="notification-comment"><%= PostComment.find_by(id: activity.post_comment_id)&.comment %></p>
+      <% when 'dm' %>
+      <div class="notification-favorite-content-inner">
+        <%= link_to user_path(visited), class: "article-notification-image" do %>
+          <strong>
+            <%= visited.name %>
+          </strong>
+        <% end %>
+        
+          さんにDMを送りました
+        </div>
+        <p class="notification-comment-dm">
+          <%= truncate(activity.message.body, length: 20, omission: '... (一部表示)') %>
+          <%= link_to room_path(activity.room) do %>
+            <h4 class="dm-move">DMの送信画面に移動</h4>
+          <% end %>
+        </p>
       <% end %>
     </div>
   </div>

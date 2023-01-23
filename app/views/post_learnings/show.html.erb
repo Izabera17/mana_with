@@ -101,16 +101,19 @@
       </div>
       <div>
         <%= form_with model: [@post_learning, @post_comment] do |f| %>
-         <% if @error_comment.present? %>
-            <div id="error_explanation">
-              <h2><%= @error_comment.errors.count %>件のエラーが発生しました。</h2>
-              <ul>
-                <% @error_comment.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-                <% end %>
-              </ul>
+        <div class="form-title">
+          <div class="error-message-comment">
+             <% if @error_comment.present? %>
+                <div id="error_explanation">
+                  <ul>
+                    <% @error_comment.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                    <% end %>
+                  </ul>
+                </div>
+              <% end %>
             </div>
-          <% end %>
+          </div>
           <div class="show-post-comment">
             <div class="post-comment-inner">
               <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" , class: "show-text-area" %>

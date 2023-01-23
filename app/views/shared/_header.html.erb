@@ -1,12 +1,20 @@
 <div class="header-home">
   <div class="logo">
-    <a href="/">
+    <a href="/home">
       <img src="/assets/logo.png" alt="ロゴ画像">
     </a>
   </div>
-   <div class="flash-message">
-     <%= flash[:notice] %>
-    </div>
+  <div class="notice-flash">
+    <% if flash[:notice] %>
+      <div class="flash-message">
+        <%= flash[:notice] %>
+      </div>
+    <% elsif flash[:alert] %>
+      <div class="flash-alert-message">
+        <%= flash[:alert] %>
+      </div>
+  <% end %>  
+  </div>
   <div class="nav-haeder">
     <div class="menu-li">
       <ul class="main-nav">

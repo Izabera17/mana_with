@@ -20,6 +20,7 @@ def create_notification_comment!(current_user, comment_id)
   save_notification_comment!(current_user, comment_id, user_id) if temp_ids.blank?
 end
 
+
 def save_notification_comment!(current_user, comment_id, visited_id)
   # コメントは複数回することが考えられるため、１つの投稿に複数回通知する
   notification = current_user.active_notifications.new(
@@ -32,18 +33,5 @@ def save_notification_comment!(current_user, comment_id, visited_id)
     if notification.visiter_id == notification.visited_id
       notification.checked = true
     end
-    notification.save if notification.valid?
-  end
-  
-  def create_notification_dm(current_user, message_id)
-    @multiple_entry_records = Entry.where(room_id: id).where.not(user_id: current_user.id)
-    @single_entry_record = @multiple_entry_records.find_by(room_id: id)
-    notification = current_user.active_notifications.build(
-      room_id: id,
-      message_id: message_id,
-      visited_id: @single_entry_record.user_id,
-      action: 'dm'
-    )
-
     notification.save if notification.valid?
   end

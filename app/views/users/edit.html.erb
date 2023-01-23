@@ -11,6 +11,17 @@
     </aside>
     <article class="mypage-article">
       <div class="form-view">
+        <div class="form-title">
+          <div class="error-message-new">
+            <% if @user.errors.any? %>
+              <ul>
+                <% @user.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            <% end %>
+          </div>
+        </div>
         <%= form_with model: @user, local:true do |f| %>
           <table class="mypage-form-table">
             <tr class="mypage-form-name">

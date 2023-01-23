@@ -8,6 +8,7 @@ class PostCommentsController < ApplicationController
       # コメントしたタイミングで通知レコードを作成
       post_learning.create_notification_post_comment!(current_user, comment.id)
       redirect_to post_learning_path(post_learning)
+      flash[:notice] = "コメントを送信しました"
     else
       @genres = Genre.all
       @post_learning = PostLearning.find(params[:post_learning_id])

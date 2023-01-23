@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :favorites, :edit, :update, :destroy]
-  before_action :genre_all, only: [:index, :show, :edit, :destroy, :follow_list, :follower_list, :unsubscribe]
+  before_action :genre_all, only: [:index, :show, :edit, :update, :destroy, :follow_list, :follower_list, :unsubscribe]
   before_action :room_entry, only: [:show]
 
   def index
@@ -35,9 +35,13 @@ class UsersController < ApplicationController
   end
   
   def update
-    @user.update(user_params)
-    flash[:notice] = "プロフィールを変更しました"
-    redirect_to user_path(@user.id)  
+    if @user.update(user_params)
+      flash[:notice] = "プロフィールを変更しました"
+      redirect_to user_path(@user.id)
+    else
+      flash[:alert] = "更新に失敗しました"
+      render 'edit'
+    end
   end
   
   def destroy
@@ -80,7 +84,7 @@ class UsersController < ApplicationController
   end
     
   def user_params
-    params.require(:user).permit(:name, :emwil, :introduction, :user_image)
+    params.require(:user).permit(:name, :email, :introduction, :user_image)
   end
   
   def room_entry 

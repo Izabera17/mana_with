@@ -1,0 +1,20 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      post_learning: 学習投稿
+      genre: ジャンル
+      post_comment: コメント
+    attributes:
+      user:
+        name: ユーザー名
+        email: メールアドレス
+      post_learning:
+        learning_name: 学習名
+        learning_content: 頑張ったこと
+        learning_real: 学びの本音
+        genre_id: ジャンル名
+      genre:
+        name: ジャンル名
+      post_comment:
+        comment: コメント
