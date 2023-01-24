@@ -2,6 +2,17 @@
   <div class="first-view">
     <div class="header-top">
       <div></div>
+      <div class="notice-flash">
+        <% if flash[:notice] %>
+          <div class="flash-message">
+            <%= flash[:notice] %>
+          </div>
+        <% elsif flash[:alert] %>
+          <div class="flash-alert-message">
+            <%= flash[:alert] %>
+          </div>
+        <% end %>  
+        </div>
       <div class="nav-haeder">
         <ul class="main-nav">
           <% if user_signed_in? %>

@@ -46,8 +46,9 @@ class UsersController < ApplicationController
   
   def destroy
     @user.destroy
+    @users = User.where.not(admin: 'true')
     flash[:notice] = "退会しました"
-    render 'index'  
+    redirect_to root_path  
   end
   
   def follow
