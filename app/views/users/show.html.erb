@@ -20,17 +20,21 @@
               <%= image_tag @user.get_profile_image(250,250) %>
               <div class="follow-full-top">
                 <% if user_signed_in? && current_user.id == @user.id %>
-                  <div class="follow-list-full">
-                    <span class="follow-list-inner">
-                      <span class="follow-text-inner"><%= @user.follow_count %> </span><%= link_to "フォロー", {controller: :users, action: :follow_list, user_id: @user.id}, method: :get %>
-                    </span>
-                    <span class="follower-list-inner">
-                      <span class="follower-text-inner"><%= @user.followers_count %> </span><%= link_to "フォロワー", {controller: :users, action: :follower_list, user_id: @user.id}, method: :get %>
-                    </span>
-                  </div>
+                  <% unless current_user.admin? %>
+                    <div class="follow-list-full">
+                      <span class="follow-list-inner">
+                        <span class="follow-text-inner"><%= @user.follow_count %> </span><%= link_to "フォロー", {controller: :users, action: :follow_list, user_id: @user.id}, method: :get %>
+                      </span>
+                      <span class="follower-list-inner">
+                        <span class="follower-text-inner"><%= @user.followers_count %> </span><%= link_to "フォロワー", {controller: :users, action: :follower_list, user_id: @user.id}, method: :get %>
+                      </span>
+                    </div>
+                  <% end %>
                 <% else %>
                   <div class="follow-bottun">
-                    <%= render 'shared/follow', user: @user %>
+                    <% unless current_user.admin? %>
+                      <%= render 'shared/follow', user: @user %>
+                    <% end %>
                   </div>
                 <% end %>
               </div>
@@ -63,12 +67,32 @@
               <div class="mypage-inner-bottom">
                 <%= render "shared/dm-btn" %>  
                 <div class="chat-edit-delete-btn">
-                  <% unless current_user.admin? && current_user.id == @user.id %>
-                    <%= link_to edit_user_path(@user) do %>
-                      <%= image_tag '/assets/edit.png', class:'icon-mypage' %>
+                  <% if current_user.admin? %>
+                    <% unless user_signed_in? && current_user.id == @user.id %>
+                      <%= link_to edit_user_path(@user) do %>
+                        <%= image_tag '/assets/edit.png', class:'icon-mypage' %>
+                      <% end %>
+                      <%= link_to user_path(@user), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
+                        <%= image_tag '/assets/trushbox.png', class:'icon-mypage' %>
+                      <% end %>
                     <% end %>
-                    <%= link_to user_path(@user), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
-                      <%= image_tag '/assets/trushbox.png', class:'icon-mypage' %>
+                  <% elsif @user.email == 'guest@example.com' %> 
+                    <% unless user_signed_in? && current_user.id == @user.id %>
+                      <%= link_to edit_user_path(@user) do %>
+                        <%= image_tag '/assets/edit.png', class:'icon-mypage' %>
+                      <% end %>
+                      <%= link_to user_path(@user), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
+                        <%= image_tag '/assets/trushbox.png', class:'icon-mypage' %>
+                      <% end %>
+                    <% end %>
+                  <% else %>
+                    <% if user_signed_in? && current_user.id == @user.id %>
+                      <%= link_to edit_user_path(@user) do %>
+                        <%= image_tag '/assets/edit.png', class:'icon-mypage' %>
+                      <% end %>
+                      <%= link_to user_path(@user), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
+                        <%= image_tag '/assets/trushbox.png', class:'icon-mypage' %>
+                      <% end %>
                     <% end %>
                   <% end %>
                 </div>
@@ -144,18 +168,20 @@
                   <tbody class="mypage-body-favorites">
                     <tr class="mypage-content-favorites">
                       <td class="mypage-post-name-favorites-content">
-                        <% if favorites.favorited_by?(current_user) %>
-                          <p>
-                            <%= link_to post_learning_favorites_path(favorites), method: :delete do %>
-                              ♥ いいね
-                            <% end %>
-                          </p>
-                        <% else %>
-                          <p>
-                            <%= link_to post_learning_favorites_path(favorites), method: :post do %>
-                              ♡ いいね
-                            <% end %>
-                          </p>
+                        <% unless current_user.admin? %>
+                          <% if favorites.favorited_by?(current_user) %>
+                            <p>
+                              <%= link_to post_learning_favorites_path(favorites), method: :delete do %>
+                                ♥ いいね
+                              <% end %>
+                            </p>
+                          <% else %>
+                            <p>
+                              <%= link_to post_learning_favorites_path(favorites), method: :post do %>
+                                ♡ いいね
+                              <% end %>
+                            </p>
+                          <% end %>
                         <% end %>
                       </td>
                       <td class="mypage-user-image " >

@@ -1,5 +1,5 @@
 class GenresController < ApplicationController
-  before_action :genre_all, only: [:index, :edit] 
+  before_action :genre_all, only: [:index, :edit, :destroy] 
   
   def index
     @genre = Genre.new
@@ -12,7 +12,7 @@ class GenresController < ApplicationController
       flash[:notice] = "ジャンルを追加しました"
       redirect_to genres_path
     else
-      flash[:notice] = "追加できませんでした"
+      flash[:alert] = "追加できませんでした"
       @genres = Genre.all
       render 'index'
     end
@@ -32,6 +32,13 @@ class GenresController < ApplicationController
       flash[:alert] = "変更を保存できませんでした"
       render 'edit'
     end
+  end
+  
+  def destroy
+    @genre = Genre.find(params[:id])  
+    @genre.destroy
+    flash[:notice] = "ジャンルを削除しました"
+    render 'index'  
   end
   
   private

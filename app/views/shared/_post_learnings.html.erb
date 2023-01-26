@@ -1,9 +1,7 @@
-
-      <div class="article-contents">
-        <% @post_learnings.each do |post_learnings| %>
-          <div class="article-inner">
+<div class="article-contents">
+    <% @post_learnings.each do |post_learnings| %>
+        <div class="article-inner">
             <div class="article-upper-half">
-
               <div class="upper-left">
                 <div class="title-full-inner">
                       <div class="eval-lower">
@@ -81,7 +79,7 @@
                 </div>
                 
                 <div class="home-comment-inner">
-                  <% post_learnings.post_comments.each do |post_comment| %>
+                  <% post_learnings.post_comments.first(4).each do |post_comment| %>
                     <div class="home-comment-top">
                       <div class="home-article-time">
                           <%= time_ago_in_words(post_comment.created_at) %>前
@@ -105,10 +103,17 @@
                     </div>
                   <% end %>
                 </div>
+                <div class="post-comment-more">
+                  <% if post_learnings.post_comments.count >= 4 %>
+                    <%= link_to post_learning_path(post_learnings.id) do %>
+                      <span>もっと見る</span>
+                    <% end %>
+                  <% end %>
+                </div>
                 
               </div>
             </div>
           </div>
         <% end %>
-      </div>
+</div>
     

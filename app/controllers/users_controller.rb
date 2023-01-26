@@ -4,7 +4,8 @@ class UsersController < ApplicationController
   before_action :room_entry, only: [:show]
 
   def index
-    @users = User.where.not(admin: 'true')
+    users = User.where.not(admin: 'true')
+    @users = users.where.not(email: 'guest@example.com')
   end
 
   def show
@@ -45,10 +46,15 @@ class UsersController < ApplicationController
   end
   
   def destroy
-    @user.destroy
-    @users = User.where.not(admin: 'true')
-    flash[:notice] = "退会しました"
-    redirect_to root_path  
+    if @user.email == 'guest@example.com'
+      reset_session
+      redirect_to :root
+    else
+      @user.destroy
+      @users = User.where.not(admin: 'true')
+      flash[:notice] = "退会しました"
+      redirect_to root_path  
+    end
   end
   
   def follow

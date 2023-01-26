@@ -667,10 +667,6 @@ aside .sidebar_right {
   text-align: center;
 }
 
-.result-genre-full {
-  margin-bottom: 25px;
-}
-
 .result-genre-full-home {
   margin-bottom: 10px;
 }
@@ -718,6 +714,8 @@ aside .sidebar_right {
 .home-comment {
   display: flex;
   justify-content: space-between;
+  background-color: #ACEAA0;
+  border-radius: 20px;
 }
 
 .home-img-comment {
@@ -730,10 +728,12 @@ aside .sidebar_right {
 }
 
 .home-img-comment {
-  background-color: #ACEAA0;
   margin-bottom: 10px;
-  border-radius: 20px;
   width: 100%;
+}
+
+.home-user-image {
+   margin-top: 5px;
 }
 
 .home-user-image img {
@@ -762,9 +762,6 @@ aside .sidebar_right {
   color: rgba(0, 0, 0, 0.5);
 }
 
-.show-post-favorite {
-}
-
 .show-post-favorite span {
   color: red;
   font-size: 18px;
@@ -776,7 +773,7 @@ aside .sidebar_right {
 
 .home-comment-right {
   width: 75%;
-  height: 70px;
+  height: 100%;
 }
 
 .home-comment-text-inner {
@@ -785,7 +782,24 @@ aside .sidebar_right {
 
 .home-comment-text-inner p {
   font-size: 14px;
+  padding-right: 10px;
   margin: 0px;
+}
+
+.post-comment-more {
+  text-align: center;
+  padding-bottom: 24px;
+}
+
+.post-comment-more a {
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 8px 55px;
+  border-radius: 30px;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.post-comment-more a:hover {
+  opacity: 0.5;
 }
 
 .result-home-name-index {
@@ -1306,4 +1320,8 @@ aside .sidebar_right {
   width: 20px;          
   background: #F00;     
   border-radius: 50%;   
+}
+
+.index-follow-user {
+  padding-top: 25px;
 }

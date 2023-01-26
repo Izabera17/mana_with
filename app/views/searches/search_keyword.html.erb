@@ -2,7 +2,7 @@
   <%= render 'shared/header' %>
   <div class="result-genre-full">
     <div class="result-mypage-full">
-      <% if @range == "ユーザー" %>
+      <% if @range == "ユーザー名" %>
         <div class="result-users-search-name-title">
           <p class="user-search-result">検索結果 [User]：<%= params[:word] %></p>
         </div>
@@ -26,7 +26,7 @@
       <%= render 'shared/sidebar_left' %>
     </aside>
     <article class="users-article">
-      <% if @range == "ユーザー" %>
+      <% if @range == "ユーザー名" %>
         <%= render 'shared/users' %>
       <% else %>
         <%= render 'shared/post_learnings' %>

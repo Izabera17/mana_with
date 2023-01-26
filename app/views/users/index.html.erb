@@ -38,7 +38,9 @@
           </div>
           
           <div class="users-follow-list">
-            <%= render 'shared/follow', user: users %>
+            <% unless current_user.admin? %>
+              <%= render 'shared/follow', user: users %>
+            <% end %>
           </div>
         </div>
       <% end %>
