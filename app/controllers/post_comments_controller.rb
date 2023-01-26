@@ -10,12 +10,12 @@ class PostCommentsController < ApplicationController
       redirect_to post_learning_path(post_learning)
       flash[:notice] = "コメントを送信しました"
     else
+      flash[:alert] = "送信に失敗しました"
       @genres = Genre.all
       @post_learning = PostLearning.find(params[:post_learning_id])
       @post_comments = @post_learning.post_comments.order(created_at: :desc) 
       @post_comment = PostComment.new
       @error_comment = comment
-      flash[:alert] = "送信に失敗しました"
       render 'post_learnings/show'
     end
 

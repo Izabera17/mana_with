@@ -4,6 +4,6 @@ class PostComment < ApplicationRecord
   
   has_many :notifications, dependent: :destroy
   
-  validates :comment, presence: true
+  validates :comment, presence: true, length: { minimum: 1, maximum: 200 }
 
 end

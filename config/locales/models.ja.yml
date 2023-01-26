@@ -33,6 +33,7 @@ ja:
       user:
         name: ユーザー名
         email: メールアドレス
+        password : パスワード
       post_learning:
         learning_name: 学習名
         learning_content: 頑張ったこと

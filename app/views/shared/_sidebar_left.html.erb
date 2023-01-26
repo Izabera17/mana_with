@@ -1,26 +1,27 @@
 <div class="sidebar-full">
   <div class="sidebar">
+    <% if user_signed_in? %>
     <div class="sidebar-contents">
+    
       <div class="sidebar-serch">
+        
         <p class="search-key">　キーワードで探す</p>
         <div class="sidebar-list">
-          <% if user_signed_in? %>
-            <div class="search_form">
-              <%= form_with url: search_keyword_path, local: true, method: :get do |f| %>
-                <div class="search-form-text">
-                  <%= f.select :range, options_for_select([['ユーザー'], ['学習名'], ['頑張ったこと']]), { prompt: '選択してください' } %>  
+          <div class="search_form">
+            <%= form_with url: search_keyword_path, local: true, method: :get do |f| %>
+              <div class="search-form-text">
+                <%= f.select :range, options_for_select([['ユーザー'], ['学習名'], ['頑張ったこと']]), { prompt: '選択してください' } %>  
+              </div>
+              <div class="search-form-text-bottun">
+                <div class="search-form-list">
+                  <%= f.text_field :word %>
                 </div>
-                <div class="search-form-text-bottun">
-                  <div class="search-form-list">
-                    <%= f.text_field :word %>
-                  </div>
-                  <div class="search-form-submit">
-                    <%= f.submit "検索", class: "submit-bottun" %>  
-                  </div>
+                <div class="search-form-submit">
+                  <%= f.submit "検索", class: "submit-bottun" %>  
                 </div>
-              <% end %>
-            </div>
-          <% end %>
+              </div>
+            <% end %>
+          </div>
           <p class="search-genre">　ジャンルで探す</p>
           <% @genres.each do |genre| %>
             <ul>
@@ -29,9 +30,12 @@
               </li>
             </ul>
           <% end %>
-        </div>
+        
       </div>
     </div>
+    
+    </div>
+    <% end %>
     <div class="sidebar-left-btn">
       <p>今日もお疲れ様です！</p>
        <div class="sidebar-btn">

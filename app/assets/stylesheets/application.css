@@ -34,6 +34,7 @@ body {
 
 .flash-message {
   background-color: #159B10;
+  border-radius: 10px;
   color: white;
   margin-top: 20px;
   padding: 6px;
@@ -106,6 +107,10 @@ body {
   margin-bottom: 30px;
 }
 
+.form-article {
+  margin-top: 35px;
+}
+
 .form-article h1 {
   margin: 15px 0px 20px 0px;
 }
@@ -169,7 +174,7 @@ body {
   background-color: #fff;
   padding: 10px 15px;
   border-radius: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .sidebar-menu p {
@@ -239,7 +244,6 @@ body {
 .sidebar-left-btn {
   background-color: #fff;
   padding: 8px 0px;
-  margin-top: 30px;
   border-radius: 5px;
 }
 
@@ -481,7 +485,8 @@ aside .sidebar_right {
 }
 
 .article-title {
-  display: flex;
+  width: 100%;
+
   margin: 10px 0px 0px 10px;
 }
 
@@ -504,13 +509,14 @@ aside .sidebar_right {
   border-radius: 18px;
   font-weight: bold;
   font-size: 28px;
-  padding: 0px 10px 10px;
+  padding: 0px 8px 8px;
   margin-right: 20px;
 }
 
 .title-name-inner {
   margin-top: 3px;
-  width: 70%;
+  margin-left: 35px;
+  width: 83%;
 }
 
 .title-full-inner {
@@ -800,20 +806,20 @@ aside .sidebar_right {
   font-weight: bold;
 }
 
-.result-genre-search p {
-  color: #fff;
-  font-weight: bold;
-  font-size: 30px;
-  margin: 0px;
-  text-align: center;
-}
-
 .result-genre-name-index p, 
 .result-home-name-index p {
   color: #fff;
   font-size: 40px;
   font-weight: bold;
   margin: 0px;
+}
+
+.result-genre-search p {
+  color: #fff;
+  font-weight: bold;
+  font-size: 30px;
+  margin: 0px;
+  text-align: center;
 }
 
 .form-title {
@@ -1022,11 +1028,6 @@ aside .sidebar_right {
   margin-bottom: 20px;
 }
 
-.show-top {
-  display: flex;
-  justify-content: space-between;
-}
-
 .show-comment-top {
   background-color: #fff;
   margin-top: 20px;
@@ -1049,9 +1050,10 @@ aside .sidebar_right {
 
 .show-comment-time {
   width: 15%;
-  color: rgba( 0, 0, 0, 0.9);
+  color: rgba( 0, 0, 0, 0.7);
   font-size: 16px;
-  margin: 25px 0px 0px 10px;
+  padding: 20px 0px 0px 20px;
+  
 }
 
 .show-comment-user {
@@ -1136,18 +1138,18 @@ aside .sidebar_right {
 }
 
 .result-genre-name-show {
-   margin-right: 10px;
-   margin-left: 24%;
-   margin-bottom:10px;
-   margin-top: 20px;
-   background-color: #04A311;
-   width: 18%;
-   z-index: 4;
+  margin: 0px auto 14px;
+  text-align: center;
+  width: 18%;
+  background: linear-gradient(transparent 80%, #04A311 75%);
+  font-family: "筑紫A丸ゴシック";
+  font-weight: bold;
+  z-index: 4;
 }
 
 .result-genre-name-show p {
-  color: #fff;
-  font-size: 30px;
+  color: #900630;
+  font-size: 40px;
   font-weight: bold;
   margin: 0px;
   text-align: center;
@@ -1155,20 +1157,23 @@ aside .sidebar_right {
 }
 
 .show-main-left {
-  width: 65%;
+  width: 90%;
   margin-left: 20px;
 }
 
 .show-main-right {
-  width: 31%;
+  width: 50%;
+  margin-left: auto;
+  margin-right: 80px;
 }
 
 .show-main-right-image  {
   margin: 0px;
+  text-align: center;
 }
 
 .show-main-right-image img {
-  margin: 60px 0px 0px 0px;
+  margin-bottom: 10px;
 }
 
 .show-inner-middle {
@@ -1189,7 +1194,7 @@ aside .sidebar_right {
 .show-post-content,
 .show-post-real,
 .show-post-genre {
-  width: 40%;
+  width: 28%;
   height: 20%;
   justify-: center;
 }
@@ -1226,7 +1231,7 @@ aside .sidebar_right {
   text-align: center;
   color: #fff;
   font-size: 20px;
-  margin :10px 15px 30px;
+  margin :10px 60px 30px;
   font-weight: bold;
 }
 
@@ -1235,7 +1240,7 @@ aside .sidebar_right {
   color: #fff;
   border-radius: 30px;
   font-size: 20px;
-  margin :10px 15px 30px;
+  margin :10px 60px 30px;
   font-weight: bold;
 }
 
@@ -1244,7 +1249,7 @@ aside .sidebar_right {
   color: #fff;
   border-radius: 30px;
   font-size: 20px;
-  margin :10px 15px 30px;
+  margin :10px 60px 30px;
   font-weight: bold;
 }
 
@@ -1253,7 +1258,7 @@ aside .sidebar_right {
   color: #fff;
   border-radius: 30px;
   font-size: 20px;
-  margin :10px 15px 30px;
+  margin :10px 60px 30px;
   font-weight: bold;
 }
 
@@ -1271,7 +1276,6 @@ aside .sidebar_right {
   font-size: 18px;
   width: 60%;
   margin-left:30px;
-
 }
 
 .show-favorite-edit {

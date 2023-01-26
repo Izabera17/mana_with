@@ -1,4 +1,32 @@
-/* Top画面 */
+/* Home画面 */
+
+.notice-flash-top{
+  width: 20%;
+  margin:5px 0px;
+  text-align: center;
+}
+
+.flash-message-top {
+  background-color: #159B10;
+  color: white;
+  margin-top: 20px;
+  padding: 6px;
+  font-size: 22px;
+  border-radius: 10px;
+}
+
+.flash-alert-message-top {
+  background-color:red;
+  color: white;
+  margin-top: 20px;
+  padding: 6px;
+  font-size: 22px;
+}
+
+.header-top .logo a img {
+  width: 200px;
+  margin: 20px 0px 0px 30px;
+}
 
 .header-top {
   display: flex;
@@ -18,8 +46,8 @@
 
 .menu-content h1 {
   position: absolute;
-  left: 200px;
-  top: 70px;
+  left: 320px;
+  top: 110px;
   margin: 0px;
   font-family: "03スマートフォントUI";
   color: #fff;

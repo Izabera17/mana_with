@@ -9,9 +9,9 @@ class PostLearning < ApplicationRecord
 
   has_one_attached :post_image
 
-  validates :learning_name, presence: true
-  validates :learning_content, presence: true
-  validates :learning_real, presence: true
+  validates :learning_name, presence: true, length: { minimum: 1, maximum: 50 }
+  validates :learning_content, presence: true, length: { minimum: 1, maximum: 200 }
+  validates :learning_real, presence: true, length: { minimum: 1, maximum: 200 }
   validates :genre_id, presence: true
 
   # キーワードから投稿を部分検索

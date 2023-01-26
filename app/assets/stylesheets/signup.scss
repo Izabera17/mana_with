@@ -1,44 +1,17 @@
-.body {
-  background-color: #FFEBCB; 
-  height: calc(100vh - 76px);
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  background-color: #DDA456;
-}
-
-.header .logo a img {
-  width: 180px;
-  margin: 5px 0px 0px 5px;
-}
-
-.header .main-nav {
-  display: flex;
-  font-size: 1.25rem;
-  margin-top: 22px;
-}
-
-.header .main-nav .nav-header-menu {
-  list-style: none;
-  margin: 0px 15px;
-}
-
-
-.header .main-nav .nav-header-menu:last-child {
-  margin-right: 55px;
-}
-
-.header .main-nav .nav-header-menu a {
-  color: #fff;
-  font-family:"凸版文久ゴシック";
+.first-view-top {
+  position: relative;
+  height: calc(100vh - 75px);
+  width: 100vw;
+  margin: 0px;
+  background-size: cover;
+  background-position: center top;
+  background-repeat:  no-repeat;
+  background-image: url(../assets/background-image-top.jpg);
 }
 
 .content {
   justify-content: center;
 }
-
 
 .box {
   width: 50%;
@@ -53,13 +26,13 @@
   width: 50%;
   height: 500px;
   margin: 100px auto;
-  border-radius: 30px;
-  border: 1px #ddd solid;
-  background-color: #fff;
 }
 
 .box-inner {
   padding: 20px 26px;
+  border-radius: 30px;
+  border: 1px #ddd solid;
+  background-color: #fff;
 }
 
 .box-table {

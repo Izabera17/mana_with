@@ -12,8 +12,8 @@ class PostLearningsController < ApplicationController
       redirect_to post_learning_path(@post_learning.id)
       flash[:notice] = "投稿できました"
     else
-      render :new
       flash[:alert] = "投稿に失敗しました"
+      render :new
     end
   end
 
@@ -33,13 +33,20 @@ class PostLearningsController < ApplicationController
   
   def update
     @post_learning = PostLearning.find(params[:id])
-    @post_learning.update(post_learning_params)
-    redirect_to post_learning_path(@post_learning.id)  
+    if @post_learning.update(post_learning_params)
+      redirect_to post_learning_path(@post_learning.id)
+      flash[:notice] = "変更を保存できました"
+    else
+      @genres = Genre.all
+      flash[:alert] = "変更を保存できませんでした"
+      render :edit
+    end
   end
   
   def destroy
     @post_learning = PostLearning.find(params[:id])  
     @post_learning.destroy
+    @post_learnings = PostLearning.all.order(created_at: :desc)
     render 'index'  
   end
 

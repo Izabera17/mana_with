@@ -1,0 +1,29 @@
+<div class="main">
+  <div class="first-view">
+    <%= render 'shared/header' %>
+    <div class="menu-content">
+      <h1>
+        マナウィズ<br><small>　〜孤独ではない学びを〜</small>
+      </h1>
+    </div>
+  </div>
+  <div class="menu-text">
+    <p>
+      ”マナウィズ” は、<span>「ー人だとやる気が出ない」</span> <span>「一緒に学べる仲間がいるといいな」</span><br>
+      <span>「他の人はどんな学習をしているかな」</span>と過去に一度でも思ったことある方に、<br>
+      学習モチベーションの向上に使って頂きたいサイトです！
+    </p>
+  </div>
+  <div class="menu-text-button">
+    <div class="button_first">
+      <%= link_to 'ログイン', new_user_session_path, class: "login_button" %>
+    </div>
+    <div class="button-text">
+      または
+    </div>
+    <div class="button_second">
+      <%= link_to '新規登録', new_user_registration_path, class: "registrate_button" %>  
+    </div>
+  </div>
+</div>
+
