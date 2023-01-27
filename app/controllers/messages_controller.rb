@@ -1,16 +1,22 @@
 class MessagesController < ApplicationController
-  before_action :authenticate_user!, only: [:create]
+  before_action :authenticate_user!, only: [:create, :destroy]
 
   def create
     if Entry.where(user_id: current_user.id, room_id: params[:message][:room_id]).present?
-      @message = Message.create(params.require(:message).permit(:user_id, :body, :room_id).merge(user_id: current_user.id))
-      @room = @message.room
-      # 本引数を２つ持たせてcreate_notification_dmメソッドを実行
-      @room.create_notification_dm(current_user, @message.id)
-      redirect_to room_path(@message.room_id)
+      @message = Message.new(params.require(:message).permit(:user_id, :body, :room_id).merge(user_id: current_user.id))
+      if @message.save
+        @room = @message.room
+        # 本引数を２つ持たせてcreate_notification_dmメソッドを実行
+        @room.create_notification_dm(current_user, @message.id)
+        flash[:notice] = "送信に成功しました"
+        redirect_to room_path(@message.room_id)
+      else
+         flash[:alert] = "送信に失敗しました"
+         @room = @message.room
+         redirect_to room_path(@message.room_id)
+      end
     else
-      flash[:alert] = "メッセージ送信に失敗しました。"
-      redirect_back(fallback_location: root_path)
+      redirect_to root_path
     end
   end
   

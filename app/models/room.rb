@@ -12,8 +12,7 @@ class Room < ApplicationRecord
       visited_id: @single_entry_record.user_id,
       action: 'dm'
     )
-
-    notification.save if notification.valid?
+    notification.save if notification.valid? 
   end
   
 end

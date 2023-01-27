@@ -62,21 +62,23 @@
         <div class="show-favorite-edit">
           <div class="show-post-favorite">
             <div>
-              <% unless user_signed_in? && current_user.id == @post_learning.user_id %>
-                <% if @post_learning.favorited_by?(current_user) %>
-                  <p>
-                    <%= link_to post_learning_favorites_path(@post_learning), method: :delete do %>
-                      ♥ いいね <%= @post_learning.favorites.count %>
-                    <% end %>
-                  </p>
-                <% else %>
-                  <p>
-                    <%= link_to post_learning_favorites_path(@post_learning), method: :post do %>
-                      ♡ いいね <%= @post_learning.favorites.count %>
-                    <% end %>
-                  </p>
+              <% unless current_user.admin? %>
+                <% unless user_signed_in? && current_user.id == @post_learning.user_id %>
+                  <% if @post_learning.favorited_by?(current_user) %>
+                    <p>
+                      <%= link_to post_learning_favorites_path(@post_learning), method: :delete do %>
+                        ♥ いいね <%= @post_learning.favorites.count %>
+                      <% end %>
+                    </p>
+                  <% else %>
+                    <p>
+                      <%= link_to post_learning_favorites_path(@post_learning), method: :post do %>
+                        ♡ いいね <%= @post_learning.favorites.count %>
+                      <% end %>
+                    </p>
+                  <% end %>
                 <% end %>
-              <% end %>
+              <%end %>
             </div>
             <div>
               <p class="post-user-favorite">投稿者：

@@ -2,7 +2,11 @@
   <%= render 'shared/header' %>
    <div class="result-mypage-full">
     <div class="result-mypage-edit-title mypage-common">
-        <p>MyPage（編集）</p>
+      <% if current_user.id == @user.id %>
+        <p>MyPage（編集）</hp>
+      <% else %>
+        <p><%= @user.name %>さんのプロフィール（編集）</p>
+      <% end %>
     </div>
   </div>
   <div class="top-contents">
