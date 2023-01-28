@@ -19,7 +19,8 @@
       <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
         <% if @notifications.exists? %>
             <div class="users-index">
-               <%= render notifications %>
+              <%= render notifications %>
+              <%= paginate notifications %>
             </div>
         <% else %>
             <p class="no-notification">通知はありません</p>

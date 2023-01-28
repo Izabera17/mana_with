@@ -39,7 +39,7 @@
             <td class="form-td"><%= f.collection_select :genre_id, Genre.all, :id, :name, { prompt: '選択してください' }, class: "genre-area" %></th>
           </tr>
           <tr class="form-post-image">
-            <th class="form-th"><%= f.label :post_image, "商品画像" %></th>
+            <th class="form-th"><%= f.label :post_image, "投稿画像" %></th>
             <td class="form-td"><%= f.file_field :post_image, accept: "image/*" , class: "image-area" %></th>
           </tr>
         </table>

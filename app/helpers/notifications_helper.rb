@@ -24,5 +24,4 @@ module NotificationsHelper
     def unchecked_notifications_activity
       @notifications_activity = current_user.active_notifications.where(checked: false)
     end
-
 end
