@@ -11,8 +11,7 @@
              password:  "AdminTest",
              password_confirmation: "AdminTest",
              admin: true)
-             
-             
+            
 users = User.create!(
   [
     {
@@ -54,7 +53,6 @@ genres = Genre.create!(
   ]
  )
  
-
 post_learning = PostLearning.create!(
   [
     {
@@ -122,4 +120,3 @@ PostComment.create!(
     }
   ]
 )
-
