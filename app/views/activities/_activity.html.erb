@@ -1,84 +1,83 @@
 <% visitor = activity.visitor %>
 <% visited = activity.visited %>
 
-  <div class="notification-content">
-    <div class="notification-text-time">
-      <%= time_ago_in_words(activity.created_at).upcase %>前  
-    </div>
-    <div class="notification-text-content">
-      <% case activity.action
-      when 'follow' %>
-        <div class="notification-comment-user-content">
-          <div>
-            <%= link_to user_path(visited), class: "article-notification-image" do %>
-              <%= image_tag visited.get_profile_image(100,100) %>
-            <% end %>
-          </div>
-          <div class="notification-comment-name-content">
-            <%= link_to user_path(visited), class: "article-notification-image" do %>
-              <strong>
-                <%= visited.name %>
-              </strong>
-            <% end %>
-            さんをフォローしました
-          </div>
+<div class="notification-content">
+  <div class="notification-text-time">
+    <%= time_ago_in_words(activity.created_at).upcase %>前  
+  </div>
+  <div class="notification-text-content">
+    <% case activity.action
+    when 'follow' %>
+      <div class="notification-comment-user-content">
+        <div>
+          <%= link_to user_path(visited), class: "article-notification-image" do %>
+            <%= image_tag visited.get_profile_image(100,100) %>
+          <% end %>
         </div>
-      <% when 'favorite' %>
+        <div class="notification-comment-name-content">
+          <%= link_to user_path(visited), class: "article-notification-image" do %>
+            <strong>
+              <%= visited.name %>
+            </strong>
+          <% end %>
+          さんをフォローしました
+        </div>
+      </div>
+    <% when 'favorite' %>
+      <div class="notification-comment-user-content">
+        <div>
+          <%= link_to user_path(visited), class: "article-notification-image" do %>
+            <%= image_tag activity.post_learning.user.get_profile_image(100,100) %>
+          <% end %>
+        </div>
+        <div class="notification-comment-name-content">
+          <%= link_to post_learning_path(activity.post_learning), class: "article-notification-image" do %>
+            <strong>
+              <%= activity.post_learning.user.name %>さんの投稿
+            </strong>
+          <% end %>
+          にいいねしました
+        </div>
+      </div>
+    <% when 'post_comment' %>
+      <% if activity.post_learning.user_id == visitor.id %>
+        <div class="notification-comment-my-content">
+        　<%= link_to "あなたの投稿", activity.post_learning %>にコメントしました  
+        </div>
+      <% else %>  
         <div class="notification-comment-user-content">
           <div>
             <%= link_to user_path(visited), class: "article-notification-image" do %>
               <%= image_tag activity.post_learning.user.get_profile_image(100,100) %>
             <% end %>
           </div>
-          <div class="notification-comment-name-content">
+          <div class=notification-comment-name-content>
             <%= link_to post_learning_path(activity.post_learning), class: "article-notification-image" do %>
               <strong>
                 <%= activity.post_learning.user.name %>さんの投稿
               </strong>
             <% end %>
-            にいいねしました
+            にコメントしました
           </div>
         </div>
-      <% when 'post_comment' %>
-        <% if activity.post_learning.user_id == visitor.id %>
-          <div class="notification-comment-my-content">
-          　<%= link_to "あなたの投稿", activity.post_learning %>にコメントしました  
-          </div>
-        <% else %>  
-          <div class="notification-comment-user-content">
-            <div>
-              <%= link_to user_path(visited), class: "article-notification-image" do %>
-                <%= image_tag activity.post_learning.user.get_profile_image(100,100) %>
-              <% end %>
-            </div>
-            <div class=notification-comment-name-content>
-              <%= link_to post_learning_path(activity.post_learning), class: "article-notification-image" do %>
-                <strong>
-                  <%= activity.post_learning.user.name %>さんの投稿
-                </strong>
-              <% end %>
-              にコメントしました
-            </div>
-          </div>
-        <% end %>
-        <p class="notification-comment"><%= PostComment.find_by(id: activity.post_comment_id)&.comment %></p>
-      <% when 'dm' %>
-      <div class="notification-favorite-content-inner">
-        <%= link_to user_path(visited), class: "article-notification-image" do %>
-          <strong>
-            <%= visited.name %>
-          </strong>
-        <% end %>
-        
-          さんにDMを送りました
-        </div>
-        <p class="notification-comment-dm">
-          <%= truncate(activity.message.body, length: 20, omission: '... (一部表示)') %>
-          <%= link_to room_path(activity.room) do %>
-            <h4 class="dm-move">DMの送信画面に移動</h4>
-          <% end %>
-        </p>
       <% end %>
+      <p class="notification-comment"><%= PostComment.find_by(id: activity.post_comment_id)&.comment %></p>
+    <% when 'dm' %>
+    <div class="notification-favorite-content-inner">
+      <%= link_to user_path(visited), class: "article-notification-image" do %>
+        <strong>
+          <%= visited.name %>
+        </strong>
+      <% end %>
+      さんにDMを送りました
     </div>
+      <p class="notification-comment-dm">
+        <%= truncate(activity.message.body, length: 20, omission: '... (一部表示)') %>
+        <%= link_to room_path(activity.room) do %>
+          <h4 class="dm-move">DMの送信画面に移動</h4>
+        <% end %>
+      </p>
+    <% end %>
   </div>
-  <hr>
+</div>
+<hr>

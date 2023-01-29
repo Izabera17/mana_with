@@ -16,8 +16,8 @@
     <article class="mypage-article">
       <div class="mypage-top">
         <div class="mypage-main">
-            <div class="mypage-image">
-              <%= image_tag @user.get_profile_image(250,250) %>
+          <div class="mypage-image">
+            <%= image_tag @user.get_profile_image(250,250) %>
               <div class="follow-full-top">
                 <% if user_signed_in? && current_user.id == @user.id %>
                   <% unless current_user.admin? %>
@@ -45,9 +45,15 @@
                   <div class="mypage-title-user-name mypage-margin">
                     <p>ユーザー名</p>
                   </div>
-                  <div class="mypage-title-email mypage-margin">
-                    <p>メールアドレス</p>
-                  </div>
+                  <% if current_user.id == @user.id %>
+                    <div class="mypage-title-email mypage-margin">
+                      <p>メールアドレス</p>
+                    </div>
+                  <% elsif current_user.admin %>
+                    <div class="mypage-title-email mypage-margin">
+                      <p>メールアドレス</p>
+                    </div>
+                  <% end %>
                   <div class="mypage-title-introduction mypage-margin">
                     <p>自己紹介</p>
                   </div>
@@ -56,9 +62,15 @@
                   <div class="mypage-content-user-name mypage-margin">
                     <p><%= @user.name %></p>
                   </div>
-                  <div class="mypage-content-email mypage-margin">
-                    <p><%= @user.email %></p>
-                  </div>
+                  <% if current_user.id == @user.id %>
+                    <div class="mypage-content-email mypage-margin">
+                      <p><%= @user.email %></p>
+                    </div>
+                  <% elsif current_user.admin %>
+                    <div class="mypage-content-email mypage-margin">
+                      <p><%= @user.email %></p>
+                    </div>
+                  <% end %>
                   <div class="mypage-content-introduction mypage-margin">
                     <p><%= @user.introduction %></p>
                   </div>
@@ -143,7 +155,6 @@
             </table>
             <% end %>
           </div>
-
           <div class="mypage-favorites">
             <% if @favorite_posts.present? %>
               <div class="mypage-favorites-title">

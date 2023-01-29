@@ -31,12 +31,12 @@
 }
 
 .notification-top {
-    display: flex;
+  display: flex;
 }
 
 .notification-content {
-    display: flex;
-    background-color: #fff;
+  display: flex;
+  background-color: #fff;
 }
 
 .article-notification-image {
@@ -62,132 +62,132 @@
 }
 
 .notification-text-time {
-    width: 10%;
-    margin: 20px 20px 30px 20px;
-    color: rgba(0, 0, 0, 0.6);
+  width: 10%;
+  margin: 20px 20px 30px 20px;
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .notification-text-name {
-    width: 25%;
-    margin: 35px 0px 30px 15px;
-    font-size: 18px;
+  width: 25%;
+  margin: 35px 0px 30px 15px;
+  font-size: 18px;
 }
 
 .notification-text-content {
-    width: 67%;
-    main-right: 20px;
-    font-size: 18px;
+  width: 67%;
+  main-right: 20px;
+  font-size: 18px;
 }
 
 .destroy_all_notifications {
-    background-color: red;
-    width: 10%;
-    text-align: center;
-    padding: 5px 8px;
-    margin-left: auto;
-    border-radius: 10px;
+  background-color: red;
+  width: 10%;
+  text-align: center;
+  padding: 5px 8px;
+  margin-left: auto;
+  border-radius: 10px;
 }
 
 .destroy_all_notifications h7 {
-    font-size: 18px;
-    color: #fff;
-    font-weight: bold;
+  font-size: 18px;
+  color: #fff;
+  font-weight: bold;
 }
 
 .notification-comment {
-    font-size: 20px; 
-    color: rgba(0, 0, 0, 0.5);
-    margin-left: 90px;
-    margin-top: 8px;
-    margin-bottom: 20px;
+  font-size: 20px; 
+  color: rgba(0, 0, 0, 0.5);
+  margin-left: 90px;
+  margin-top: 8px;
+  margin-bottom: 20px;
 }
 
 .notification-comment-dm {
-    font-size: 20px; 
-    color: rgba(0, 0, 0, 0.5);
-    margin-left: 50px;
-    margin-top: 8px;
-    margin-bottom: 20px;
+  font-size: 20px; 
+  color: rgba(0, 0, 0, 0.5);
+  margin-left: 50px;
+  margin-top: 8px;
+  margin-bottom: 20px;
 }
 
 .dm-move {
-    margin-left: 18px;
+  margin-left: 18px;
 }
 
 .article-chat-name-image {
-    margin-top: 38px;
-    margin-left: 20px;
-    font-size: 20px;
-    width: 30%;
+  margin-top: 38px;
+  margin-left: 20px;
+  font-size: 20px;
+  width: 30%;
 }
 
 .article-chat-name-image a {
-    color: #fff;
-    font-weight: bold;
+  color: #fff;
+  font-weight: bold;
 }
 
 .user-name {
-    display: flex;
-    justify-content: center;
-    background-color: #4DDE90;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #4DDE90;
+  width: 100%;
 }
 
 .chat-user-profile {
-    margin-left: 50px;
-    display: flex;
+  margin-left: 50px;
+  display: flex;
 }
 
 .chat-user-image {
-    width: 12%;
+  width: 12%;
 }
 
 .chat-user-time {
-    width: 60%;
+  width: 60%;
 }
 
 .chat-user-time span {
-    font-size: 12px;
-    color: rgba(0, 0, 0, 0.5);
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .chat-message-body {
-    width: 60%;
+  width: 60%;
 }
 
 .chat-delete {
-    margin-top: 40px;
+  margin-top: 40px;
 }
 
 .rooms-user-link {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 .rooms-user-link:hover {
-    opacity: 0.5;
+  opacity: 0.5;
 }
 
 .no-notification {
-    color: #fff;
-    font-size: 20px;
-    margin-left: 10px;
-    font-weight: bold;
+  color: #fff;
+  font-size: 20px;
+  margin-left: 10px;
+  font-weight: bold;
 }
 
 .notification-comment-my-content {
-    margin-top: 32px;
+  margin-top: 32px;
 }
 
 .notification-comment-user-content {
-    display: flex;
+  display: flex;
 }
 
 .notification-favorite-content-inner {
-    margin-top: 34px;
-    margin-left: 15px;
+  margin-top: 34px;
+  margin-left: 15px;
 }
 
 .notification-comment-name-content {
-    margin-top: 32px;
-    margin-left: 15px;
+  margin-top: 32px;
+  margin-left: 15px;
 }

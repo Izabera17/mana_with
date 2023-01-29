@@ -47,6 +47,22 @@ body {
   margin-top: 20px;
   padding: 6px;
   font-size: 22px;
+  border-radius: 10px;
+}
+
+.pagination{
+  font-weight: bold;
+  text-align: center;
+}
+
+.pagination span {
+  font-size: 25px;
+  margin: 0px 15px;
+  color: #8B8B15;
+}
+
+.pagination span:hover {
+  opacity: 0.5;
 }
 
 .form-title {
@@ -609,6 +625,11 @@ aside .sidebar_right {
 .article-effort-image {
   margin-left: 40px;
   margin-bottom: 30px;
+  width: 100%;
+}
+
+.article-effort-image img {
+  width: 85%;
 }
 
 .eval-lower {

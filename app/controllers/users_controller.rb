@@ -5,11 +5,11 @@ class UsersController < ApplicationController
 
   def index
     users = User.where.not(admin: 'true')
-    @users = users.where.not(email: 'guest@example.com')
+    @users = users.where.not(email: 'guest@example.com').page(params[:page]).per(10)
   end
 
   def show
-    @post_learnings = @user.post_learnings
+    @post_learnings = @user.post_learnings.page(params[:page])
     favorites = Favorite.where(user_id: @user.id).pluck(:post_learning_id)
     @favorite_posts = PostLearning.find(favorites)
     
@@ -113,5 +113,4 @@ class UsersController < ApplicationController
       end
     end
   end
-
 end

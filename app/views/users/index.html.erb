@@ -6,7 +6,6 @@
     </div>
   </div>
   <div class="top-contents">
-
     <aside class="sidebar_left">
       <%= render 'shared/sidebar_left' %>
     </aside>
@@ -16,7 +15,6 @@
           <div class="article-users-image">
             <%= image_tag users.get_profile_image(180,180) %>
           </div>
-        
           <div class="users-middle">
             <div class="users-title-name">
               <p>ユーザー名</p>
@@ -27,7 +25,6 @@
               <% end %>
             </div>
           </div>
-                  
           <div class="users-right">
             <div class="users-title-introduction">
               <p>自己紹介</p>
@@ -36,7 +33,6 @@
               <p><%= users.introduction %></p>
             </div>
           </div>
-          
           <div class="users-follow-list">
             <% unless current_user.admin? %>
               <%= render 'shared/follow', user: users %>
@@ -44,12 +40,12 @@
           </div>
         </div>
       <% end %>
+      <%= paginate @users %> 
     </article>
     <aside class="sidebar_right">
       <%= render 'shared/sidebar_right' %>
     </aside>
   </div>
-</div>
 </div>
 <%= render 'shared/footer' %>
 

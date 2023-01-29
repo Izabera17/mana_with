@@ -1,5 +1,5 @@
 class PostLearningsController < ApplicationController
-    before_action :genre_all, only: [:new, :create, :index, :show, :edit, :search_genre, :destroy]
+  before_action :genre_all, only: [:new, :create, :index, :show, :edit, :search_genre, :destroy]
 
   def new
     @post_learning = PostLearning.new
@@ -18,7 +18,8 @@ class PostLearningsController < ApplicationController
   end
 
   def index
-    @post_learnings = PostLearning.all.order(created_at: :desc)
+    @post_learnings = PostLearning.page(params[:page]).per(10).order(created_at: :desc)
+
   end
 
   def show

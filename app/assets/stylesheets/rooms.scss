@@ -1,40 +1,40 @@
 .room-full {
-    background-color: #fff;
-    margin-bottom: 60px;
+  background-color: #fff;
+  margin-bottom: 60px;
 }
 
 .posts {
-    position: fixed;
-    bottom: 85px;
-    left: 52%;
+  position: fixed;
+  bottom: 85px;
+  left: 52%;
 }
  
 .post-footer {
-    position: fixed;
-    bottom: 0; 
-    right: 0; 
-    width: 100%; 
+  position: fixed;
+  bottom: 0; 
+  right: 0; 
+  width: 100%; 
 }
 
 .form-text-field {
-     height: 30px;
-     width: 70%;
+  height: 30px;
+  width: 70%;
 }
 
 input[type="submit"] {
-    height: 35px;
-    color: #fff;
-    background-color: #F08B00;
+  height: 35px;
+  color: #fff;
+  background-color: #F08B00;
 }
 
 input[type="submit"]:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .chat-profile-user-content {
-    margin-bottom: 6px;
+  margin-bottom: 6px;
 }
 
 .chat-start-link {
-    margin-top: 28px;
+  margin-top: 28px;
 }

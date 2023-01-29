@@ -17,15 +17,15 @@
       </div>
       <hr>
       <% if @activities.exists? %>
-          <% @activities.each do |activity| %>
-           <div class="users-index">
+        <% @activities.each do |activity| %>
+          <div class="users-index">
             <%= render 'activities/activity', activity: activity %>
           </div>
-          <% end %>
-        
+        <% end %>
       <% else %>
         <p class="no-notification">アクティビティはありません</p>
       <% end %>
+      <%= paginate @activities, class: "page" %>
     </article>
     <aside class="sidebar_right">
       <%= render 'shared/sidebar_right' %>

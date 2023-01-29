@@ -4,7 +4,6 @@ class PostLearning < ApplicationRecord
 
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
-
   has_many :notifications, dependent: :destroy
 
   has_one_attached :post_image
@@ -59,7 +58,6 @@ class PostLearning < ApplicationRecord
     # コメントがない場合は、投稿者に通知する
     save_notification_post_comment!(current_user, post_comment_id, user_id) if temp_ids.blank?
   end
-  
   
   def save_notification_post_comment!(current_user, post_comment_id, visited_id)
     # １つの投稿に複数回通知できるようにする

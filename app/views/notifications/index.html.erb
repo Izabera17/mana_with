@@ -20,11 +20,11 @@
         <% if @notifications.exists? %>
             <div class="users-index">
               <%= render notifications %>
-              <%= paginate notifications %>
             </div>
         <% else %>
             <p class="no-notification">通知はありません</p>
         <% end %>
+        <%= paginate @notifications, class: "page" %>
     </article>
     <aside class="sidebar_right">
       <%= render 'shared/sidebar_right' %>

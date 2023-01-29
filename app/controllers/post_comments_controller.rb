@@ -3,7 +3,6 @@ class PostCommentsController < ApplicationController
     post_learning = PostLearning.find(params[:post_learning_id])
     comment = current_user.post_comments.new(post_comment_params)
     comment.post_learning_id = post_learning.id
-    
     if comment.save
       # コメントしたタイミングで通知レコードを作成
       post_learning.create_notification_post_comment!(current_user, comment.id)
@@ -18,9 +17,7 @@ class PostCommentsController < ApplicationController
       @error_comment = comment
       render 'post_learnings/show'
     end
-
   end
-  
   
   def destroy
     PostComment.find(params[:id]).destroy

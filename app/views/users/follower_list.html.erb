@@ -6,12 +6,10 @@
     </div>
   </div>
   <div class="top-contents">
-
     <aside class="sidebar_left">
       <%= render 'shared/sidebar_left' %>
     </aside>
     <article class="users-article">
-      
       <% @users.each do |users| %>
         <div class="users-full">
           <div class="article-users-image">
@@ -19,7 +17,6 @@
               <%= image_tag users.get_profile_image(180,180) %>
             </p>
           </div>
-          
           <div class="users-middle">
             <div class="users-title-name">
               <p>ユーザー名</p>
@@ -30,7 +27,6 @@
               <% end %>
             </div>
           </div>
-                  
           <div class="users-right">
             <div class="users-title-introduction">
               <p>自己紹介</p>
@@ -41,7 +37,6 @@
           </div>
         </div>
       <% end %>
-    
     </article>
     <aside class="sidebar_right">
       <%= render 'shared/sidebar_right' %>

@@ -2,9 +2,9 @@ class Notification < ApplicationRecord
   default_scope -> { order(created_at: :desc) }
   belongs_to :post_learning, optional: true
   belongs_to :comment, optional: true
-
   belongs_to :room, optional: true
   belongs_to :message, optional: true
+  
   belongs_to :visitor, class_name: 'User', foreign_key: 'visitor_id', optional: true
   belongs_to :visited, class_name: 'User', foreign_key: 'visited_id', optional: true
   
@@ -19,7 +19,6 @@ def create_notification_comment!(current_user, comment_id)
   # まだ誰もコメントしていない場合は、投稿者に通知を送る
   save_notification_comment!(current_user, comment_id, user_id) if temp_ids.blank?
 end
-
 
 def save_notification_comment!(current_user, comment_id, visited_id)
   # コメントは複数回することが考えられるため、１つの投稿に複数回通知する
