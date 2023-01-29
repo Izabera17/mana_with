@@ -91,14 +91,14 @@
           <div class="show-edit-destroy">
             <% if user_signed_in? && current_user.id == @post_learning.user_id %>
               <%= link_to edit_post_learning_path(@post_learning) do %>
-                <%= image_tag '/assets/edit.png', class:'icon-mypage' %>
+                <%= image_tag asset_path('edit.png'), class: 'icon-mypage' %>
               <% end %>
               <%= link_to post_learning_path(@post_learning), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
-                <%= image_tag '/assets/trushbox.png', class:'icon-mypage' %>
+                <%= image_tag asset_path('trushbox.png'), class: 'icon-mypage' %>
               <% end %>
             <% elsif current_user.admin? %>
               <%= link_to post_learning_path(@post_learning), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
-                <%= image_tag '/assets/trushbox.png', class:'icon-mypage' %>
+                <%= image_tag asset_path('trushbox.png'), class: 'icon-mypage' %>
               <% end %>
             <% end %>
           </div>
@@ -150,11 +150,11 @@
               <div class="show-comment-destroy">
                 <% if post_comment.user == current_user %>
                   <%= link_to post_learning_post_comment_path(post_comment.post_learning, post_comment), method: :delete, "data-confirm" => "本当に削除しますか？" , class: "show-destroy" do %>
-                    <%= image_tag '/assets/trushbox.png', class:'icon-mypage' %>
+                    <%= image_tag asset_path('trushbox.png'), class: 'icon-mypage' %>
                   <% end %>
                 <% elsif current_user.admin? %>
                   <%= link_to post_learning_post_comment_path(post_comment.post_learning, post_comment), method: :delete, "data-confirm" => "本当に削除しますか？" , class: "show-destroy" do %>
-                    <%= image_tag '/assets/trushbox.png', class:'icon-mypage' %>
+                    <%= image_tag asset_path('trushbox.png'), class: 'icon-mypage' %>
                   <% end %>
                 <% end %>
               </div>

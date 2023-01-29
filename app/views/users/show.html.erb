@@ -70,28 +70,28 @@
                   <% if current_user.admin? %>
                     <% unless current_user.id == @user.id %>
                       <%= link_to edit_user_path(@user) do %>
-                        <%= image_tag '/assets/edit.png', class:'icon-mypage' %>
+                        <%= image_tag asset_path('edit.png'), class: 'icon-mypage' %>
                       <% end %>
                       <%= link_to user_path(@user), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
-                        <%= image_tag '/assets/trushbox.png', class:'icon-mypage' %>
+                        <%= image_tag asset_path('trushbox.png'), class: 'icon-mypage' %>
                       <% end %>
                     <% end %>
                   <% elsif current_user.email == 'guest@example.com' %> 
                   <% elsif @user.email == 'guest@example.com' %>
                     <% unless current_user.id == @user.id %>
                       <%= link_to edit_user_path(@user) do %>
-                        <%= image_tag '/assets/edit.png', class:'icon-mypage' %>
+                        <%= image_tag asset_path('edit.png'), class: 'icon-mypage' %>
                       <% end %>
                       <%= link_to user_path(@user), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
-                        <%= image_tag '/assets/trushbox.png', class:'icon-mypage' %>
+                        <%= image_tag asset_path('trushbox.png'), class: 'icon-mypage' %>
                       <% end %>
                     <% end %>
                     <% elsif current_user.id == @user.id %>
                        <%= link_to edit_user_path(@user) do %>
-                        <%= image_tag '/assets/edit.png', class:'icon-mypage' %>
+                        <%= image_tag asset_path('edit.png'), class: 'icon-mypage' %>
                       <% end %>
                       <%= link_to user_path(@user), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
-                        <%= image_tag '/assets/trushbox.png', class:'icon-mypage' %>
+                        <%= image_tag asset_path('trushbox.png'), class: 'icon-mypage' %>
                       <% end %>
                   <% end %>
                 </div>
@@ -135,7 +135,7 @@
                         <p>♥いいね  <%= post_learnings.favorites.count %>件</p>
                       </td>
                       <td class="mypage-content-post-comment mypage-text-inner">
-                        <%= image_tag '/assets/speech-bubble.png', class: 'mypage-post-icon' %> <%= post_learnings.post_comments.count %>件
+                        <%= image_tag asset_path('speech-bubble.png'), class: 'mypage-post-icon' %> <%= post_learnings.post_comments.count %>件
                       </td>
                     </tr>
                   <% end %>

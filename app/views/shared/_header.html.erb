@@ -1,8 +1,8 @@
 <div class="header-home">
   <div class="logo">
-    <a href="/home">
-      <% image_tag asset_path("/images/logo.png") %>
-    </a>
+    <%= link_to root_path do %>
+      <%= image_tag asset_path('logo.png') %>
+    <% end %>
   </div>
   <div class="notice-flash">
     <% if flash[:notice] %>

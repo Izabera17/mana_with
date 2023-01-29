@@ -32,11 +32,11 @@
                 <div class="chat-delete">
                   <% if message.user == current_user %>
                     <%= link_to message, method: :delete, data: { confirm: '本当に削除してもよろしいですか？' } do %>
-                      <%= image_tag '/assets/trushbox.png', class:'icon-mypage' %>
+                      <%= image_tag asset_path('trushbox.png'), class: 'icon-mypage' %>
                     <% end %>
                   <% elsif  current_user.admin? %>
                     <%= link_to message, method: :delete, data: { confirm: '本当に削除してもよろしいですか？' } do %>
-                      <%= image_tag '/assets/trushbox.png', class:'icon-mypage' %>
+                      <%= image_tag asset_path('trushbox.png'), class: 'icon-mypage' %>
                     <% end %>
                   <% end %>
                 </div>
