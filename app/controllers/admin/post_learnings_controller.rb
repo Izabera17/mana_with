@@ -7,12 +7,14 @@ class Admin::PostLearningsController < ApplicationController
     @post_comments = PostLearning.all
   end
   
-　private
-  　def if_not_admin
-    　redirect_to home_path unless current_user.admin?
-  　end
+  private
+  
+  def if_not_admin
+    redirect_to home_path unless current_user.admin?
+  end
 
-  　def set_post_learning
-    　@post_learning = PostLearning.find(params[:id])
-  　end
+  def set_post_learning
+    @post_learning = PostLearning.find(params[:id])
+  end
+  
 end
