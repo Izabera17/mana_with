@@ -1,9 +1,8 @@
 class Admin::PostLearningsController < ApplicationController
   before_action :authenticate_user!
 　before_action :if_not_admin
-  before_action :set_post_learning, only: [:index]　
-
- #中略 def indexとか必要なものを書いてください！
+  before_action :set_post_learning, only: [:index]
+  
   def index 
     @post_comments = PostLearning.all
   end
