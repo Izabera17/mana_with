@@ -82,8 +82,7 @@ post_learning = PostLearning.create!(
      learning_real: 'Flexboxを実装できたけど、やっぱり難しい。もっと良い方法を学びたい。デザインは自身ある！',
      genre_id: genres[0].id,
      user_id: users[2].id 
-    },
-   
+    }
   ]
 )
 
