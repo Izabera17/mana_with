@@ -19,26 +19,26 @@ users = User.create!(
     {
       email: 'gakushu@test.com', 
       name: '学習 健二', 
-      password: 'test1',
-      password_confirmation: 'test1',
+      password: 'test_1',
+      password_confirmation: 'test_1',
       introduction: '初めまして！休日は色々な勉強をするのが好きです！最近は統計学に興味があるので、同じ人がいたら嬉しいです！',
       user_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user1.jpg"),
-      filename: "sample-user1.jpg")
+      filename:"sample-user1.jpg")
      },
     {
       email: 'benkyo@test.com', 
       name: '勉強 太郎', 
-      password: 'test2', 
-      password_confirmation: 'test2',
+      password: 'test_2', 
+      password_confirmation: 'test_2',
       introduction: 'まだwebデザインを初めて１ヶ月です。cssが苦手でなかなか良いデザインができません。',
       user_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user2.jpg"), 
-      filename: "sample-user2.jpg")
+      filename:"sample-user2.jpg")
      },
     {
       email: 'jishuu@test.com', 
       name: '自習 花子', 
-      password: 'test3', 
-      password_confirmation: 'test3',
+      password: 'test_3', 
+      password_confirmation: 'test_3',
       introduction: '現在は、大学生でいろんなことを学んで、将来の糧にしたいと考えています。一人で勉強し続けるのが苦手なので、一緒に勉強できる仲間ができれば嬉しいです。',
       user_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user3.jpg"), 
       filename: "sample-user3.jpg")

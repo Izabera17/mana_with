@@ -58,13 +58,13 @@
 
 【ユーザーアカウント：ログイン】
 1. メールアドレス：gakushu@test.com<br>
-   パスワード：test1
+   パスワード：test_1
 
 2. メールアドレス：benkyo@test.com<br>
-   パスワード：test2
+   パスワード：test_2
 
 3. メールアドレス：<span>jishuu@test.com<span><br>
-   パスワード：test3<br>
+   パスワード：test_3<br>
 （登録画面にて新規登録も可能です。）
 
 ## 開発環境
