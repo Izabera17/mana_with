@@ -52,19 +52,19 @@
 - 通知機能(いいね、フォロー、コメント、DM)
 
 ### ログイン
-【管理者用アカウント：ログイン】
-メールアドレス：admin@example.jp
-パスワード：AdminTest
+【管理者用アカウント：ログイン】. 
+メールアドレス：admin@example.jp. 
+パスワード：AdminTest. 
 
 【ユーザーアカウント：ログイン】
-1. メールアドレス：gakushu@test.com
+1. メールアドレス：gakushu@test.com. 
    パスワード：test1
 
-2. メールアドレス：benkyo@test.com
+2. メールアドレス：benkyo@test.com. 
    パスワード：test2
 
-3. メールアドレス：jishuu@test.com
-   パスワード：test3
+3. メールアドレス：jishuu@test.com. 
+   パスワード：test3. 
 （登録画面にて新規登録も可能です。）
 
 ## 開発環境
