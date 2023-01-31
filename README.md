@@ -53,8 +53,8 @@
 
 ### ログイン
 【管理者用アカウント：ログイン】<br>
-  メールアドレス：admin@example.jp<br>
-  パスワード：AdminTest
+メールアドレス：admin@example.jp<br>
+パスワード：AdminTest
 
 【ユーザーアカウント：ログイン】
 1. メールアドレス：gakushu@test.com<br>
