@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def index
     users = User.where.not(admin: 'true')
-    @users = users.where.not(email: 'guest@example.com').page(params[:page]).per(10)
+    @users = users.page(params[:page]).per(10)
   end
 
   def show

@@ -6,17 +6,19 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
- User.create!(name:  "管理者",
-             email: "admin@example.jp",
-             password:  "AdminTest",
-             password_confirmation: "AdminTest",
-             admin: true)
+ User.create!(
+   name:  "管理者",
+   email: "admin@example.jp",
+   password:  "AdminTest",
+   password_confirmation: "AdminTest",
+   admin: true
+  )
             
 users = User.create!(
   [
     {
       email: 'gakushu@test.com', 
-      name: '学習　健二', 
+      name: '学習 健二', 
       password: 'asasas',
       password_confirmation: 'asasas',
       introduction: '初めまして！休日は色々な勉強をするのが好きです！最近は統計学に興味があるので、同じ人がいたら嬉しいです！',
@@ -25,17 +27,19 @@ users = User.create!(
      },
     {
       email: 'benkyo@test.com', 
-      name: '勉強　太郎', 
+      name: '勉強 太郎', 
       password: 'asasas', 
       password_confirmation: 'asasas',
+      introduction: 'まだwebデザインを初めて１ヶ月です。cssが苦手でなかなか良いデザインができません。',
       user_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user2.jpg"), 
       filename:"sample-user2.jpg")
      },
     {
       email: 'jishuu@test.com', 
-      name: '自習　花子', 
+      name: '自習 花子', 
       password: 'asasas', 
       password_confirmation: 'asasas',
+      introduction: '現在は、大学生でいろんなことを学んで、将来の糧にしたいと考えています。一人で勉強し続けるのが苦手なので、一緒に勉強できる仲間ができれば嬉しいです。',
       user_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user3.jpg"), 
       filename:"sample-user3.jpg")
     }
@@ -76,7 +80,7 @@ post_learning = PostLearning.create!(
      genre_id: genres[2].id,
      user_id: users[2].id 
     },
-   {
+    {
      learning_name: 'HTMLコーディング', 
      learning_content: 'Flexboxの理解と実装。marginの余白調整', 
      learning_real: 'Flexboxを実装できたけど、やっぱり難しい。もっと良い方法を学びたい。デザインは自身ある！',
@@ -116,6 +120,44 @@ PostComment.create!(
       comment: 'お疲れ様です',
       post_learning_id: post_learning[2].id,
       user_id: users[1].id
+    },
+    {
+      comment: 'お疲れ様です',
+      post_learning_id: post_learning[3].id,
+      user_id: users[1].id
     }
   ]
 )
+
+Favorite.create!(
+  [
+    {
+      post_learning_id: post_learning[0].id, 
+      user_id: users[0].id
+    },
+    {
+      post_learning_id: post_learning[1].id, 
+      user_id: users[0].id
+    },
+    {
+      post_learning_id: post_learning[2].id, 
+      user_id: users[1].id
+    },
+    {
+      post_learning_id: post_learning[2].id, 
+      user_id: users[0].id
+    },
+    {
+      post_learning_id: post_learning[3].id, 
+      user_id: users[1].id
+    },
+    {
+      post_learning_id: post_learning[3].id, 
+      user_id: users[2].id
+    }
+  ]
+)
+
+users[0].follow(users[1])
+users[1].follow(users[2])
+users[2].follow(users[0])
