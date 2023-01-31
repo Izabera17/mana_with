@@ -44,12 +44,12 @@
               <div class="genre-content-inner-name"><%= genre.name %></div>
               <div class="genre-content-inner-edit">
                 <%= link_to edit_genre_path(genre.id) do %>
-                  <%= image_tag '/assets/edit.png', class: "genre-edit-link-icon" %>
+                  <%= image_tag asset_path('edit.png'), class: "genre-edit-link-icon" %>
                 <% end %>
               </div>
               <div class="genre-content-inner-edit">
                 <%= link_to genre_path(genre.id), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
-                  <%= image_tag '/assets/trushbox.png', class: "genre-edit-link-icon" %>
+                  <%= image_tag asset_path('trushbox.png'), class: "genre-edit-link-icon" %>
                 <% end %>
               </div>
             </div>
