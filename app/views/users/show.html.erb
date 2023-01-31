@@ -81,11 +81,14 @@
                 <div class="chat-edit-delete-btn">
                   <% if current_user.admin? %>
                     <% unless current_user.id == @user.id %>
-                      <%= link_to edit_user_path(@user) do %>
-                        <%= image_tag asset_path('edit.png'), class: 'icon-mypage' %>
-                      <% end %>
-                      <%= link_to user_path(@user), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
-                        <%= image_tag asset_path('trushbox.png'), class: 'icon-mypage' %>
+                      <% if @user.email == 'guest@example.com' %>
+                      <% else %>
+                        <%= link_to edit_user_path(@user) do %>
+                          <%= image_tag asset_path('edit.png'), class: 'icon-mypage' %>
+                        <% end %>
+                        <%= link_to user_path(@user), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
+                          <%= image_tag asset_path('trushbox.png'), class: 'icon-mypage' %>
+                        <% end %>
                       <% end %>
                     <% end %>
                   <% elsif current_user.email == 'guest@example.com' %> 
