@@ -47,7 +47,7 @@ class PostLearningsController < ApplicationController
   def destroy
     @post_learning = PostLearning.find(params[:id])  
     @post_learning.destroy
-    @post_learnings = PostLearning.all.order(created_at: :desc)
+    @post_learnings = PostLearning.page(params[:page]).per(10).order(created_at: :desc)
     render 'index'  
   end
 

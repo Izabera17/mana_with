@@ -8,9 +8,9 @@ class SearchesController < ApplicationController
     if @range == "ユーザー名"
       users = User.looks(params[:word])
       users_admin = users.where.not(admin: 'true')
-      @users = users_admin.where.not(email: 'guest@example.com')
+      @users = users_admin.where.not(email: 'guest@example.com').page(params[:page]).per(10)
     else
-      @post_learnings = PostLearning.looks(@range, params[:word])
+      @post_learnings = PostLearning.looks(@range, params[:word]).page(params[:page]).per(10)
     end
   end
   

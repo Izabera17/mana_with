@@ -3,6 +3,12 @@ require 'rails_helper'
     describe '投稿機能' do 
       before do
         @user = FactoryBot.create(:user)
+        FactoryBot.create(:genre, name: 'IT・情報処理')
+        FactoryBot.create(:genre, name: 'デザイン')
+        FactoryBot.create(:genre, name: '語学')
+        FactoryBot.create(:genre, name: '教育')
+        FactoryBot.create(:genre, name: '医療・福祉')
+        FactoryBot.create(:genre, name: '理数')
       end
       context '新規投稿ができる' do
         it 'ログインしたユーザーは新規投稿できる' do
@@ -19,12 +25,11 @@ require 'rails_helper'
           fill_in 'post_learning[learning_name]', with: Faker::Lorem.characters(number:5)
           fill_in 'post_learning[learning_content]', with: Faker::Lorem.characters(number:20) 
           fill_in 'post_learning[learning_real]', with: Faker::Lorem.characters(number:20) 
-
-           find("option[value='1']").click
-          user.user_image = Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/images/test.jpg'))
+          select 'IT・情報処理', from: 'post_learning[genre_id]'
+          @user.user_image = Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/images/test.jpg'))
           
           # 新規投稿ボタンを押す
-          find('input[name="commit"]').click
+          click_on '新規投稿', match: :first
           
           # 学習投稿ページへ戻されることを確認する
           expect(current_path).to eq(post_learning_path(PostLearning.last))
@@ -58,14 +63,14 @@ require 'rails_helper'
           fill_in 'post_learning[learning_name]', with: ''
           fill_in 'post_learning[learning_content]', with: ''
           fill_in 'post_learning[learning_real]', with: ''
-          
+          select '選択してください', from: 'post_learning[genre_id]'
           @user.user_image = Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/images/test.jpg'))
           
           # 新規投稿ボタンを押す
-          find('input[name="commit"]').click
+          click_on '新規投稿', match: :first
           
           # 学習投稿ページへ戻されることを確認する
-          expect(current_path).to eq(new_post_learning_path)
+          expect(current_path).to eq(post_learnings_path)
         end
       end
     end

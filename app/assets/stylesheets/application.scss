@@ -463,18 +463,22 @@ aside .sidebar_right {
 
 .first-home-view {
   background-image: image-url("background-image2.jpg");
+  background-color: rgba(70, 10, 10, 0.5);
 }
 
 .first-form-view {
   background-image: image-url("background-image3.jpg");
+  background-color: rgba(70, 10, 10, 0.5);
 }
 
 .first-show-view {
   background-image: image-url("background-image4.jpg");
+  background-color: rgba(70, 10, 10, 0.5);
 }
 
 .first-mypage-view {
   background-image: image-url("background-image5.jpg");
+  background-color: rgba(70, 10, 10, 0.5);
 }
 
 .article-inner {
@@ -1203,7 +1207,7 @@ aside .sidebar_right {
 }
 
 .show-main-right-image  {
-  width: 100%;
+  width: 85%;
   margin: 0px;
   text-align: center;
 }

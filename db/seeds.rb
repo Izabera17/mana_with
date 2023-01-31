@@ -23,7 +23,7 @@ users = User.create!(
       password_confirmation: 'asasas',
       introduction: '初めまして！休日は色々な勉強をするのが好きです！最近は統計学に興味があるので、同じ人がいたら嬉しいです！',
       user_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user1.jpg"),
-      filename:"sample-user1.jpg")
+      filename: "sample-user1.jpg")
      },
     {
       email: 'benkyo@test.com', 
@@ -32,7 +32,7 @@ users = User.create!(
       password_confirmation: 'asasas',
       introduction: 'まだwebデザインを初めて１ヶ月です。cssが苦手でなかなか良いデザインができません。',
       user_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user2.jpg"), 
-      filename:"sample-user2.jpg")
+      filename: "sample-user2.jpg")
      },
     {
       email: 'jishuu@test.com', 

@@ -51,7 +51,8 @@ class UsersController < ApplicationController
       redirect_to :root
     else
       @user.destroy
-      @users = User.where.not(admin: 'true')
+      users = User.where.not(admin: 'true')
+      @users = users.page(params[:page]).per(10)
       flash[:notice] = "退会しました"
       redirect_to root_path  
     end
