@@ -41,7 +41,7 @@ users = User.create!(
       password_confirmation: 'asasas',
       introduction: '現在は、大学生でいろんなことを学んで、将来の糧にしたいと考えています。一人で勉強し続けるのが苦手なので、一緒に勉強できる仲間ができれば嬉しいです。',
       user_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user3.jpg"), 
-      filename:"sample-user3.jpg")
+      filename: "sample-user3.jpg")
     }
   ]
 )
@@ -63,6 +63,8 @@ post_learning = PostLearning.create!(
      learning_name: '統計学の勉強', 
      learning_content: 'ベルヌーイ試行と二項分布の特徴とその公式の使い方を学んだ。', 
      learning_real: '公式の理解は本当に理解するのが大変だった。二項分布の公式で計算ができたのは嬉しかった！',
+     post_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-post1.jpg"), 
+     filename: "sample-post1.jpg"),
      genre_id: genres[5].id,
      user_id: users[0].id 
     },
@@ -70,6 +72,8 @@ post_learning = PostLearning.create!(
      learning_name: 'コーディングとレイアアウト調整', 
      learning_content: 'Flexboxを使って商品画像を３×４列に整列し、見やすいように色の配色も考えた。', 
      learning_real: '色彩検定の知識を活かして、配置だけじゃなく色の配色を考えて実装できてよかった！今度はフォントを意識して実装してみたい！',
+     post_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-post2.jpg"), 
+     filename: "sample-post2.jpg"),
      genre_id: genres[0].id,
      user_id: users[1].id 
     },
@@ -84,15 +88,13 @@ post_learning = PostLearning.create!(
      learning_name: 'HTMLコーディング', 
      learning_content: 'Flexboxの理解と実装。marginの余白調整', 
      learning_real: 'Flexboxを実装できたけど、やっぱり難しい。もっと良い方法を学びたい。デザインは自身ある！',
+     post_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-post3.jpg"), 
+     filename: "sample-post3.jpg"),
      genre_id: genres[0].id,
      user_id: users[2].id 
     }
   ]
 )
-
-post_learning[0].post_image.attach(io: File.open(Rails.root.join('db/fixtures/sample-post1.jpg')), filename: 'sample-post1.jpg')
-post_learning[1].post_image.attach(io: File.open(Rails.root.join('db/fixtures/sample-post2.jpg')), filename: 'sample-post2.jpg')
-post_learning[3].post_image.attach(io: File.open(Rails.root.join('db/fixtures/sample-post3.jpg')), filename: 'sample-post3.jpg')
 
 PostComment.create!(
   [
