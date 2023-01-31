@@ -63,7 +63,7 @@
 2. メールアドレス：benkyo@test.com<br>
    パスワード：test2
 
-3. メールアドレス：jishuu@test.com<br>
+3. メールアドレス：<span>jishuu@test.com<span><br>
    パスワード：test3<br>
 （登録画面にて新規登録も可能です。）
 
