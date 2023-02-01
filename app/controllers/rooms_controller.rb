@@ -10,18 +10,23 @@ class RoomsController < ApplicationController
 
   def show
     @genres = Genre.all
-    @room = Room.find(params[:id])
-    if Entry.where(user_id: current_user.id,room_id: @room.id).present?
-      @messages = @room.messages
-      @message = Message.new
-      @entries = @room.entries
-    elsif current_user.admin?
-      @messages = @room.messages
-      @message = Message.new
-      @entries = @room.entries
+    begin
+      @room = Room.find(params[:id])
+    rescue
+      flash[:alert] = "入力されたルームは存在しません"
+      redirect_to root_path
     else
-      redirect_back(fallback_location: root_path)
+      if Entry.where(user_id: current_user.id,room_id: @room.id).present?
+        @messages = @room.messages
+        @message = Message.new
+        @entries = @room.entries
+      elsif current_user.admin?
+        @messages = @room.messages
+        @message = Message.new
+        @entries = @room.entries
+      else
+        redirect_back(fallback_location: root_path)
+      end
     end
   end
 end
-

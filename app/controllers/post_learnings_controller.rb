@@ -1,5 +1,7 @@
 class PostLearningsController < ApplicationController
+  before_action :authenticate_user!
   before_action :genre_all, only: [:new, :create, :index, :show, :edit, :search_genre, :destroy]
+   before_action :ensure_correct_post_learning, only:[:edit]
 
   def new
     @post_learning = PostLearning.new
@@ -23,13 +25,18 @@ class PostLearningsController < ApplicationController
   end
 
   def show
-    @post_learning = PostLearning.find(params[:id])
-    @post_comments = @post_learning.post_comments.order(created_at: :desc) 
-    @post_comment = PostComment.new
+    begin
+      @post_learning = PostLearning.find(params[:id])
+    rescue
+      flash[:alert] = "入力された投稿はありません"
+      redirect_to root_path
+    else
+      @post_comments = @post_learning.post_comments.order(created_at: :desc) 
+      @post_comment = PostComment.new
+    end
   end
 
   def edit
-    @post_learning = PostLearning.find(params[:id])
   end
   
   def update
@@ -68,4 +75,21 @@ class PostLearningsController < ApplicationController
     @genres = Genre.all
   end
 
+  def ensure_correct_post_learning
+    begin
+      @post_learning = PostLearning.find(params[:id])
+    rescue
+      flash[:alert] = "入力された投稿はありません"
+      redirect_to user_path(current_user.id)
+    else
+      unless @post_learning.user == current_user
+        if current_user.admin?
+        else
+          flash[:alert] = "他ユーザーの投稿は編集できません"
+          redirect_to user_path(current_user.id)
+        end
+      end
+    end
+  end
 end
+ 

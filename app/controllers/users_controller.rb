@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :favorites, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :set_user, only: [:show, :favorites, :update, :destroy]
+  before_action :ensure_correct_user, only: [:edit]
   before_action :genre_all, only: [:index, :show, :edit, :update, :destroy, :follow_list, :follower_list, :unsubscribe]
   before_action :room_entry, only: [:show]
 
@@ -85,6 +87,23 @@ class UsersController < ApplicationController
   
   def set_user
     @user = User.find(params[:id])
+  end
+  
+  def ensure_correct_user
+    begin
+      @user = User.find(params[:id])
+    rescue
+      flash[:alert] = "入力されたユーザーは存在しません"
+      redirect_to user_path(current_user.id)
+    else
+      unless @user.id == current_user.id
+        if current_user.admin?
+        else
+          flash[:alert] = "他ユーザーは編集できません"
+          redirect_to user_path(current_user.id)
+        end
+      end
+    end
   end
 
   def genre_all
