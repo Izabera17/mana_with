@@ -10,7 +10,7 @@ class SearchesController < ApplicationController
       users_admin = users.where.not(admin: 'true')
       @users = users_admin.where.not(email: 'guest@example.com').page(params[:page]).per(10)
     else
-      @post_learnings = PostLearning.looks(@range, params[:word]).page(params[:page]).per(10)
+      @post_learnings = PostLearning.looks(@range, params[:word]).page(params[:page]).per(10).order(created_at: :desc)
     end
   end
   
