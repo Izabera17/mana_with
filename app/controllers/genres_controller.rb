@@ -6,7 +6,7 @@ class GenresController < ApplicationController
     @genre = Genre.new
     @genres = Genre.page(params[:page]).per(8)
   end
-
+  
   def create
     @genre = Genre.new(genre_params)
     if @genre.save
