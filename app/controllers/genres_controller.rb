@@ -1,5 +1,6 @@
 class GenresController < ApplicationController
   before_action :genre_all, only: [:index, :edit, :destroy] 
+  before_action :ensure_correct_genre, only: [:edit]
   
   def index
     @genre = Genre.new
@@ -19,8 +20,7 @@ class GenresController < ApplicationController
   end
 
   def edit
-    @genre = Genre.find(params[:id])
-    @genres = Genre.all
+
   end
 
   def update
@@ -49,6 +49,16 @@ class GenresController < ApplicationController
   
   def genre_all
     @genres = Genre.all
+  end
+
+   def ensure_correct_genre
+    begin
+      @genre = Genre.find(params[:id])
+    rescue
+      flash[:alert] = "入力されたジャンルは存在しません"
+      redirect_to genres_path
+    else
+    end
   end
 
 end
