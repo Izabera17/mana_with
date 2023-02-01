@@ -15,7 +15,7 @@ class GenresController < ApplicationController
     else
       flash[:alert] = "追加できませんでした"
       @genres = Genre.all
-      render 'index'
+      redirect_to genres_path
     end
   end
 
@@ -37,7 +37,7 @@ class GenresController < ApplicationController
     @genre = Genre.find(params[:id])  
     @genre.destroy
     flash[:notice] = "ジャンルを削除しました"
-    render 'index'  
+    redirect_to genres_path
   end
   
   private
