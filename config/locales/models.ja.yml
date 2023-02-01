@@ -34,6 +34,7 @@ ja:
         name: ユーザー名
         email: メールアドレス
         password : パスワード
+        password_confirmation : パスワード（再確認）
       post_learning:
         learning_name: 学習名
         learning_content: 頑張ったこと
