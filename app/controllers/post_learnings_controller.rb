@@ -1,6 +1,6 @@
 class PostLearningsController < ApplicationController
   before_action :authenticate_user!
-  before_action :genre_all, only: [:new, :create, :index, :show, :edit, :search_genre, :destroy]
+  before_action :genre_all, only: [:new, :create, :index, :show, :edit, :update, :search_genre, :destroy]
    before_action :ensure_correct_post_learning, only:[:edit]
 
   def new
@@ -45,7 +45,6 @@ class PostLearningsController < ApplicationController
       redirect_to post_learning_path(@post_learning.id)
       flash[:notice] = "変更を保存できました"
     else
-      @genres = Genre.all
       flash[:alert] = "変更を保存できませんでした"
       render :edit
     end

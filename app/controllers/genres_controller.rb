@@ -1,5 +1,5 @@
 class GenresController < ApplicationController
-  before_action :genre_all, only: [:index, :edit, :destroy] 
+  before_action :genre_all, only: [:index, :edit, :destroy, :update] 
   before_action :ensure_correct_genre, only: [:edit]
   
   def index
@@ -20,7 +20,6 @@ class GenresController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
