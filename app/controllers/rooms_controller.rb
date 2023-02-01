@@ -25,6 +25,7 @@ class RoomsController < ApplicationController
         @message = Message.new
         @entries = @room.entries
       else
+        flash[:alert] = "他ユーザーのルームには入室できません"
         redirect_back(fallback_location: root_path)
       end
     end
