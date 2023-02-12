@@ -6,7 +6,7 @@
 
 .first-view-top {
   position: relative;
-  height: calc(100vh - 75px);
+  height: calc(100vh - 90px);
   width: 100vw;
   margin: 0px;
   background-size: cover;
@@ -17,7 +17,7 @@
 
 @media (max-width: 900px) {
   .first-view-top {
-    height: calc(100vh - 115px);
+    height: calc(100vh - 86px);
   }
 }
 

@@ -2812,6 +2812,11 @@ aside .sidebar_right {
 }
 
 @media (max-width: 900px) {
+  .menu, 
+  .btn {
+    position: fixed;
+  }
+  
   button {
     -webkit-appearance: none;
     appearance: none;
@@ -2828,7 +2833,6 @@ aside .sidebar_right {
   }
   
   .btn {
-    position: fixed;
     top: 16px;
     right: 16px;
     width: 58px;

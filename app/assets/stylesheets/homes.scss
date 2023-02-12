@@ -37,7 +37,7 @@
 .first-view {
   position: relative;
   z-index: 1;
-  height: calc(100vh - 278px);
+  height: calc(100vh - 322px);
   width: 100vw;
   margin: 0px;
   background-size: cover;
@@ -46,9 +46,39 @@
   background-image: image-url("background-image1.jpg");
 }
 
+@media (max-width: 1600px) {
+  .first-view {
+    height: calc(100vh - 319px);
+  }
+}
+
+@media (max-width: 1200px) {
+  .first-view {
+    height: calc(100vh - 316px);
+  }
+}
+
 @media (max-width: 900px) {
   .first-view {
-    height: calc(100vh - 341px);
+    height: calc(100vh - 312px);
+  }
+}
+
+@media (max-width: 700px) {
+  .first-view {
+    height: calc(100vh - 332px);
+  }
+}
+
+@media (max-width: 700px) {
+  .first-view {
+    height: calc(100vh - 339px);
+  }
+}
+
+@media (max-width: 500px) {
+  .first-view {
+    height: calc(100vh - 321px);
   }
 }
 
@@ -125,8 +155,9 @@
 
 .menu-text {
   width: 95%;
+  height: 130px;
   margin: 8px auto;
-  font-size: 22px;
+  font-size: 24px;
   font-family: "ヒラギノ丸ゴ ProN";
 }
 
@@ -141,19 +172,33 @@
   background:linear-gradient(transparent 70%, #FFFF00 0%);
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1300px) {
+  .menu-text {
+    font-size: 22px;
+    width: 98%;
+  }
+}
+
+@media (max-width: 900px) {
   .menu-text {
     font-size: 20px;
   }
 }
 
+@media (max-width: 700px) {
+  .menu-text {
+    height: 150px;
+  }
+}
+
 @media (max-width: 600px) {
   .menu-text {
+    width: 96%;
     font-size: 18px;
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
   .menu-text {
     font-size: 16px;
   }
@@ -173,32 +218,32 @@
 
 .button_first {
   margin: 0px 30px;
-  padding: 5px 40px;
+  padding: 10px 40px;
   background-color: #ff8d08;
   border-radius: 40px;
 }
 
 .button_second {
   margin: 0px 30px;
-  padding: 5px 40px;
+  padding: 10px 40px;
   background-color: #ff0825;
   border-radius: 40px;
 }
 
 .login_button {
- font-size: 28px;
+ font-size: 24px;
  color: #fff;
 }
 
 @media (max-width: 1600px) {
   .login_button {
-    font-size: 24px;
+    font-size: 22px;
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
   .login_button {
-    font-size: 22px;
+    font-size: 20px;
   }
 }
 
@@ -222,11 +267,12 @@
     width: 50%;
     text-align: center;
     margin: 0px auto;
+    padding: 5px 20px;
   }
 }
 
 .registrate_button {
- font-size: 28px;
+ font-size: 24px;
   color: #fff;
 }
 
@@ -237,13 +283,13 @@
 
 @media (max-width: 1600px) {
   .registrate_button {
-    font-size: 24px;
+    font-size: 22px;
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
   .registrate_button {
-    font-size: 22px;
+    font-size: 20px;
   }
 }
 
