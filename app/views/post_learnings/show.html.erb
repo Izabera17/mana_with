@@ -61,7 +61,7 @@
         </div>
         <div class="show-favorite-edit">
           <div class="show-post-favorite">
-            <div>
+            <div class="show-margin">
               <% unless current_user.admin? %>
                 <% unless user_signed_in? && current_user.id == @post_learning.user_id %>
                   <% if @post_learning.favorited_by?(current_user) %>

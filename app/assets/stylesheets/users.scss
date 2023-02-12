@@ -21,45 +21,57 @@
 .mypage-common {
   margin: 0px auto;
   text-align: center;
-  width: 50%;
+  width: 100%;
   font-family: "筑紫A丸ゴシック";
   font-weight: bold;
 }
 
 .mypage-common p {
   color: #900630;
-  font-size: 40px;
+  font-size: 36px;
   font-weight: bold;
   margin: 0px;
 }
 
 @media (max-width: 1600px) {
   .mypage-common p {
-    font-size: 36px;
+    font-size: 34px;
   }
 }
 
 @media (max-width: 1300px) {
   .mypage-common p {
-    font-size: 34px;
-  }
-}
-
-@media (max-width: 900px) {
-  .mypage-common p {
     font-size: 32px;
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 1000px) {
   .mypage-common p {
     font-size: 30px;
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 900px) {
   .mypage-common p {
     font-size: 28px;
+  }
+}
+
+@media (max-width: 700px) {
+  .mypage-common p {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 500px) {
+  .mypage-common p {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 400px) {
+  .mypage-common p {
+    font-size: 20px;
   }
 }
 
@@ -363,23 +375,15 @@
 @media (max-width: 1200px) {
   .mypage-text-inner, 
   .mypage-text-inner-time {
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 600px) {
-  .mypage-text-inner,
-  .mypage-text-inner-time {
     font-size: 13px;
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 600px) {
   .mypage-text-inner-time {
-    font-size: 8px;
-  }  
+    font-size: 13px;
+  }
 }
-
 
 .mypage-title-post-time,
 .mypage-content-post-time {
@@ -606,13 +610,6 @@
   } 
 }
 
-@media (max-width: 400px) {
-  .mypage-user-name-favorites p,
-  .mypage-user-name p {
-    font-size: 12px;
-  } 
-}
-
 .mypage-user-image {
   text-align: center;
   width: 15%;
@@ -674,27 +671,20 @@
   } 
 }
 
-@media (max-width: 600px) {
-  .mypage-post-name-favorites p,
-  .mypage-post-name-favorites-content p {
-    font-size: 12px;
-  } 
-}
-
 .mypage-post-name-favorites-content p {
   margin-left: 60px;
 }
 
 @media (max-width: 1300px) {
    .mypage-post-name-favorites-content p {
-    margin-left: 40px;
+    margin-left: 30px;
   } 
 }
 
 
 @media (max-width: 400px) {
   .mypage-post-name-favorites-content p {
-    margin-left: 20px;
+    margin-left: 10px;
   } 
 }
 
@@ -743,19 +733,7 @@
 
 @media (max-width: 1200px) {
  .mypage-post-content-favorites p {
-    font-size: 14px;
-  } 
-}
-
-@media (max-width: 600px) {
- .mypage-post-content-favorites p {
-    font-size: 12px;
-  } 
-}
-
-@media (max-width: 400px) {
- .mypage-post-content-favorites p {
-    font-size: 11px;
+    font-size: 13px;
   } 
 }
 
@@ -888,6 +866,20 @@
   font-color: #fff;
   box-shadow: none;
   transform: translateY(5px);
+}
+
+@media (max-width: 900px) {
+  .chat-btn-link input[type="submit"] {
+    height: 40px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 500px) {
+  .chat-btn-link input[type="submit"] {
+    height: 35px;
+    font-size: 14px;
+  }
 }
 
 /*MyPage（編集）*/
@@ -1421,21 +1413,33 @@
 .result-users-name-title {
   margin: 0px auto 8px;
   text-align: center;
-  width: 15%;
+  width: 20%;
   background: linear-gradient(transparent 80%, #ED31ED 65%);
   font-family: "筑紫A丸ゴシック";
   font-weight: bold;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 1300px) {
   .result-users-name-title {
     width: 30%;
+  }
+}
+
+@media (max-width: 700px) {
+  .result-users-name-title {
+    width: 35%;
   }
 }
 
 @media (max-width: 500px) {
   .result-users-name-title {
     width: 40%;
+  }
+}
+
+@media (max-width: 400px) {
+  .result-users-name-title {
+    width: 55%;
   }
 }
 
@@ -1447,31 +1451,31 @@
 
 @media (max-width: 1600px) {
   .result-users-name-title p {
-    font-size: 38px;
+    font-size: 36px;
   }
 }
 
 @media (max-width: 1300px) {
   .result-users-name-title p {
-    font-size: 36px;
+    font-size: 34px;
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   .result-users-name-title p {
-    font-size: 34px;
+    font-size: 32px;
   }
 }
 
 @media (max-width: 700px) {
   .result-users-name-title p {
-    font-size: 34px;
+    font-size: 30px;
   }
 }
 
 @media (max-width: 500px) {
   .result-users-name-title p {
-    font-size: 34px;
+    font-size: 28px;
   }
 }
 

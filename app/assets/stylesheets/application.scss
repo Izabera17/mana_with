@@ -1624,6 +1624,10 @@ aside .sidebar_right {
   }  
 }
 
+.show-margin {
+  margin-right: 15px;
+}
+
 .show-post-favorite span {
   color: red;
   font-size: 18px;
@@ -2349,12 +2353,6 @@ aside .sidebar_right {
   }
 }
 
-@media (max-width: 500px) {
-  .show-page-time-bottom {
-    font-size: 6px;
-  }
-}
-
 .show-comment-user {
   font-family: "筑紫A丸ゴシック"
 }
@@ -2372,12 +2370,6 @@ aside .sidebar_right {
 @media (max-width: 1000px) {
  .show-comment-user p {
     font-size: 12px;
-  } 
-}
-
-@media (max-width: 600px) {
- .show-comment-user p {
-    font-size: 10px;
   } 
 }
 
