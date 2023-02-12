@@ -119,23 +119,9 @@
 .article-notification-image img {
   border-radius: 50%;
   border: 1px solid #EAEAEA;
-  width: 45px;
-  height: 45px;
+  width: 60px;
+  height: 60px;
   margin: 15px 5px 5px 5px;
-}
-
-@media (max-width: 1300px) {
-  .article-notification-image img {
-    width: 40px;
-    height: 40px;
-  }
-}
-
-@media (max-width: 600px) {
-  .article-notification-image img {
-    width: 30px;
-    height: 30px;
-  }
 }
 
 .chat-user-image img {
@@ -162,7 +148,8 @@
 
 .notification-left-name-image {
   width: 35%;
-  margin-left: 15px;
+  margin-left: 85px;
+  margin-top: 10px;
 }
 
 @media (max-width: 600px) {
@@ -191,18 +178,6 @@
 @media (max-width: 1000px) {
   .notification-text-name {
     font-size: 14px;
-  }
-}
-
-@media (max-width: 600px) {
-  .notification-text-name {
-    font-size: 12px;
-  }
-}
-
-@media (max-width: 500px) {
-  .notification-text-name {
-    font-size: 9px;
   }
 }
 
