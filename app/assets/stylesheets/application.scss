@@ -416,6 +416,10 @@ body {
   margin-bottom: 10px;
 }
 
+.sidebar-list li{
+  margin-bottom: 6px;
+}
+
 .message-btn {
   width: 80%;
 }
@@ -2963,6 +2967,11 @@ aside .sidebar_right {
     margin-bottom: 10px;
   }
   
+  .hambueger-sidebar-list li:last-child {
+    margin-bottom: 6px;
+  }
+     
+  
   .hambueger-sidebar-list .icon-link span {
     font-size: 20px;
     font-weight: bold;
@@ -3058,10 +3067,11 @@ aside .sidebar_right {
     padding: 0px;
     pading-right: 40px;
     margin-left: 50px;
+    margin-top: 15px;
   }
   
   .menu-list a {
-    font-size: 15px;
+    font-size: 17px;
     padding: 5px 18px;
   }
   
