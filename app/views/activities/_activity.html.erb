@@ -40,13 +40,13 @@
           <div>
             <%= link_to post_learning_path(activity.post_learning), class: "article-notification-image" do %>
               <strong>
-                <%= activity.post_learning.user.name %>さんの投稿
+                <%= activity.post_learning.user.name %>
               </strong>
             <% end %>
           </div>
         </div>
         <div class="notification-comment-name-content-activity">
-          にいいねしました
+          さんの投稿にいいねしました
         </div>
       </div>
     <% when 'post_comment' %>
@@ -64,10 +64,10 @@
           <div class=notification-comment-name-content>
             <%= link_to post_learning_path(activity.post_learning), class: "article-notification-image" do %>
               <strong>
-                <%= activity.post_learning.user.name %>さんの投稿
+                <%= activity.post_learning.user.name %>
               </strong>
             <% end %>
-            にコメントしました
+            さんの投稿にコメントしました
           </div>
         </div>
       <% end %>
