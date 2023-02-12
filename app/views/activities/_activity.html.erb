@@ -10,18 +10,22 @@
   <div class="notification-text-content activity-margin-inner">
     <% case activity.action
     when 'follow' %>
-      <div class="notification-comment-user-content">
+      <div class="notification-comment-user-content-activity">
         <div>
-          <%= link_to user_path(visited), class: "article-notification-image" do %>
-            <%= image_tag visited.get_profile_image(100,100) %>
-          <% end %>
+          <div>
+            <%= link_to user_path(visited), class: "article-notification-image" do %>
+              <%= image_tag visited.get_profile_image(100,100) %>
+            <% end %>  
+          </div>
+          <div>
+            <%= link_to user_path(visited), class: "article-notification-image" do %>
+              <strong>
+                <%= visited.name %>
+              </strong>
+            <% end %> 
+          </div>
         </div>
-        <div class="notification-comment-name-content">
-          <%= link_to user_path(visited), class: "article-notification-image" do %>
-            <strong>
-              <%= visited.name %>
-            </strong>
-          <% end %>
+        <div class="notification-comment-name-content-activity">
           さんをフォローしました
         </div>
       </div>
@@ -43,7 +47,7 @@
       </div>
     <% when 'post_comment' %>
       <% if activity.post_learning.user_id == visitor.id %>
-        <div class="notification-comment-my-content">
+        <div class="notification-comment-my-content-activity">
         　<%= link_to "あなたの投稿", activity.post_learning %>にコメントしました  
         </div>
       <% else %>  
@@ -65,7 +69,7 @@
       <% end %>
       <p class="notification-comment"><%= PostComment.find_by(id: activity.post_comment_id)&.comment %></p>
     <% when 'dm' %>
-    <div class="notification-favorite-content-inner">
+    <div class="notification-favorite-content-inner-activity">
       <%= link_to user_path(visited), class: "article-notification-image" do %>
         <strong>
           <%= visited.name %>
