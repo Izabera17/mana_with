@@ -1960,6 +1960,18 @@ aside .sidebar_right {
   }
 }
 
+@media (max-width: 900px) {
+  .form-view h1 span {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 500px) {
+  .form-view h1 span {
+    font-size: 22px;
+  }
+}
+
 .form-table {
   width: 90%;
   margin: 0px auto;
