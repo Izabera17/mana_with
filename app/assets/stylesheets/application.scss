@@ -2815,6 +2815,8 @@ aside .sidebar_right {
   .menu, 
   .btn {
     position: fixed;
+    top: 16px;
+    right: 16px;
   }
   
   button {
@@ -2833,8 +2835,6 @@ aside .sidebar_right {
   }
   
   .btn {
-    top: 16px;
-    right: 16px;
     width: 58px;
     height: 48px;
     display: flex;
@@ -2898,7 +2898,6 @@ aside .sidebar_right {
   }
   
   .menu {
-    position: fixed;
     z-index: 5;
     transform : translateX(150%);
     width: 100%;
