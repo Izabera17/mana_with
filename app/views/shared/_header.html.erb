@@ -1,21 +1,10 @@
 <div class="header-home">
-  <div class="logo">
-    <%= link_to root_path do %>
-      <%= image_tag asset_path('logo.png') %>
-    <% end %>
-  </div>
-  <div class="notice-flash">
-    <% if flash[:notice] %>
-      <div class="flash-message">
-        <%= flash[:notice] %>
-      </div>
-    <% elsif flash[:alert] %>
-      <div class="flash-alert-message">
-        <%= flash[:alert] %>
-      </div>
-  <% end %>  
-  </div>
-  <div class="nav-haeder">
+<div class="logo">
+  <%= link_to root_path do %>
+    <%= image_tag asset_path('logo.png') %>
+  <% end %>
+</div>
+ <div class="nav-haeder">
     <div class="menu-li">
       <ul class="main-nav">
         <% if user_signed_in? %>
@@ -39,4 +28,137 @@
       </ul>
     </div>
   </div>
+  <button type="button" class="btn js-btn">
+    <span class="btn-line"></span>
+  </button>
+  <ul class="menu">
+    <div class="hambueger-menu-header">
+      <% if user_signed_in? %>
+        <div>
+          <p class="search-menu">　メニュー</p>
+          <div class="hambueger-sidebar-list">
+            <ul>
+              <li>
+                <%= link_to root_path, class: "icon-link" do %>
+                  <span>Home</span>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to notifications_path, class: "icon-link" do %>
+                  <% if unchecked_notifications.any?%>
+                    <div class="news">
+                      <span class="news-span">通知未読</span> 
+                    </div>
+                  <% else %>
+                    <span class="notification-margin">通知</span>
+                  <% end %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to activities_path, class: "icon-link" do %>
+                  <% if unchecked_notifications_activity.any?%>
+                    <div class="news">
+                      <span class="news-span">アクティビティ</span>
+                    </div>
+                  <% else %>
+                    <span class="notification-margin">アクティビティ</span>
+                  <% end %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to user_path(current_user.id), class: "icon-link" do %>
+                  <span>Mypage</span>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to users_path, class: "icon-link" do %>
+                  <span>Users</span>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to post_learnings_path, class: "icon-link" do %>
+                  <span>学習投稿一覧</span>
+                <% end %>
+              </li>
+              <li class="menu-list">
+                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      <% else %>
+        <div class="hambueger-menu">
+          <div>
+            <p>　メニュー前</p>
+            <div class="hambueger-sidebar-list">
+              <ul>
+                <li>
+                   <%= link_to root_path, class: "icon-link" do %>
+                    <span>Home</span>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to about_path, class: "icon-link" do %>
+                    <span>About</span>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to new_user_session_path, class: "icon-link" do %>
+                    <span>ログイン</span>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to new_user_registration_path, class: "icon-link" do %>
+                    <span>新規登録</span>
+                  <% end %>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="hambueger-menu">
+      <% if user_signed_in? %>
+        <p class="search-header-title">　検索</p>
+        <div class="search_form-header">
+          <%= form_with url: search_keyword_path, local: true, method: :get do |f| %>
+            <div class="search-form-text-header">
+              <%= f.select :range, options_for_select([['ユーザー名'], ['学習名'], ['頑張ったこと']]), { prompt: '選択してください' } %>  
+            </div>
+            <div class="search-form-text-bottun-header">
+              <div class="search-form-list-header">
+                <%= f.text_field :word %>
+              </div>
+              <div class="search-form-submit search-text">
+                <%= f.submit "検索", class: "submit-bottun" %>  
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <div class="hambueger-menu-header">
+      <% if user_signed_in? %>
+        <div class="search-genre-index-header">
+          <p class="search-genre-header">　ジャンル検索</p>
+            <% @genres.each do |genre| %>
+              <ul class="search-ul-genre-li">
+                <li class="search-list-header">
+                  <%= link_to genre.name, search_genre_post_learnings_path(genre.id), method: :get, class: "search-genre-li-header" %>
+                </li>
+              </ul>
+            <% end %>
+        </div>
+      <% end %>
+    </div>
+  </ul> 
+  <script>
+    $(function () {
+      $('.js-btn').on('click', function () {
+        $('.menu , .btn , .btn-line').toggleClass('open'); // メニューとバーガーの線にopenクラスをつけ外しする
+      })
+    })
+  </script>
 </div>
+

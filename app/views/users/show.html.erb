@@ -42,37 +42,40 @@
             <div class="show-mypage-right">
               <div class="mypage-inner-top">
                 <div class="mypage-title">
-                  <div class="mypage-title-user-name mypage-margin">
-                    <p>ユーザー名</p>
+                  <div class="mypage-contents"> 
+                    <div class="mypage-title-user-name mypage-margin">
+                      <p>ユーザー名</p>
+                    </div>
+                     <div class="mypage-content-user-name mypage-margin">
+                      <p><%= @user.name %></p>
+                    </div>
                   </div>
                   <% if current_user.id == @user.id %>
+                  <div class="mypage-contents">
                     <div class="mypage-title-email mypage-margin">
                       <p>メールアドレス</p>
                     </div>
+                    <div class="mypage-content-email mypage-margin">
+                      <p><%= @user.email %></p>
+                    </div>
+                  </div>
                   <% elsif current_user.admin %>
+                  <div class="mypage-contents">
                     <div class="mypage-title-email mypage-margin">
                       <p>メールアドレス</p>
                     </div>
-                  <% end %>
-                  <div class="mypage-title-introduction mypage-margin">
-                    <p>自己紹介</p>
-                  </div>
-                </div>
-                <div class="mypage-content">
-                  <div class="mypage-content-user-name mypage-margin">
-                    <p><%= @user.name %></p>
-                  </div>
-                  <% if current_user.id == @user.id %>
-                    <div class="mypage-content-email mypage-margin">
+                     <div class="mypage-content-email mypage-margin">
                       <p><%= @user.email %></p>
                     </div>
-                  <% elsif current_user.admin %>
-                    <div class="mypage-content-email mypage-margin">
-                      <p><%= @user.email %></p>
-                    </div>
+                  </div>
                   <% end %>
-                  <div class="mypage-content-introduction mypage-margin">
-                    <p><%= @user.introduction %></p>
+                  <div class="mypage-contents">
+                    <div class="mypage-title-introduction mypage-margin">
+                      <p>自己紹介</p>
+                    </div>
+                    <div class="mypage-content-introduction mypage-margin">
+                      <p><%= @user.introduction %></p>
+                    </div>  
                   </div>
                 </div>
               </div>
@@ -141,7 +144,7 @@
                 <tbody class="mypage-body">
                   <% @post_learnings.each do |post_learnings| %>
                     <tr class="mypage-content">
-                      <td class="mypage-content-post-time mypage-text-inner">
+                      <td class="mypage-content-post-time mypage-text-inner-time">
                         <%= post_learnings.created_at.strftime('%Y-%m-%d') %>
                       </td>
                       <td class="mypage-content-post-name mypage-text-inner">
@@ -150,7 +153,7 @@
                         <% end %>
                       </td>
                       <td class="mypage-content-post-favorite mypage-text-inner">
-                        <p>♥いいね  <%= post_learnings.favorites.count %>件</p>
+                        <p>♥<span>いいね</span>  <%= post_learnings.favorites.count %>件</p>
                       </td>
                       <td class="mypage-content-post-comment mypage-text-inner">
                         <%= image_tag asset_path('speech-bubble.png'), class: 'mypage-post-icon' %> <%= post_learnings.post_comments.count %>件
@@ -169,7 +172,7 @@
               <table class="mypage-favorites-table">
                 <thead class="mypage-table-favorites-head">
                   <tr class="mypage-title-favorites">
-                    <th></th>
+                    <th class="mypage-blank"></th>
                     <th class="mypage-post-middle-favorites">
                     </th>
                     <th class="mypage-user-name-favorites">

@@ -10,8 +10,38 @@
   width: 25%;
 }
 
+@media (max-width: 1000px) {
+ .result-activities-name-title {
+    width: 35%;
+  } 
+}
+
+@media (max-width: 700px) {
+ .result-activities-name-title {
+    width: 60%;
+  } 
+}
+
+@media (max-width: 500px) {
+ .result-activities-name-title {
+    width: 65%;
+  } 
+}
+
 .result-notifications-name-title {
   width: 15%;
+}
+
+@media (max-width: 900px) {
+ .result-notifications-name-title {
+    width: 25%;
+  } 
+}
+
+@media (max-width: 600px) {
+ .result-notifications-name-title {
+    width: 35%;
+  } 
 }
 
 .result-notifications-name-title,
@@ -26,8 +56,43 @@
 .result-notifications-name-title p,
 .result-activities-name-title p {
   color: #fff;
-  font-size: 43px;
+  font-size: 40px;
   margin: 0px;
+}
+
+@media (max-width: 1600px) {
+ .result-notifications-name-title p,
+  .result-activities-name-title p {
+    font-size: 36px;
+  } 
+}
+
+@media (max-width: 1300px) {
+ .result-notifications-name-title p,
+  .result-activities-name-title p {
+    font-size: 34px;
+  } 
+}
+
+@media (max-width: 900px) {
+ .result-notifications-name-title p,
+  .result-activities-name-title p {
+    font-size: 32px;
+  } 
+}
+
+@media (max-width: 600px) {
+ .result-notifications-name-title p,
+  .result-activities-name-title p {
+    font-size: 30px;
+  } 
+}
+
+@media (max-width: 400px) {
+ .result-notifications-name-title p,
+  .result-activities-name-title p {
+    font-size: 28px;
+  } 
 }
 
 .notification-top {
@@ -39,6 +104,12 @@
   background-color: #fff;
 }
 
+.activity-margin {
+  display: block;
+  padding-bottom: 10px;
+
+}
+
 .article-notification-image {
   padding-top: 10px;
   width: 10%;
@@ -48,9 +119,23 @@
 .article-notification-image img {
   border-radius: 50%;
   border: 1px solid #EAEAEA;
-  width: 60px;
-  height: 60px;
+  width: 45px;
+  height: 45px;
   margin: 15px 5px 5px 5px;
+}
+
+@media (max-width: 1300px) {
+  .article-notification-image img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .article-notification-image img {
+    width: 30px;
+    height: 30px;
+  }
 }
 
 .chat-user-image img {
@@ -62,22 +147,136 @@
 }
 
 .notification-text-time {
-  width: 10%;
-  margin: 20px 20px 30px 20px;
+  background-color: #fff;
+  width: 20%;
+  text-align: center;
+  border-radius: 20px;
+  margin-bottom: 3px;
   color: rgba(0, 0, 0, 0.6);
 }
 
+.notification-text-time p {
+  margin: 0px;
+  font-size: 14px;
+}
+
+@media (max-width: 1300px) {
+  .notification-text-time p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .notification-text-time p {
+    font-size: 8px;
+  }
+}
+
+.notification-left-name-image {
+  width: 35%;
+  margin-left: 15px;
+}
+
+@media (max-width: 600px) {
+ .notification-left-name-image {
+    margin-left: 10px;
+  } 
+}
+
+@media (max-width: 400px) {
+ .notification-left-name-image {
+    margin-left: 5px;
+  } 
+}
+
 .notification-text-name {
-  width: 25%;
-  margin: 35px 0px 30px 15px;
+  margin: 0px 0px 30px 8px;
   font-size: 18px;
 }
 
+@media (max-width: 1600px) {
+  .notification-text-name {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .notification-text-name {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .notification-text-name {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 500px) {
+  .notification-text-name {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 400px) {
+  .notification-text-name {
+    font-size: 8px;
+  }
+}
+
 .notification-text-content {
-  width: 67%;
+  width: 65%;
   main-right: 20px;
   font-size: 18px;
 }
+
+@media (max-width: 1600px) {
+  .notification-text-content {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .notification-text-content {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .notification-text-content {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 500px) {
+  .notification-text-content {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 400px) {
+  .notification-text-content {
+    font-size: 8px;
+  }
+}
+
+.activity-margin-inner {
+  margin: 0px auto;
+}
+
+@media (max-width: 400px) {
+  .activity-margin-inner {
+    width: 90%;
+    margin: 0px auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .activity-margin-text{
+    font-size: 14px;
+  }  
+}
+
 
 .destroy_all_notifications {
   background-color: red;
@@ -88,18 +287,73 @@
   border-radius: 10px;
 }
 
+@media (max-width: 1600px) {
+  .destroy_all_notifications {
+    width: 10%;
+  }
+}
+
+@media (max-width: 1300px) {
+  .destroy_all_notifications {
+    width: 15%;
+    padding: 5px 3px;
+  }
+}
+
+@media (max-width: 1300px) {
+  .destroy_all_notifications {
+    width: 20%;
+  }
+}
+
+@media (max-width: 500px) {
+  .destroy_all_notifications {
+    padding: 2px 8px;
+  }
+}
+
 .destroy_all_notifications h7 {
   font-size: 18px;
   color: #fff;
   font-weight: bold;
 }
 
+@media (max-width: 1600px) {
+  .destroy_all_notifications h7 {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 1300px) {
+  .destroy_all_notifications h7 {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 500px) {
+  .destroy_all_notifications h7 {
+    font-size: 12px;
+  }
+}
+
 .notification-comment {
-  font-size: 20px; 
+  font-size: 16px; 
   color: rgba(0, 0, 0, 0.5);
-  margin-left: 90px;
+  margin-left: 10px;
   margin-top: 8px;
   margin-bottom: 20px;
+}
+
+@media (max-width: 1300px) {
+  .notification-comment {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 600px) {
+  .notification-comment {
+    font-size: 11px;
+  }
 }
 
 .notification-comment-dm {
@@ -174,12 +428,20 @@
   font-weight: bold;
 }
 
-.notification-comment-my-content {
-  margin-top: 32px;
+@media (max-width: 1300px) {
+  .no-notification {
+    font-size: 18px;
+  } 
 }
 
-.notification-comment-user-content {
-  display: flex;
+@media (max-width: 500px) {
+  .no-notification {
+    font-size: 16px;
+  } 
+}
+
+.notification-comment-my-content {
+  margin-top: 32px;
 }
 
 .notification-favorite-content-inner {
@@ -188,6 +450,5 @@
 }
 
 .notification-comment-name-content {
-  margin-top: 32px;
-  margin-left: 15px;
+  margin-left: 8px;
 }

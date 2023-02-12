@@ -20,14 +20,16 @@
               </div>
             <% end %>
           </div>
-          <p class="search-genre">　ジャンルで探す</p>
-          <% @genres.each do |genre| %>
-            <ul>
-              <li class="search-list">
-                <%= link_to genre.name, search_genre_post_learnings_path(genre.id), method: :get, class: "search-genre-li" %>
-              </li>
-            </ul>
-          <% end %>
+          <div class="search-genre-index">
+            <p class="search-genre">　ジャンルで探す</p>
+            <% @genres.each do |genre| %>
+              <ul>
+                <li class="search-list">
+                  <%= link_to genre.name, search_genre_post_learnings_path(genre.id), method: :get, class: "search-genre-li" %>
+                </li>
+              </ul>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
@@ -36,6 +38,9 @@
       <p>今日もお疲れ様です！</p>
        <div class="sidebar-btn">
         <%= link_to "投稿する", new_post_learning_path, class: "sidebar-btn-link" %>
+      </div>
+      <div class="sidebar-btn-sp">
+        <%= link_to "＋", new_post_learning_path, class: "sidebar-btn-link-sp" %>
       </div>
     </div>
   </div>

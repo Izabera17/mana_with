@@ -1,8 +1,9 @@
 /* Home画面 */
 
+
 .notice-flash-top{
   width: 20%;
-  margin:5px 0px;
+  margin: 5px 0px;
   text-align: center;
 }
 
@@ -35,7 +36,8 @@
 
 .first-view {
   position: relative;
-  height: calc(100vh - 250px);
+  z-index: 1;
+  height: calc(100vh - 278px);
   width: 100vw;
   margin: 0px;
   background-size: cover;
@@ -44,8 +46,15 @@
   background-image: image-url("background-image1.jpg");
 }
 
+@media (max-width: 900px) {
+  .first-view {
+    height: calc(100vh - 341px);
+  }
+}
+
 .menu-content h1 {
   position: absolute;
+  z-index: 2;
   left: 320px;
   top: 110px;
   margin: 0px;
@@ -58,10 +67,23 @@
   font-size: 20px;
 }
 
+@media (max-width: 1300px) {
+  .menu-content h1 {
+    left: 200px;
+    top: 80px;
+    font-size: 55px;
+  }
+  
+  .menu-content small {
+    font-size: 18px;
+  }
+}
+
 @media (max-width: 980px) {
   .menu-content h1 {
     left: 80px;
     top: 80px;
+    font-size: 50px;
   }
 }
 
@@ -79,9 +101,21 @@
 
 @media (max-width: 560px) {
   .menu-content h1 {
-    left: 15px;
+    left: 13px;
     top: 100px;
-    font-size: 38px;
+    font-size: 34px;
+  }
+
+  .menu-content small {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 350px) {
+  .menu-content h1 {
+    left: 10px;
+    top: 100px;
+    font-size: 28px;
   }
 
   .menu-content small {
@@ -90,10 +124,10 @@
 }
 
 .menu-text {
-  margin: 8px 0px;
-  font-size: 24px;
+  width: 95%;
+  margin: 8px auto;
+  font-size: 22px;
   font-family: "ヒラギノ丸ゴ ProN";
-
 }
 
 .menu-text p {
@@ -107,9 +141,34 @@
   background:linear-gradient(transparent 70%, #FFFF00 0%);
 }
 
+@media (max-width: 1000px) {
+  .menu-text {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .menu-text {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 400px) {
+  .menu-text {
+    font-size: 16px;
+  }
+}
+
 .menu-text-button {
   display: flex;
   justify-content: center;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 500px) {
+  .menu-text-button {
+    display: block;
+  }
 }
 
 .button_first {
@@ -127,12 +186,47 @@
 }
 
 .login_button {
- font-size: 30px;
+ font-size: 28px;
  color: #fff;
 }
 
+@media (max-width: 1600px) {
+  .login_button {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .login_button {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 600px) {
+  .login_button {
+    font-size: 18px;
+  }
+  
+  .button_first {
+    margin: 10px 15px 0px;
+  }
+  
+  .button_second {
+    margin: 10px 15px 0px;
+  }
+}
+
+@media (max-width: 500px) {
+  .button_first,
+  .button_second {
+    width: 50%;
+    text-align: center;
+    margin: 0px auto;
+  }
+}
+
 .registrate_button {
- font-size: 30px;
+ font-size: 28px;
   color: #fff;
 }
 
@@ -141,3 +235,32 @@
   margin-top: 15px;
 }
 
+@media (max-width: 1600px) {
+  .registrate_button {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .registrate_button {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 600px) {
+  .registrate_button {
+    font-size: 18px;
+  }
+  
+  .button-text {
+    font-size: 18px;
+    margin-top: 18px;
+  }
+}
+
+@media (max-width: 500px) {
+  .button-text {
+    text-align: center;
+    margin: 12px auto;
+  }
+}

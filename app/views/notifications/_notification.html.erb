@@ -1,22 +1,26 @@
 <% visitor = notification.visitor %>
 <% visited = notification.visited %>
 
+ <div class="notification-text-time">
+  <p>
+    <%= time_ago_in_words(notification.created_at).upcase %>前
+  </p>
+</div>
 <div class="notification-content">
-  <div class="notification-text-time">
-    <%= time_ago_in_words(notification.created_at).upcase %>前  
-  </div>
-  <div>
-    <%= link_to user_path(notification.visitor), class: "article-notification-image" do %>
-      <%= image_tag visitor.get_profile_image(100,100) %>  
-    <% end %>
-  </div>
-  <div class="notification-text-name">
-    <%= link_to user_path(notification.visitor) do %>
-      <strong>
-        <%= visitor.name %>
-      </strong>
-    <% end %>
-    さんが
+  <div class="notification-left-name-image">
+    <div class="notification-left-image">
+      <%= link_to user_path(notification.visitor), class: "article-notification-image" do %>
+        <%= image_tag visitor.get_profile_image(100,100) %>  
+      <% end %>
+    </div>
+    <div class="notification-text-name">
+      <%= link_to user_path(notification.visitor) do %>
+        <strong>
+          <%= visitor.name %>
+        </strong>
+      <% end %>
+      さんが
+    </div>
   </div>
   <div class="notification-text-content">
     <% case notification.action

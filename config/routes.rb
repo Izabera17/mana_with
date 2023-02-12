@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
   post "post_learnings/new" => "post_learnings#new"
 
+  get "post_learnings/:id/post_comments" => "post_learnings#show"
 
   devise_for :users, controllers: {
     registrations: "users/registrations",

@@ -1,3 +1,9 @@
+@media (max-width: 350px) {
+   #error_explanation ul {
+    font-size: 14px;  
+  } 
+}
+
 .first-view-top {
   position: relative;
   height: calc(100vh - 75px);
@@ -7,6 +13,12 @@
   background-position: center top;
   background-repeat:  no-repeat;
   background-image: image-url("background-image-top.jpg");
+}
+
+@media (max-width: 900px) {
+  .first-view-top {
+    height: calc(100vh - 115px);
+  }
 }
 
 .content {
@@ -19,10 +31,41 @@
   margin: 100px auto;
 }
 
+@media (max-width: 1600px) {
+  .box {
+    width: 65%;
+  }
+}
+
+@media (max-width: 900px) {
+  .box {
+    width: 85%;
+    margin: 50px auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .box {
+    width: 95%;
+  }
+}
+
 .box_signin {
   width: 50%;
   height: 500px;
   margin: 100px auto;
+}
+
+@media (max-width: 1300px) {
+  .box_signin {
+    width: 70%;
+  }
+}
+
+@media (max-width: 900px) {
+  .box_signin {
+    width: 90%;
+  }
 }
 
 .box-inner {
@@ -33,20 +76,37 @@
 }
 
 .box-table {
-    margin: 0px auto;
+  margin: 0px auto;
+  width: 100%;
+}
+
+@media (max-eidth: 500px) {
+  .box-table table {
     width: 100%;
+  }
 }
 
 .label {
-    width: 40%;
+  width: 44%;
 }
 
 .table-inner {
-    width: 60%;
+  width: 56%;
+  margin-right: 20px;
+}
+
+@media (max-width: 500px) {
+  .label {
+    width: 44%;
+  }
+
+  .table-inner {
+    width: 56%;
+  } 
 }
 
 h1 {
-  font-weight: 400;
+  font-weight: 400px;
   font-size: 32px;
   line-height: 1.2;
   margin-bottom: 0px auto 10px;
@@ -56,35 +116,69 @@ h1 {
   font-family: "凸版文久ゴシック";
 }
 
-.box-email {
-  margin-bottom: 13px;
-}
-
-.box-email td {
-  margin-right: 20px;
+@media (max-width: 900px) {
+ .box-inner {
+     padding: 20px 0px;
+  }
+  
+  .box-inner h1 {
+    font-size: 22px;
+  }
 }
 
 .box-name {
-  margin-bottom: 13px;
+  display: flex;
+  margin-left: 30px;
 }
 
-.box-name td {
-  margin-right: 20px;
+.box-email {
+  display: flex;
+  margin-bottom: 13px;
+  margin-left: 30px;
 }
 
 .box-password {
+  display: flex;
   margin-bottom: 22px;
+  margin-left: 30px;
+}
+
+@media (max-width: 500px) {
+  .box-name,
+  .box-email, 
+  .box-password {
+    display: block;
+  }
+  .label,
+  .table-inner {
+    width: 90%;
+  }
 }
 
 .box-name,
 .box-email label,
 .box-password label {
-  font-weight: 900;
   font-size: 20px;
   padding-left: 2px;
   padding-bottom: 2px;
   font-weight: normal;
   font-family: "凸版文久ゴシック";
+}
+
+@media (max-width: 900px) {
+  .box-name,
+  .box-email label,
+  .box-password label {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 500px) {
+  .box-name,
+  .box-email label,
+  .box-password label {
+    font-size: 14px;
+  }
 }
 
 .box-name input[type="text"], 
@@ -109,6 +203,18 @@ h1 {
   width: 20%;
 }
 
+@media (max-width: 1200px) {
+  .box-login {
+    width: 40%;
+  }
+}
+
+@media (max-width: 900px) {
+  .box-login {
+    width: 50%;
+  }
+}
+
 .box-login input[type="submit"] {
   border-style: none;
   color: #fff;
@@ -119,6 +225,12 @@ h1 {
   font-size: 20px;
 }
 
+@media (max-width: 500px) {
+  .box-login input[type="submit"] {
+    font-size: 14px;
+  }
+}
+
 .box-login input[type="submit"]:hover {
   cursor: pointer;
   background: #FFA134;
@@ -126,7 +238,19 @@ h1 {
 
 .box-signin {
   margin: 20px auto 26px;
-  width: 20%;
+  width: 25%;
+}
+
+@media (max-width: 600px) {
+  .box-signin {
+    width: 30%;
+  }
+}
+
+@media (max-width: 400px) {
+  .box-signin {
+    width: 40%;
+  }
 }
 
 .box-signin input[type="submit"] {
@@ -137,6 +261,18 @@ h1 {
   background: linear-gradient(to bottom,#FF0825,#DE001A);
   border-radius: 30px;
   font-size: 20px;
+}
+
+@media (max-width: 600px) {
+  .box-signin input[type="submit"] {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 400px) {
+  .box-signin input[type="submit"] {
+    font-size: 16px;
+  }
 }
 
 .box-signin input[type="submit"]:hover {
@@ -155,6 +291,18 @@ h1 {
   padding-top: 4px;
 }
 
+@media (max-width: 1200px) {
+  .box-guest-login {
+    width: 40%;
+  }
+}
+
+@media (max-width: 900px) {
+  .box-guest-login {
+    width: 50%;
+  }
+}
+
 .box-guest-login:hover {
   cursor: pointer;
   background: #00c10f
@@ -163,4 +311,10 @@ h1 {
 .guest-login {
   color: #fff;
   font-size: 20px;
+}
+
+@media (max-width: 500px) {
+ .guest-login {
+    font-size: 14px;
+  } 
 }

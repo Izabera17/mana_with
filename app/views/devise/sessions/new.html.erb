@@ -1,19 +1,20 @@
 <div class="first-view-top">
   <%= render 'shared/header' %>
+  <%= render 'shared/flash' %>
   <div class="box">
     <div class="box-inner">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <h1>ログイン</h1>  
-        <table cellspacing="30" class="box-table">
-          <tr class="box-email">
-            <td class=label><%= f.label :email, "メールアドレス" %>  </td>
-            <td class="table-inner"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
-          </tr>
-          <tr class="box-password">
-            <td class="label"><%= f.label :password, "パスワード" %></td>
-            <td class="table-inner"><%= f.password_field :password, autocomplete: "current-password" %></td>
-          </tr>
-        </table>
+        <div class="box-table">
+          <div class="box-email">
+            <p class=label><%= f.label :email, "メールアドレス" %>  </p>
+            <p class="table-inner"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></p>
+          </div>
+          <div class="box-password">
+            <p class="label"><%= f.label :password, "パスワード" %></p>
+            <p class="table-inner"><%= f.password_field :password, autocomplete: "current-password" %></p>
+          </div>
+        </div>
         <div class="box-login">
           <%= f.submit "ログイン" %>  
         </div>

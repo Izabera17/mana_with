@@ -18,10 +18,10 @@ module NotificationsHelper
   	end
   	
   	def unchecked_notifications
-      @notifications = current_user.passive_notifications.where(checked: false)
+    	current_user.passive_notifications.where(checked: false)
     end
     
     def unchecked_notifications_activity
-      @notifications_activity = current_user.active_notifications.where(checked: false)
+      current_user.active_notifications.where(checked: false)
     end
 end

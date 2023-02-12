@@ -1,11 +1,13 @@
 <% visitor = activity.visitor %>
 <% visited = activity.visited %>
 
-<div class="notification-content">
-  <div class="notification-text-time">
+<div class="notification-text-time">
+  <p>
     <%= time_ago_in_words(activity.created_at).upcase %>前  
-  </div>
-  <div class="notification-text-content">
+  </p>
+</div>
+<div class="notification-content activity-margin activity-margin-text">
+  <div class="notification-text-content activity-margin-inner">
     <% case activity.action
     when 'follow' %>
       <div class="notification-comment-user-content">

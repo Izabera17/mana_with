@@ -8,7 +8,6 @@ class ActivitiesController < ApplicationController
   end
   
    def destroy_all
-    #通知を全削除
     @activities = current_user.active_notifications.destroy_all
     flash[:notice] = "アクティビティを削除しました"
   	 redirect_to request.referer 

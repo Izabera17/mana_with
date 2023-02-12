@@ -1,6 +1,7 @@
 <div class="first-home-view">
   <%= render 'shared/header' %>
   <div class="result-genre-full-home">
+    <%= render 'shared/flash' %>
     <% if request.path.match(/\/search(\/)?/) %>
     <div class="genre-full-top">
     </div>
@@ -47,7 +48,6 @@
                   <%= time_ago_in_words(post_learnings.created_at) %>前
                 </div>
               </div>
-
               <div class="upper-right">
                 <div class="article-user-image">
                   <%= link_to user_path(post_learnings.user.id)  do %>
@@ -58,7 +58,6 @@
                   <%= post_learnings.user.name %>さんが投稿しました
                 </div>
               </div>
-
             </div>
             <div class="article-lower-half">
               <div class="article-full-lower">

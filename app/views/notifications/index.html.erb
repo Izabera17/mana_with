@@ -16,15 +16,16 @@
         <% end %>
       </div>
       <hr>
-      <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
-        <% if @notifications.exists? %>
-            <div class="users-index">
-              <%= render notifications %>
-            </div>
+        <% if @notifications.present? %>
+          <div class="users-index">
+            <% @notifications.each do |notification| %>
+              <%= render partial: 'notifications/notification', locals: {notification: notification} %>
+              <%= paginate @notifications, class: "page" %>
+            <% end %> 
+          </div>
         <% else %>
             <p class="no-notification">通知はありません</p>
         <% end %>
-        <%= paginate @notifications, class: "page" %>
     </article>
     <aside class="sidebar_right">
       <%= render 'shared/sidebar_right' %>

@@ -11,7 +11,7 @@
       <div class="show-article">
         <div class="show-top">
           <div class="show-main-left">
-            <div class="show-comment-time">
+            <div class="show-comment-time show-page-time">
               <%= time_ago_in_words(@post_learning.created_at) %>前
             </div>
             <div class="show-post-image">
@@ -131,7 +131,7 @@
          <% @post_comments.each do |post_comment| %>
           <div class="show-comment-top">
             <div class="show-comment">
-              <div class="show-comment-time">
+              <div class="show-comment-time show-page-time-bottom">
                 <%= time_ago_in_words(post_comment.created_at) %>前
               </div>
               <div class="show-comment-left">

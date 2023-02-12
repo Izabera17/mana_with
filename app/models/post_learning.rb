@@ -49,7 +49,7 @@ class PostLearning < ApplicationRecord
   end
   
   # 投稿された時の処理
-    def create_notification_post_comment!(current_user, post_comment_id)
+  def create_notification_post_comment!(current_user, post_comment_id)
     # 自分以外でコメントしている人の投稿を全取得し、全員に通知する
     temp_ids = PostComment.select(:user_id).where(post_learning_id: id).where.not(user_id: current_user.id).distinct
     temp_ids.each do |temp_id|

@@ -36,3 +36,9 @@
   color: #460A0A;
   font-family:"凸版文久ゴシック";
 }
+
+@media (max-width: 900px) {
+  .sidebar-contents {
+    display: none;
+  }
+}

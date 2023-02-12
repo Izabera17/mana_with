@@ -13,10 +13,10 @@
     <aside class="sidebar_left">
       <%= render 'shared/sidebar_left' %>
     </aside>
-    <article class="mypage-article">
-      <div class="form-view">
+    <article class="mypage-article-edit">
+      <div class="form-view-mypage-edit">
         <div class="form-title">
-          <div class="error-message-new">
+          <div class="error-message-new-mypage">
             <% if @user.errors.any? %>
               <ul>
                 <% @user.errors.full_messages.each do |message| %>
@@ -27,24 +27,24 @@
           </div>
         </div>
         <%= form_with model: @user, local:true do |f| %>
-          <table class="mypage-form-table">
-            <tr class="mypage-form-name">
-              <th class="mypage-form-th"><%= f.label :name, "ユーザー名" %></th>
-              <td class="mypage-form-td"><%= f.text_field :name, class: "name-area" %></th>
-            </tr>
-            <tr class="mypage-form-content">
-              <th class="mypage-form-th"><%= f.label :email, "メールアドレス" %></th>
-              <td class="mypage-form-td"><%= f.text_field :email, class: "name-area" %></th>
-            </tr>
-            <tr class="mypage-form-introduction">
-               <th class="mypage-form-th"><%= f.label :introduction, "自己紹介" %></th>
-               <td class="mypage-form-td"><%= f.text_area :introduction, class: "mypage-text-area"%></th>
-            </tr>
-            <tr class="mypage-form-post-image">
-              <th class="mypage-form-th"><%= f.label :user_image, "プロフィール画像" %></th>
-              <td class="mypage-form-td"><%= f.file_field :user_image, accept: "image/*" , class: "image-area" %></th>
-            </tr>
-          </table>
+          <div class="mypage-form-table">
+            <div class="mypage-form-name mypage-label">
+              <p class="mypage-form-th"><%= f.label :name, "ユーザー名" %></p>
+              <p class="mypage-form-td"><%= f.text_field :name, class: "name-area" %></p>
+            </div>
+            <div class="mypage-form-content mypage-label">
+              <p class="mypage-form-th"><%= f.label :email, "メールアドレス" %></p>
+              <p class="mypage-form-td"><%= f.text_field :email, class: "name-area" %></p>
+            </div>
+            <div class="mypage-form-introduction mypage-label">
+               <p class="mypage-form-th"><%= f.label :introduction, "自己紹介" %></p>
+               <p class="mypage-form-td"><%= f.text_area :introduction, class: "mypage-text-area"%></p>
+            </div>
+            <div class="mypage-form-post-image mypage-label">
+              <p class="mypage-form-th"><%= f.label :user_image, "プロフィール画像" %></p>
+              <p class="mypage-form-td"><%= f.file_field :user_image, accept: "image/*" , class: "image-area" %></p>
+            </div>
+          </div>
           <div class="mypage-form-btn">
             <%= f.submit '変更を保存' %>
           </div>

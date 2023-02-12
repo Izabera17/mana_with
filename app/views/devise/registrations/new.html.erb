@@ -1,33 +1,35 @@
 <div class="first-view-top">
 <%= render 'shared/header' %>
+<%= render 'shared/flash' %>
   <div class="box_signin">
     <div class="box-inner">
       <%= render "devise/shared/error_messages", resource: resource %>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <h1>新規登録</h1>  
-        <table cellspacing="30" class="box-table">
-          <tr class="box-name">
-            <td><%= f.label :name, "ユーザー名" %></td> 
-            <td><%= f.text_field :name %></td>
-          </tr>
-          <tr class="box-email">
-            <td class=label><%= f.label :email, "メールアドレス" %>  </td>
-            <td class="table-inner"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
-          </tr>
-          <tr class="box-password">
-            <td><%= f.label :password, "パスワード" %></td>
-            <td><%= f.password_field :password, autocomplete: "new-password" %></td>
-          </tr>
-          <tr class="box-password">
-            <td><%= f.label :password_confirmation, "パスワード（再確認）" %></td>
-            <td> <%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
-          </tr>
-        </table>
+        <div class="box-table">
+          <div class="box-name">
+            <p class="label"><%= f.label :name, "ユーザー名" %></p> 
+            <p class="table-inner"><%= f.text_field :name %></p>
+          </div>
+          <div class="box-email">
+            <p class=label><%= f.label :email, "メールアドレス" %>  </p>
+            <p class="table-inner"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></p>
+          </div>
+          <div class="box-password">
+            <p class="label"><%= f.label :password, "パスワード" %></p>
+            <p class="table-inner"><%= f.password_field :password, autocomplete: "new-password" %></p>
+          </div>
+          <div class="box-password">
+            <p class="label"><%= f.label :password_confirmation, "パスワード（再確認）" %></p>
+            <p class="table-inner"> <%= f.password_field :password_confirmation, autocomplete: "new-password" %></p>
+          </div>
+        </div>
         <div class="box-signin">
           <%= f.submit "新規登録" %>  
         </div>
       <% end %>
     </div>  
   </div>   
+</div>
 </div>
 <%= render 'shared/footer' %>
