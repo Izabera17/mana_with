@@ -2329,26 +2329,10 @@ aside .sidebar_right {
   } 
 }
 
-@media (max-width: 1200px) {
- .show-comment-time {
-  font-size: 12px;
-  } 
-}
-
-@media (max-width: 1000px) {
- .show-comment-time {
-  font-size: 10px;
-  } 
-}
-
 @media (max-width: 900px) {
   .show-page-time {
     width: 100%;
   }
-  
- .show-comment-time {
-  font-size: 12px;
-  } 
   
   .show-page-time-bottom {
     width: 15%; 
