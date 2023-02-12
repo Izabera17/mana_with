@@ -1186,7 +1186,6 @@ aside .sidebar_right {
   .article-effort-contents p,
   .article-real-contents p {
     margin: 0px auto 10px;
-    font-size: 12px;
   }
 }
 
@@ -1234,7 +1233,6 @@ aside .sidebar_right {
 @media (max-width: 500px) {
   .article-effort-title p,
   .article-real-title p {
-    font-size: 13px;
     margin-bottom: 20px;
   } 
 }
@@ -1258,13 +1256,13 @@ aside .sidebar_right {
 
 @media (max-width: 900px) {
   .article-effort-image img {
-    width: 60%;
+    width: 80%;
   }
 }
 
 @media (max-width: 500px) {
   .article-effort-image img {
-    width: 70%;
+    width: 90%;
   }
 }
 
