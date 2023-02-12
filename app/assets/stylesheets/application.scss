@@ -2917,22 +2917,13 @@ aside .sidebar_right {
     border-bottom: 4px solid #008000;
     margin-bottom: 10px;
   }
-  
-  .hambueger-menu-header .search-genre-header {
-    margin-top: 0px;
-    font-size: 20px;
-    font-weight: bold;
-    border-bottom: 4px solid #ff1493;
-    margin-bottom: 10px;
-    margin-top: 10px;
-  }
-  
+
   .hambueger-menu-header .search-menu {
-      margin-top: 10px;
+      margin-top: 15px;
       font-size: 16px;
       font-weight: bold;
       border-bottom: 4px solid #d2691e;
-      margin-top: 22px;
+      margin-top: 5px;
       margin-bottom: 5px;
   }
   
@@ -2970,7 +2961,7 @@ aside .sidebar_right {
   }
   
   .hambueger-sidebar-list li {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
   }
   
   .hambueger-sidebar-list .icon-link span {
@@ -3006,7 +2997,9 @@ aside .sidebar_right {
 
   .search-text {
     width: 30%;
+    margin-top: 2px;
     text-align: end;
+    margin-left: 5px;
   }
   
   .search-text input[type="submit"] {
@@ -3021,10 +3014,14 @@ aside .sidebar_right {
     color: #fff;
   }
   
+  .search-genre-index-header {
+    margin-top: 8px;
+  }
+  
   .search-genre-index-header ul {
     list-style: none;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 20px;
     font-family: "筑紫A丸ゴシック";
   }
   
@@ -3055,22 +3052,23 @@ aside .sidebar_right {
   }
   
   .hambueger-sidebar-list .icon-link span {
-    font-size: 17px;
+    font-size: 19px;
   }
   
   .menu-list {
     padding: 0px;
     pading-right: 40px;
-    margin-left: 10px;
+    margin-left: 50px;
   }
   
   .menu-list a {
-    font-size: 13px;
+    font-size: 15px;
     padding: 5px 18px;
   }
   
   .search_form-header {
     margin-left: 0px;
+    margin-top: 10px;
   }
   
   .search-form-list-header {
@@ -3097,8 +3095,7 @@ aside .sidebar_right {
     padding-left: 15px;
   }
   
-  .hambueger-menu .search-header-title, 
-  .hambueger-menu-header .search-genre-header {
+  .hambueger-menu .search-header-title {
     font-size: 16px;
     margin-top: 0px;
   }
@@ -3107,12 +3104,9 @@ aside .sidebar_right {
     margin-bottom: 3px;
   }
   
-  .hambueger-menu-header .search-genre-header {
-     margin: 8px 0px 2px;
-  }
-  
-  .search-genre-header ul {
-    margin-bottom: 0px;
+  .search-ul-genre-li {
+    margin-bottom: 5px;
+    padding-left: 40px;
   }
   
   .search-genre-li-header {
