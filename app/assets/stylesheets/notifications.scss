@@ -238,25 +238,7 @@
 
 @media (max-width: 1000px) {
   .notification-text-content {
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 600px) {
-  .notification-text-content {
-    font-size: 12px;
-  }
-}
-
-@media (max-width: 500px) {
-  .notification-text-content {
-    font-size: 9px;
-  }
-}
-
-@media (max-width: 400px) {
-  .notification-text-content {
-    font-size: 8px;
+    font-size: 15px;
   }
 }
 
@@ -339,7 +321,7 @@
 .notification-comment {
   font-size: 16px; 
   color: rgba(0, 0, 0, 0.5);
-  margin-left: 10px;
+  margin-left: 30px;
   margin-top: 8px;
   margin-bottom: 20px;
 }
@@ -445,7 +427,7 @@
 }
 
 .notification-favorite-content-inner {
-  margin-top: 34px;
+  margin-top: 40px;
   margin-left: 15px;
 }
 
