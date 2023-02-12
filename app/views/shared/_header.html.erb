@@ -120,7 +120,7 @@
     </div>
     <div class="hambueger-menu">
       <% if user_signed_in? %>
-        <p class="search-header-title">　検索</p>
+        <div class="search-header-title"></div>
         <div class="search_form-header">
           <%= form_with url: search_keyword_path, local: true, method: :get do |f| %>
             <div class="search-form-text-header">

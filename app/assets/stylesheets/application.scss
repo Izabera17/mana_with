@@ -2916,8 +2916,7 @@ aside .sidebar_right {
   } 
  
   .hambueger-menu .search-header-title {
-    font-size: 18px;
-    font-weight: bold;
+    margin-top: 10px;
     border-bottom: 4px solid #008000;
     margin-bottom: 10px;
   }
@@ -2935,7 +2934,7 @@ aside .sidebar_right {
     width: 100%;
     height: 12%;
     margin-top: 10px;
-    padding-left: 0px;
+    padding-left: 160px;
   }
   
   .menu-list:hover {
@@ -2946,7 +2945,7 @@ aside .sidebar_right {
   }
   
   .menu-list a {
-    font-size: 15px;
+    font-size: 17px;
     background-color: #0000cd;
     padding: 5px 40px;
     border-radius: 30px;
@@ -3040,6 +3039,18 @@ aside .sidebar_right {
   
 }
 
+@media (max-width: 700px) {
+  .menu-list {
+    padding-left: 100px;
+  }
+}
+
+@media (max-width: 600px) {
+  .menu-list {
+    padding-left: 60px;
+  }
+}
+
 @media (max-width: 500px) {
   .menu {
     height: 700px;
@@ -3053,6 +3064,7 @@ aside .sidebar_right {
   
   .hambueger-sidebar-list {
     padding-left: 10px;
+    margin-top: 8px;
   }
   
   .hambueger-sidebar-list ul {
@@ -3072,7 +3084,7 @@ aside .sidebar_right {
   
   .menu-list a {
     font-size: 17px;
-    padding: 5px 18px;
+    padding: 5px 30px;
   }
   
   .search_form-header {
