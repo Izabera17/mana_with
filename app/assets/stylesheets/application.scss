@@ -984,7 +984,7 @@ aside .sidebar_right {
 
 @media (max-width: 500px) {
   .article-title a {
-    font-size: 19px;
+    font-size: 22px;
   }
 }
 
@@ -1027,6 +1027,7 @@ aside .sidebar_right {
 }
 
 .title-name-inner-index {
+  padding-top: 5px;
   margin-top: 0px;
   margin-left: 25px;
   width: 85%;
@@ -1748,7 +1749,7 @@ aside .sidebar_right {
 }
 
 .result-genre-name-index {
-  margin: 0px auto 8px;
+  margin: 0px auto 15px;
   text-align: center;
   width: 20%;
   background: linear-gradient(transparent 80%, #00FFC4 75%);
@@ -1758,14 +1759,14 @@ aside .sidebar_right {
 
 @media (max-width: 1200px) {
   .result-genre-name-index {
-    margin: 0px auto 8px;
+    margin: 0px auto 15px;
     width: 40%;
   }
 }
 
 @media (max-width: 500px) {
   .result-genre-name-index {
-    margin: 0px auto 8px;
+    margin: 0px auto 15px;
     width: 75%;
   }
 }
