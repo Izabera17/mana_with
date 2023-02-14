@@ -891,21 +891,20 @@ aside .sidebar_right {
   opacity: 0.5;
 }
 
+
+
 .first-home-view,
 .first-form-view,
 .first-show-view,
 .first-mypage-view {
   position: relative ;
   width: 100vw;
+  min-height: calc(100vh - 90px);
   margin: 0px;
   background-size: cover;
   background-position: center top;
   background-repeat:  no-repeat;
   background-attachment: fixed;
-}
-
-.first-home-view {
-  height: 100vh;
 }
 
 .first-form-view,
