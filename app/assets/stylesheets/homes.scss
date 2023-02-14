@@ -37,7 +37,7 @@
 .first-view {
   position: relative;
   z-index: 1;
-  height: calc(100vh - 322px);
+  height: calc(100vh - 232px);
   width: 100vw;
   margin: 0px;
   background-size: cover;
@@ -48,37 +48,31 @@
 
 @media (max-width: 1600px) {
   .first-view {
-    height: calc(100vh - 319px);
+    height: calc(100vh - 229px);
   }
 }
 
 @media (max-width: 1200px) {
   .first-view {
-    height: calc(100vh - 316px);
-  }
-}
-
-@media (max-width: 900px) {
-  .first-view {
-    height: calc(100vh - 333px);
+    height: calc(100vh - 226px);
   }
 }
 
 @media (max-width: 700px) {
   .first-view {
-    height: calc(100vh - 353px);
+    height: calc(100vh - 246px);
   }
 }
 
 @media (max-width: 600px) {
   .first-view {
-    height: calc(100vh - 360px);
+    height: calc(100vh - 253px);
   }
 }
 
 @media (max-width: 500px) {
   .first-view {
-    height: calc(100vh - 321px);
+    height: calc(100vh - 214px);
   }
 }
 
