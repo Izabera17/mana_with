@@ -19,17 +19,17 @@
           <%= visitor.name %>
         </strong>
       <% end %>
-      <br>さんが
     </div>
   </div>
   <div class="notification-text-content">
     <% case notification.action
     when 'follow' %>
       <div class="notification-favorite-content-inner">
-        あなたを フォローしました
+        さんがあなたを フォローしました
       </div>
     <% when 'favorite' %>
       <div class="notification-favorite-content-inner">
+          さんが
           <strong>
             <%= link_to 'あなたの投稿', notification.post_learning %>
           </strong>
@@ -42,12 +42,8 @@
         </div>
       <% else %>  
         <div class="notification-comment-user-content">
-          <div>
-            <%= link_to user_path(visited), class: "article-notification-image" do %>
-              <%= image_tag notification.post_learning.user.get_profile_image(100,100) %>
-            <% end %>
-          </div>
           <div class=notification-comment-name-content>
+            さんが
             <%= link_to post_learning_path(notification.post_learning), class: "article-notification-image" do %>
               <strong>
                 <%= notification.post_learning.user.name %>
@@ -60,7 +56,7 @@
       <p class="notification-comment"><%= PostComment.find_by(id: notification.post_comment_id)&.comment %></p>
     <% when 'dm' %>
       <div class="notification-favorite-content-inner">
-        あなたにDMを送りました
+        さんがあなたにDMを送りました
       </div>
       <p class="notification-comment">
         <%= truncate(notification.message.body, length: 20, omission: '... (一部表示)') %>

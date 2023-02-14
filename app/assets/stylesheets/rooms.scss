@@ -5,8 +5,36 @@
 
 .posts {
   position: fixed;
-  bottom: 85px;
-  left: 52%;
+  text-align: end;
+  bottom: 100px;
+  left: 35%;
+}
+
+@media (max-width: 1400px) {
+ .posts {
+    left: 25%;
+  } 
+}
+
+@media (max-width: 1100px) {
+ .posts {
+    left: 15%;
+  } 
+}
+
+@media (max-width: 900px) {
+ .posts {
+    left: 10%;
+    bottom: 150px;
+    text-align: center;
+  } 
+}
+
+@media (max-width: 700px) {
+ .posts {
+    left: 5%;
+    bottom: 150px;
+  } 
 }
  
 .post-footer {

@@ -81,41 +81,41 @@
               </div>
               <div class="mypage-inner-bottom">
                 <%= render "shared/dm-btn" %>  
-                <div class="chat-edit-delete-btn">
-                  <% if current_user.admin? %>
-                    <% unless current_user.id == @user.id %>
-                      <% if @user.email == 'guest@example.com' %>
-                      <% else %>
-                        <%= link_to edit_user_path(@user) do %>
-                          <%= image_tag asset_path('edit.png'), class: 'icon-mypage' %>
-                        <% end %>
-                        <%= link_to user_path(@user), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
-                          <%= image_tag asset_path('trushbox.png'), class: 'icon-mypage' %>
-                        <% end %>
-                      <% end %>
-                    <% end %>
-                  <% elsif current_user.email == 'guest@example.com' %> 
-                  <% elsif @user.email == 'guest@example.com' %>
-                    <% unless current_user.id == @user.id %>
-                      <% if @user.email == 'guest@example.com' %>
-                      <% else %>
-                        <%= link_to edit_user_path(@user) do %>
-                          <%= image_tag asset_path('edit.png'), class: 'icon-mypage' %>
-                        <% end %>
-                        <%= link_to user_path(@user), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
-                          <%= image_tag asset_path('trushbox.png'), class: 'icon-mypage' %>
-                        <% end %>
-                      <% end %>
-                    <% end %>
-                    <% elsif current_user.id == @user.id %>
-                       <%= link_to edit_user_path(@user) do %>
+              </div>
+              <div class="chat-edit-delete-btn">
+                <% if current_user.admin? %>
+                  <% unless current_user.id == @user.id %>
+                    <% if @user.email == 'guest@example.com' %>
+                    <% else %>
+                      <%= link_to edit_user_path(@user) do %>
                         <%= image_tag asset_path('edit.png'), class: 'icon-mypage' %>
                       <% end %>
                       <%= link_to user_path(@user), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
                         <%= image_tag asset_path('trushbox.png'), class: 'icon-mypage' %>
                       <% end %>
+                    <% end %>
                   <% end %>
-                </div>
+                <% elsif current_user.email == 'guest@example.com' %> 
+                <% elsif @user.email == 'guest@example.com' %>
+                  <% unless current_user.id == @user.id %>
+                    <% if @user.email == 'guest@example.com' %>
+                    <% else %>
+                      <%= link_to edit_user_path(@user) do %>
+                        <%= image_tag asset_path('edit.png'), class: 'icon-mypage' %>
+                      <% end %>
+                      <%= link_to user_path(@user), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
+                        <%= image_tag asset_path('trushbox.png'), class: 'icon-mypage' %>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                  <% elsif current_user.id == @user.id %>
+                     <%= link_to edit_user_path(@user) do %>
+                      <%= image_tag asset_path('edit.png'), class: 'icon-mypage' %>
+                    <% end %>
+                    <%= link_to user_path(@user), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
+                      <%= image_tag asset_path('trushbox.png'), class: 'icon-mypage' %>
+                    <% end %>
+                <% end %>
               </div>
             </div>
           </div>

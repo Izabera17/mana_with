@@ -60,19 +60,19 @@
 
 @media (max-width: 900px) {
   .first-view {
-    height: calc(100vh - 312px);
+    height: calc(100vh - 333px);
   }
 }
 
 @media (max-width: 700px) {
   .first-view {
-    height: calc(100vh - 332px);
+    height: calc(100vh - 353px);
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 600px) {
   .first-view {
-    height: calc(100vh - 339px);
+    height: calc(100vh - 360px);
   }
 }
 

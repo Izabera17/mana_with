@@ -1,0 +1,13 @@
+<% unless current_user.id == user.id %>
+  <div id="followform">
+    <% if current_user.following? user %>
+      <div class="follow-form-off-users">
+        <%= link_to "フォロー外す", {controller: :users,action: :unfollow,user_id: user.id}, method: :put, class:"follow-off"%>
+      </div>
+    <% else %>
+      <div class="follow-form-on-users">
+        <%= link_to "フォローする", {controller: :users,action: :follow,user_id: user.id}, method: :put ,class: "follow-on" %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
