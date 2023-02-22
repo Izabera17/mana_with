@@ -2353,14 +2353,20 @@ aside .sidebar_right {
 
 @media (max-width: 1600px) {
  .show-comment-time {
+   width: 12%;
    font-size: 14px;
-    width: 10%;
   } 
 }
 
-@media (max-width: 1600px) {
+@media (max-width: 1300px) {
  .show-comment-time {
-   font-size: 14px;
+   font-size: 12px;
+  } 
+}
+
+@media (max-width: 500px) {
+ .show-comment-time {
+   font-size: 11px;
   } 
 }
 
