@@ -245,8 +245,14 @@ body {
 @media (max-width: 900px) {
  .form-article {
     width: 90%;
-    margin: 0px auto;
+    margin: 35px auto;
     padding-bottom: 30px;
+  } 
+}
+
+@media (max-width: 600px) {
+ .form-article {
+    margin: 0px auto;
   } 
 }
 
