@@ -134,10 +134,6 @@ PostComment.create!(
 Favorite.create!(
   [
     {
-      post_learning_id: post_learning[0].id, 
-      user_id: users[0].id
-    },
-    {
       post_learning_id: post_learning[1].id, 
       user_id: users[0].id
     },
