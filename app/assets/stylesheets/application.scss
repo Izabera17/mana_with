@@ -2390,6 +2390,12 @@ aside .sidebar_right {
   } 
 }
 
+@media (max-width: 400px) {
+  .show-page-time-bottom {
+    width: 23%; 
+  } 
+}
+
 .show-comment-user {
   font-family: "筑紫A丸ゴシック"
 }
