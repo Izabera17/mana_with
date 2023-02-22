@@ -284,11 +284,11 @@ h1 {
   margin: 20px auto 26px;
   border-style: none;
   width: 20%;
-  height: 31px;
+  height: 100%;
   background: linear-gradient(to bottom,#00c10f, #04A311);
   border-radius: 5px;
   text-align: center;
-  padding-top: 4px;
+  padding: 4px 0px;
 }
 
 @media (max-width: 1200px) {
@@ -303,12 +303,6 @@ h1 {
   }
 }
 
-@media (max-width: 500px) {
-  .box-guest-login {
-    padding-top: 6px;
-  }
-}
-
 .box-guest-login:hover {
   cursor: pointer;
   background: #00c10f
@@ -317,6 +311,7 @@ h1 {
 .guest-login {
   color: #fff;
   font-size: 18px;
+  font-family: "凸版文久ゴシック";
 }
 
 @media (max-width: 500px) {
