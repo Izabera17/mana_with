@@ -54,6 +54,7 @@ class PostLearningsController < ApplicationController
     @post_learning = PostLearning.find(params[:id])  
     @post_learning.destroy
     @post_learnings = PostLearning.page(params[:page]).per(10).order(created_at: :desc)
+    flash[:notice] = "投稿を削除しました"
     render 'index'  
   end
 
