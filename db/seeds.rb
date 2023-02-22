@@ -69,7 +69,7 @@ post_learning = PostLearning.create!(
      user_id: users[0].id 
     },
     {
-     learning_name: 'コーディングとレイアアウト調整', 
+     learning_name: 'コーディングとレイアウト調整', 
      learning_content: 'Flexboxを使って商品画像を３×４列に整列し、見やすいように色の配色も考えた。', 
      learning_real: '色彩検定の知識を活かして、配置だけじゃなく色の配色を考えて実装できてよかった！今度はフォントを意識して実装してみたい！',
      post_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-post2.jpg"), 
