@@ -12,7 +12,7 @@ class PostLearningsController < ApplicationController
     @post_learning.user_id = current_user.id
     if @post_learning.save
       redirect_to post_learning_path(@post_learning.id)
-      flash[:notice] = "投稿できました"
+      flash[:notice] = "投稿に成功しました"
     else
       flash[:alert] = "投稿に失敗しました"
       render :new
