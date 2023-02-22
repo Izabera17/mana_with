@@ -17,7 +17,7 @@
 
 @media (max-width: 900px) {
   .first-view-top {
-    height: calc(100vh - 107px);
+    height: 100vh;
   }
 }
 
@@ -53,7 +53,7 @@
 .box_signin {
   width: 50%;
   height: 500px;
-  margin: 100px auto;
+  margin: 10px auto;
 }
 
 @media (max-width: 1300px) {
