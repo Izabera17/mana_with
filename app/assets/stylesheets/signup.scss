@@ -303,6 +303,12 @@ h1 {
   }
 }
 
+@media (max-width: 500px) {
+  .box-guest-login {
+    padding-top: 6px;
+  }
+}
+
 .box-guest-login:hover {
   cursor: pointer;
   background: #00c10f
@@ -310,7 +316,7 @@ h1 {
 
 .guest-login {
   color: #fff;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 @media (max-width: 500px) {
