@@ -207,7 +207,7 @@
                         <%= image_tag favorites.user.get_profile_image(100,100) %>
                       </td>
                       <td class="mypage-user-name">
-                         <%= link_to user_path(favorites.id), class: "mypage-text-inner"  do %>
+                         <%= link_to user_path(favorites.user.id), class: "mypage-text-inner"  do %>
                             <p><%= favorites.user.name %></p>
                           <% end %>
                       </td>

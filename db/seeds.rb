@@ -135,23 +135,23 @@ Favorite.create!(
   [
     {
       post_learning_id: post_learning[1].id, 
-      user_id: users[0].id
-    },
-    {
-      post_learning_id: post_learning[2].id, 
-      user_id: users[1].id
-    },
-    {
-      post_learning_id: post_learning[2].id, 
-      user_id: users[0].id
-    },
-    {
-      post_learning_id: post_learning[3].id, 
-      user_id: users[1].id
-    },
-    {
-      post_learning_id: post_learning[3].id, 
       user_id: users[2].id
+    },
+    {
+      post_learning_id: post_learning[2].id, 
+      user_id: users[1].id
+    },
+    {
+      post_learning_id: post_learning[2].id, 
+      user_id: users[0].id
+    },
+    {
+      post_learning_id: post_learning[3].id, 
+      user_id: users[1].id
+    },
+    {
+      post_learning_id: post_learning[3].id, 
+      user_id: users[0].id
     }
   ]
 )
