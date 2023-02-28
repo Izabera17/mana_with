@@ -33,21 +33,22 @@
 
               <div class="upper-left">
                 <div class="title-full-inner">
-                      <div class="eval-lower">
-                        <div class="article-genre">
-                          <div class="article-genre-title">
-                            <p>ジャンル</p>
-                          </div>
-                          <div class="article-genre-name">
-                            <p><%= post_learnings.genre.name %></p>
-                          </div>
-                        </div>
+                  <div class="eval-lower">
+                    <div class="article-genre">
+                      <div class="article-genre-title">
+                        <p>ジャンル</p>
                       </div>
-                   </div>
+                      <div class="article-genre-name">
+                        <p><%= post_learnings.genre.name %></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <div class="article-time">
                   <%= time_ago_in_words(post_learnings.created_at) %>前
                 </div>
               </div>
+
               <div class="upper-right">
                 <div class="article-user-image">
                   <%= link_to user_path(post_learnings.user.id)  do %>
@@ -61,17 +62,17 @@
             </div>
             <div class="article-lower-half">
               <div class="article-full-lower">
-                 <div class="article-title">
-                   <div class="title-new">
-                     <span>New!</span> 
-                   </div>
-                   <div class="title-name-inner">
+                <div class="article-title">
+                  <div class="title-new">
+                    <span>New!</span> 
+                  </div>
+                  <div class="title-name-inner">
                     <%= link_to post_learning_path(post_learnings.id) do %>
                       <%= post_learnings.learning_name %>
                     <% end %>
-                   </div>
+                  </div>
                 </div>
-                 <div class="article-effort">
+                <div class="article-effort">
                   <div class="article-effort-title">
                     <p>頑張ったこと</p>
                   </div>
@@ -92,7 +93,7 @@
                 </div>
               </div>
               <div class="article-lower-right">
-                 <div class="article-comments-favorites">
+                <div class="article-comments-favorites">
                   <div class="article-favorites">
                     <div class="show-post-favorite">
                       <p>
@@ -109,8 +110,8 @@
                   <% post_learnings.post_comments.first(4).each do |post_comment| %>
                     <div class="home-comment-top">
                       <div class="home-article-time">
-                          <%= time_ago_in_words(post_comment.created_at) %>前
-                        </div>
+                        <%= time_ago_in_words(post_comment.created_at) %>前
+                      </div>
                       <div class="home-comment">
                         <div class="home-img-comment">
                           <div class="home-article-img">
