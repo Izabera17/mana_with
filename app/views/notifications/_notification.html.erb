@@ -1,7 +1,7 @@
 <% visitor = notification.visitor %>
 <% visited = notification.visited %>
 
- <div class="notification-text-time">
+<div class="notification-text-time">
   <p>
     <%= time_ago_in_words(notification.created_at).upcase %>前
   </p>
@@ -29,11 +29,11 @@
       </div>
     <% when 'favorite' %>
       <div class="notification-favorite-content-inner">
-          さんが
-          <strong>
-            <%= link_to 'あなたの投稿', notification.post_learning %>
-          </strong>
-          にいいねしました
+        さんが
+        <strong>
+          <%= link_to 'あなたの投稿', notification.post_learning %>
+        </strong>
+        にいいねしました
       </div>
     <% when 'post_comment' %>
       <% if notification.post_learning.user_id == visited.id %>

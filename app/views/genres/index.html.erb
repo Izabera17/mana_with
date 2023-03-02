@@ -1,6 +1,6 @@
 <div class="first-form-view">
   <%= render 'shared/header' %>
-     <div class="result-genres-main-full">
+    <div class="result-genres-main-full">
       <div class="result-genres-name-title">
         <p>ジャンル追加・一覧</p>
       </div>
@@ -11,17 +11,17 @@
     </aside>
     <article class="form-article">
       <div class="form-title">
-      <div class="error-message">
-        <% if @genre.errors.any? %>
-         <%= @genre.errors.count %>件のエラーが発生しました
-         <ul>
-           <% @genre.errors.full_messages.each do |message| %>
-           <li><%= message %></li>
-           <% end %>
-         </ul>
-        <% end %>
+        <div class="error-message">
+          <% if @genre.errors.any? %>
+           <%= @genre.errors.count %>件のエラーが発生しました
+           <ul>
+             <% @genre.errors.full_messages.each do |message| %>
+             <li><%= message %></li>
+             <% end %>
+           </ul>
+          <% end %>
+        </div>
       </div>
-    </div>
       <div>
         <%= form_with model: @genre do |f| %>
           <div class="genre-full-form">
