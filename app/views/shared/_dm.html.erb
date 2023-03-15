@@ -11,46 +11,46 @@
       </div>
     <% end %>
   </div>
-    <div class="chats">
-      <div class="chat">
-        <% if @messages.present? %>
-          <% @messages.reverse.each do |message| %>
-            <div class="chat-profile-user-content">
-              <div class="chat-user-profile">
-                <div class="chat-user-image">
-                  <%= image_tag message.user.get_profile_image(100,100) %>  
-                </div>
-                <div class="chat-user-time">
-                  <p>
-                    <a class="rooms-user-link" href="/users/<%= message.user.id %>">
-                      <strong><%= message.user.name %></strong>
-                    </a>
-                    <span><%= message.created_at.strftime("%Y-%m-%d %H:%M")%></span>
-                  </p>
-                  <p class="chat-message-body"><%= message.body %></p>
-                </div>
-                <div class="chat-delete">
-                  <% if message.user == current_user %>
-                    <%= link_to message, method: :delete, data: { confirm: '本当に削除してもよろしいですか？' } do %>
-                      <%= image_tag asset_path('trushbox.png'), class: 'icon-mypage' %>
-                    <% end %>
-                  <% elsif  current_user.admin? %>
-                    <%= link_to message, method: :delete, data: { confirm: '本当に削除してもよろしいですか？' } do %>
-                      <%= image_tag asset_path('trushbox.png'), class: 'icon-mypage' %>
-                    <% end %>
+  <div class="chats">
+    <div class="chat">
+      <% if @messages.present? %>
+        <% @messages.reverse.each do |message| %>
+          <div class="chat-profile-user-content">
+            <div class="chat-user-profile">
+              <div class="chat-user-image">
+                <%= image_tag message.user.get_profile_image(100,100) %>  
+              </div>
+              <div class="chat-user-time">
+                <p>
+                  <a class="rooms-user-link" href="/users/<%= message.user.id %>">
+                    <strong><%= message.user.name %></strong>
+                  </a>
+                  <span><%= message.created_at.strftime("%Y-%m-%d %H:%M")%></span>
+                </p>
+                <p class="chat-message-body"><%= message.body %></p>
+              </div>
+              <div class="chat-delete">
+                <% if message.user == current_user %>
+                  <%= link_to message, method: :delete, data: { confirm: '本当に削除してもよろしいですか？' } do %>
+                    <%= image_tag asset_path('trushbox.png'), class: 'icon-mypage' %>
                   <% end %>
-                </div>
+                <% elsif  current_user.admin? %>
+                  <%= link_to message, method: :delete, data: { confirm: '本当に削除してもよろしいですか？' } do %>
+                    <%= image_tag asset_path('trushbox.png'), class: 'icon-mypage' %>
+                  <% end %>
+                <% end %>
               </div>
             </div>
-          <% end %>
+          </div>
         <% end %>
-      </div>
-      <div class="posts">
-        <%= form_with model: @message do |f| %>
-          <%= f.text_field :body, placeholder: "メッセージを入力して下さい" , size: 70, class:"form-text-field" %>
-            <%= f.hidden_field :room_id, value: @room.id %>
-              <%= f.submit "投稿",class: 'form-submit'%>
-        <% end %>
-      </div>
+      <% end %>
     </div>
+    <div class="posts">
+      <%= form_with model: @message do |f| %>
+        <%= f.text_field :body, placeholder: "メッセージを入力して下さい" , size: 70, class:"form-text-field" %>
+          <%= f.hidden_field :room_id, value: @room.id %>
+            <%= f.submit "投稿",class: 'form-submit'%>
+      <% end %>
+    </div>
+  </div>
 </div>

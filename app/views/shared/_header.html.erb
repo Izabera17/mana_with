@@ -1,10 +1,10 @@
 <div class="header-home">
-<div class="logo">
-  <%= link_to root_path do %>
-    <%= image_tag asset_path('logo.png') %>
-  <% end %>
-</div>
- <div class="nav-haeder">
+  <div class="logo">
+    <%= link_to root_path do %>
+      <%= image_tag asset_path('logo.png') %>
+    <% end %>
+  </div>
+  <div class="nav-haeder">
     <div class="menu-li">
       <ul class="main-nav">
         <% if user_signed_in? %>
@@ -81,7 +81,7 @@
                 <% end %>
               </li>
               <li class="menu-list">
-                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
               </li>
             </ul>
           </div>
@@ -93,7 +93,7 @@
             <div class="hambueger-sidebar-list">
               <ul>
                 <li>
-                   <%= link_to root_path, class: "icon-link" do %>
+                  <%= link_to root_path, class: "icon-link" do %>
                     <span>Home</span>
                   <% end %>
                 </li>
@@ -141,13 +141,13 @@
     <div class="hambueger-menu-header">
       <% if user_signed_in? %>
         <div class="search-genre-index-header">
-            <% @genres.each do |genre| %>
-              <ul class="search-ul-genre-li">
-                <li class="search-list-header">
-                  <%= link_to genre.name, search_genre_post_learnings_path(genre.id), method: :get, class: "search-genre-li-header" %>
-                </li>
-              </ul>
-            <% end %>
+          <% @genres.each do |genre| %>
+            <ul class="search-ul-genre-li">
+              <li class="search-list-header">
+                <%= link_to genre.name, search_genre_post_learnings_path(genre.id), method: :get, class: "search-genre-li-header" %>
+              </li>
+            </ul>
+          <% end %>
         </div>
       <% end %>
     </div>
