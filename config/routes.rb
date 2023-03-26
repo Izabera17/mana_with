@@ -22,11 +22,15 @@ Rails.application.routes.draw do
 
   get "post_learnings/:id/post_comments" => "post_learnings#show"
 
+  # devise_for :admin, controllers: {
+  #   sessions: "admin/sessions"
+  # }
+  
   devise_for :users, controllers: {
     registrations: "users/registrations",
     sessions: "users/sessions"
   }
-
+  
   devise_scope :user do
     post "users/guest_sign_in" => "users/sessions#guest_sign_in"
     get "users/guest_sign_in" => "users/sessions#guest_sign_in"
