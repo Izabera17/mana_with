@@ -11,5 +11,5 @@ import "channels"
 require("jquery")
 
 Rails.start()
-Turbolinks.start()
 ActiveStorage.start()
+// Turbolinks.start()

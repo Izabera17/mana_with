@@ -1,4 +1,11 @@
 <div class="first-home-view">
+  <!-- ローディング画面 -->
+  <div id="loading">
+  　<div class="spinner"></div>
+  </div>
+  
+  <%= javascript_pack_tag 'home/home' %>　
+  
   <%= render 'shared/header' %>
   <div class="result-genre-full-home">
     <%= render 'shared/flash' %>
@@ -147,6 +154,8 @@
       <%= render 'shared/sidebar_right' %>
     </aside>
   </div>
+</div>
+
 </div>
 <%= render 'shared/footer' %>
 
