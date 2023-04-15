@@ -1,3 +1,4 @@
+<%= javascript_pack_tag 'post_learning/new' %>　
 <div class="first-form-view">
   <%= render 'shared/header' %>
   <div class="top-contents">
@@ -30,6 +31,10 @@
               <p class="form-th"><%= f.label :learning_content, "頑張ったこと" %></p>
               <p class="form-td"><%= f.text_area :learning_content, placeholder: "例）Flexboxの理解と実装。marginの余白調整" , class: "text-area" %></p>
             </div>
+             <div class="form-content-limit-style">
+                <p class="form-letter-limit-content">〇〇文字以内で入力してください。</p>
+                <p class="form-letter-limit-number">現在<span id="count">0</span>文字</p>
+              </div>
             <div class="form-real">
               <p class="form-th"><%= f.label :learning_real, "学びの本音" %></p>
               <p class="form-td"><%= f.text_area :learning_real, placeholder: "例）Flexboxを実装できたけど、やっぱり難しい。もっと良い方法を学びたい。デザインは自信ある！" , class: "text-area"%></p>
