@@ -18,7 +18,7 @@ text_name.addEventListener('keyup', () => {
 text_content.addEventListener('keyup', () => {
   count_content.textContent = text_content.value.length;
   
-  if (text_content.value.length > 80) {
+  if (text_content.value.length > 200) {
     count_content.classList.add('alert');
   } else {
     count_content.classList.remove('alert');
@@ -28,7 +28,7 @@ text_content.addEventListener('keyup', () => {
 text_real.addEventListener('keyup', () => {
   count_real.textContent = text_real.value.length;
   
-  if (text_real.value.length > 100) {
+  if (text_real.value.length > 200) {
     count_real.classList.add('alert');
   } else {
     count_real.classList.remove('alert');
