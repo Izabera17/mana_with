@@ -805,7 +805,6 @@ body {
     height: 24px;
     font-size: 13px;
     margin-right: 0px;
-    margin-top: 2px;
   }
 }
 
@@ -2128,17 +2127,29 @@ aside .sidebar_right {
   }
 }
 
-.form-td {
+.form-td,
+.form-td-image{
   width: 55%;
-  margin: 18px auto 0px;
+}
+
+.form-td {
+  margin: 16px auto 0px;
+}
+
+.form-td-image {
+  margin: 28px auto 0px;
 }
 
 @media (max-width: 900px) {
- .form-td {
+ .form-td, 
+ .form-td-image {
     width: 90%;
     margin-top: 8px;
-    margin-bottom: 18px;
   } 
+  
+  .form-td-image {
+    margin-left: 50px;
+  }
 }
 
 .form-image {
@@ -2149,6 +2160,12 @@ aside .sidebar_right {
 .genre-form-margin {
   text-align: start;
   margin-top: 0;
+}
+
+@media (max-width: 900px) {
+ .genre-form-margin {
+  margin-top: 10px;
+  } 
 }
 
 .name-area::placeholder,
@@ -3019,7 +3036,7 @@ aside .sidebar_right {
   
   .search-form-text-header, 
   .search-form-text-bottun-header {
-     width: 70%;
+     width: 100%;
      padding-left: 60px;
   }
   
@@ -3130,7 +3147,7 @@ aside .sidebar_right {
   }
  
   .search-form-list-header input[type="text"] {
-    width: 90%;
+    width: 100%;
     font-size: 16px;
   }
   

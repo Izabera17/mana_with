@@ -46,6 +46,22 @@
 .form-content-limit-style {
   display: flex;
   justify-content: end;
+  margin-right: 16px;
+  font-size: 15px;
+}
+
+@media (max-width: 900px) {
+  .form-content-limit-style {
+    margin-right: 30px; 
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 500px) {
+  .form-content-limit-style {
+    margin-right: 20px; 
+    font-size: 11px;
+  }
 }
 
 .alert {
@@ -54,8 +70,19 @@
   font-size: 1.2rem;
 }
 
+@media (max-width: 900px) {
+  .alert {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .alert {
+    font-size: 0.8rem;
+  }
+}
+
 .form-letter-limit-number {
   margin-top: 0;
   margin-bottom: 2px;
 }
-
