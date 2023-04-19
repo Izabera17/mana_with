@@ -901,7 +901,6 @@ aside .sidebar_right {
 .first-mypage-view {
   position: relative ;
   width: 100vw;
-  min-height: calc(100vh - 90px);
   margin: 0px;
   background-size: cover;
   background-position: center top;
@@ -909,10 +908,14 @@ aside .sidebar_right {
   background-attachment: fixed;
 }
 
-.first-form-view,
-.first-show-view,
-.first-mypage-view {
+.first-home-view,
+.first-show-view {
   min-height: calc(100vh - 90px);
+}
+
+.first-mypage-view,
+.first-form-view {
+  min-height: calc(100vh - 87px);
 }
 
 .first-home-view {
