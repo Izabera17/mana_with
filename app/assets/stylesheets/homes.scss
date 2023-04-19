@@ -20,8 +20,8 @@
   border-radius: 100%;
   animation: sk-scaleout 1.0s infinite ease-in-out;
 }
-/* ローディングアニメーション */
 
+/* ローディングアニメーション */
 @keyframes sk-scaleout {
   0% {
     transform: scale(0);
