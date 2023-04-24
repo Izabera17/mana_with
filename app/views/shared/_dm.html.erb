@@ -48,8 +48,8 @@
     <div class="posts">
       <%= form_with model: @message do |f| %>
         <%= f.text_field :body, placeholder: "メッセージを入力して下さい" , size: 70, class:"form-text-field" %>
-          <%= f.hidden_field :room_id, value: @room.id %>
-            <%= f.submit "投稿",class: 'form-submit'%>
+        <%= f.hidden_field :room_id, value: @room.id %>
+        <%= f.submit "投稿",class: 'form-submit'%>
       <% end %>
     </div>
   </div>
