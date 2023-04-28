@@ -659,6 +659,10 @@ body {
   text-decoration: none;
 }
 
+.sidebar-btn-link:hover {
+  opacity: 0.8;
+}
+
 @media (max-width: 1600px) {
   .sidebar-btn-link {
     display: inline;
