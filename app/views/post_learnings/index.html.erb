@@ -10,24 +10,24 @@
           <p>ジャンル検索結果：<%= @genre.name %></p>
         </div>
       </div>
-    <div class="result-genre-bottom"></div>
+      <div class="result-genre-bottom"></div>
     <% else %>
       <div class="result-genre-name-index">
         <p>学習投稿一覧</p>
       </div>
       <% end %>
-  </div>
-  <div class="top-contents">
-    <aside class="sidebar_left">
-      <%= render 'shared/sidebar_left' %>
-    </aside>
-    <article class="home-article">
-      <%= render 'shared/post_learnings_index' %>
-    </article>
-    <aside class="sidebar_right">
-      <%= render 'shared/sidebar_right' %>
-    </aside>
-  </div>
+    </div>
+    <div class="top-contents">
+      <aside class="sidebar_left">
+        <%= render 'shared/sidebar_left' %>
+      </aside>
+      <article class="home-article">
+        <%= render 'shared/post_learnings_index' %>
+      </article>
+      <aside class="sidebar_right">
+        <%= render 'shared/sidebar_right' %>
+      </aside>
+    </div>
   </div>
 </div>
 <%= render 'shared/footer' %>
