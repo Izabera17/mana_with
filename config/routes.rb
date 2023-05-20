@@ -22,10 +22,6 @@ Rails.application.routes.draw do
 
   get "post_learnings/:id/post_comments" => "post_learnings#show"
 
-  # devise_for :admin, controllers: {
-  #   sessions: "admin/sessions"
-  # }
-  
   devise_for :users, controllers: {
     registrations: "users/registrations",
     sessions: "users/sessions"
@@ -61,6 +57,8 @@ Rails.application.routes.draw do
     end
   end
   
+  resources :contacts, only: [:new, :create]
+ 
 end
 
 
